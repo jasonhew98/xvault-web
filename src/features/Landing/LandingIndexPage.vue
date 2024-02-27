@@ -2,41 +2,62 @@
     <div class="page__container">
         <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
         <div class="landing__content">
-            <div class="landing__attraction">
+            <div ref="home" class="landing__attraction">
                 <h1 class="landing__title">Save money, without <br> thinking about it.</h1>
                 <div class="landing__caption">Xvault tracks and analyzes your daily spending so you don't have to think about it.</div>
 
                 <div class="landing__button button button--round button--medium">Sign Up Now</div>
+            </div>
+            <div ref="about" class="landing__attraction">
+                <h1 class="landing__title">About</h1>
+            </div>
+            <div ref="solutions" class="landing__attraction">
+                <h1 class="landing__title">Solutions</h1>
+            </div>
+            <div ref="blog" class="landing__attraction">
+                <h1 class="landing__title">Blog</h1>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
+
+const home = ref();
+const about = ref();
+const solutions = ref();
+const blog = ref();
+
+onMounted(() => {
+    home.value.focus();
+    about.value.focus();
+    solutions.value.focus();
+    blog.value.focus();
+})
 
 const navBarOptions = computed(() => {
     return [
         {
             id: 1,
             displayName: "Home",
-            ref: "home"
+            action: () => { home.value.scrollIntoView({ behavior: "smooth" }) }
         },
         {
             id: 2,
             displayName: "About us",
-            ref: "about"
+            action: () => { about.value.scrollIntoView({ behavior: "smooth" }) }
         },
         {
             id: 3,
             displayName: "Solutions",
-            ref: "solutions"
+            action: () => { solutions.value.scrollIntoView({ behavior: "smooth" }) }
         },
         {
             id: 4,
             displayName: "Blog",
-            ref: "blog"
+            action: () => { blog.value.scrollIntoView({ behavior: "smooth" }) }
         }
     ]
 });

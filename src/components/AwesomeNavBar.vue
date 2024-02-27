@@ -8,7 +8,7 @@
             <div class="nav__menu" :class="navMenuClass">
                 <ul class="nav__list">
                     <li class="nav__item" v-for="option in options" :key="option.id">
-                        <div class="nav__link">{{ option.displayName }}</div>
+                        <div class="nav__link" @click="onClick(option)">{{ option.displayName }}</div>
                     </li>
                 </ul>
 
@@ -41,17 +41,14 @@ const navMenuClass = computed(() => {
     return showMenu.value ? "nav__menu--show" : "";
 });
 
-const navToggleClass = computed(() => {
-    return showMenu.value ? "nav__toggle--show" : "";
-});
-
 const toggleMenu = () => {
     showMenu.value = !showMenu.value;
 };
 
-const scrollToView = () => {
-    // this.goToView(option.ref);
-};
+const onClick = (option) => {
+    toggleMenu();
+    option.action();
+}
 </script>
 
 <style lang="scss" scoped>
