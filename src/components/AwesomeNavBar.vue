@@ -124,6 +124,7 @@ const scrollToView = () => {
 
 .nav__link {
     color: var(--title-color);
+    font-size: 1.25rem;
     font-weight: var(--font-semi-bold);
     transition: color .4s;
     cursor: pointer;
