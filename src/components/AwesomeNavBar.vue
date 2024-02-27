@@ -83,6 +83,7 @@ const scrollToView = () => {
 }
 
 .nav__logo {
+    font-size: 1.25rem;
     font-weight: var(--font-semi-bold);
     column-gap: .25rem;
     align-items: center;
@@ -90,12 +91,12 @@ const scrollToView = () => {
 
 .nav__logo i {
     color: var(--title-color);
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: initial;
 }
 
 .nav__actions {
-    font-size: 1.25rem;
+    font-size: 2rem;
     column-gap: .5rem;
     align-items: center;
 }
