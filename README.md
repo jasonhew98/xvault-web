@@ -1,4 +1,4 @@
-# xwallet-web
+# xvault-web
 
 ## Project setup
 ```

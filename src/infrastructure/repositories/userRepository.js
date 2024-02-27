@@ -1,10 +1,10 @@
 import createHttpClient from "../createHttpClient";
 
-const xwalletService = createHttpClient(process.env.VUE_APP_XWALLET_SERVICE_URL);
+const xvaultService = createHttpClient(process.env.VUE_APP_XWALLET_SERVICE_URL);
 
 export default {
     async login() {
-        return await xwalletService.post(`/api/auth/login`, {
+        return await xvaultService.post(`/api/auth/login`, {
             UserName: "jasonhew98",
             Password: "Dferas@98"
         });

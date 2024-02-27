@@ -2,7 +2,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__logo">
-                <i class='bx bxl-codepen'></i> Xwallet
+                <i class='bx bxl-codepen'></i> Xvault
             </div>
 
             <div class="nav__menu" :class="navMenuClass">

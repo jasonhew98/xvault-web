@@ -4,7 +4,7 @@
         <div class="landing__content">
             <div class="landing__attraction">
                 <h1 class="landing__title">Save money, without <br> thinking about it.</h1>
-                <div class="landing__caption">Xwallet tracks and analyzes your daily spending so you don't have to think about it.</div>
+                <div class="landing__caption">Xvault tracks and analyzes your daily spending so you don't have to think about it.</div>
 
                 <div class="landing__button button button--round button--medium">Sign Up Now</div>
             </div>

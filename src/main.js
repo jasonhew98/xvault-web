@@ -9,4 +9,4 @@ app.use(router);
 
 app.use(createRepositories);
 
-app.mount("#xwallet__app");
+app.mount("#xvault__app");
