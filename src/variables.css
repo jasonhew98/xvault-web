@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --header-height: 3.5rem;
+    --primary-color: rgba(37, 39, 77, 1);
+    --primary-color-alt: rgba(37, 39, 77, 1);
+    --secondary-color: rgba(0, 161, 242, 1);
+    --secondary-color-alt: rgba(0, 82, 181, 1);
+    --title-color: #fff;
+    --text-color: #fff;
+    --text-color-alt: rgba(41, 100, 138, 1);
+    --text-color-dark: rgba(70, 72, 102, 1);
+
+    --title-color-hover: rgba(170, 171, 184, 1);
+
+    --body-color: var(--primary-color);
+
+    /*=============== Font and typography ===============*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Montserrat", sans-serif;
+    --biggest-font-size: 2.25rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+
+    /*=============== Font weight ===============*/
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /*=============== Font weight ===============*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+
+    /*=============== Padding ===============*/
+    --padding-0-25: 0.25rem;
+    --padding-0-5: 0.5rem;
+    --padding-0-75: 0.75rem;
+    --padding-1: 1rem;
+    --padding-1-5: 1.5rem;
+    --padding-2: 2rem;
+    --padding-2-5: 2.5rem;
+    --padding-3: 3rem;
+
+    /*=============== Margin ===============*/
+    --margin-0-25: 0.25rem;
+    --margin-0-5: 0.5rem;
+    --margin-0-75: 0.75rem;
+    --margin-1: 1rem;
+    --margin-1-5: 1.5rem;
+    --margin-2: 2rem;
+    --margin-2-5: 2.5rem;
+    --margin-3: 3rem;
+}
+
+/*=============== Responsive typography ===============*/
+@media screen and (min-width: 1150px) {
+    :root {
+        --biggest-font-size: 4.25rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .873rem;
+    }
+}

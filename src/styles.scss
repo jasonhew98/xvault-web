@@ -1,0 +1,174 @@
+@import '@/variables.css';
+
+/*=============== BASE ===============*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+h1, h2, h3, h4 {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== REUSABLE CLASSES ===============*/
+.container {
+    margin-inline: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding-block: 5rem 1rem;
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-bold);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.main {
+    overflow: hidden;
+}
+
+#xwallet__app {
+    .content__container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .page__container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--title-color);
+        font-weight: var(--font-semi-bold);
+        transition: .2s ease;
+        cursor: pointer;
+    }
+
+    .button--medium {
+        width: 180px;
+        padding: 1rem 2rem;
+    }
+
+    .button--small {
+        width: 160px;
+        padding: 1rem 2rem;
+    }
+
+    .button--round {
+        border-radius: 1rem;
+    }
+
+    .button__icon {
+        margin-left: var(--mb-0-5);
+    }
+    
+    .button--flex {
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .button:hover {
+        background-color: var(--secondary-color-alt);
+    }
+    
+    
+    /* For large devices */
+    @media only screen and (min-width: 1150px) {
+
+        .page__container {
+            padding: var(--padding-3);
+        }
+
+        .section {
+            padding-block: 7rem 2rem;
+        }
+
+        .section__title {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav {
+            height: calc(var(--header-height) + 2rem);
+        }
+
+        .nav__toggle,
+        .nav__close {
+            display: none;
+        }
+
+        .nav__logo i {
+            font-size: 1.5rem;
+        }
+
+        .nav__menu {
+            width: initial;
+        }
+
+        .nav__list {
+            flex-direction: row;
+            column-gap: 3.5rem;
+        }
+
+        .nav__actions {
+            font-size: 1.5rem;
+            column-gap: 1rem;
+        }
+    }
+
+    /* For medium devices */
+    @media only screen and (min-width: 768px) {
+        .nav__menu {
+            width: 50%;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .page__container {
+            padding: var(--padding-1);
+        }
+    }
+    
+    /* For small devices */
+    @media only screen and (max-width: 320px) {
+    }
+}

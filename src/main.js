@@ -1,4 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import * as Vue from "vue";
+import App from "./App.vue";
+import router from "./infrastructure/routes"
+import createRepositories from "./infrastructure/createRepositories";
 
-createApp(App).mount('#app')
+const app = Vue.createApp(App);
+
+app.use(router);
+
+app.use(createRepositories);
+
+app.mount("#xwallet__app");
