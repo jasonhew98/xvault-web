@@ -30,9 +30,7 @@
             <div ref="blog" class="landing__section">
                 <h1 class="landing__title">Blog</h1>
             </div> -->
-            <div class="landing__section">
-                <h1 class="landing__title">FAQ</h1>
-            </div>
+            <landing-faq></landing-faq>
             <landing-footer></landing-footer>
         </div>
     </div>
@@ -41,6 +39,7 @@
 <script setup>
 import { ref, computed, onMounted, getCurrentInstance } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
+import LandingFaq from './@components/LandingFaq.vue';
 import LandingFooter from './@components/LandingFooter.vue';
 
 const app = getCurrentInstance();
