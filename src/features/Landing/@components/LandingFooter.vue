@@ -5,7 +5,7 @@
                 <div class="footer__logo"><i class='bx bxl-codepen'></i> Xvault</div>
                 <div class="footer__newsletter-text">Join our newsletter to receive updates on new features and releases.</div>
                 <div class="footer__subscribe">
-                    <input type="text" class="newsletter__email" placeholder="Enter your email">
+                    <input type="text" class="newsletter__email" placeholder="johndoe@email.com">
                     <div class="button button--secondary button--small button-subscribe">Subscribe</div>
                 </div>
             </div>
@@ -124,6 +124,7 @@
     width: 350px;
     padding: 8px 16px;
     font-size: var(--normal-font-size);
+    outline: none;
 }
 
 .footer__copyright {
