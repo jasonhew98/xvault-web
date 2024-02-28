@@ -11,15 +11,29 @@
                     <div class="landing__button button button--secondary button--medium">Learn More</div>
                 </div>
             </div>
-            <div ref="about" class="landing__section">
-                <h1 class="landing__title">About</h1>
+            <!-- <div ref="about" class="landing__section">
+                <div class="div grid landing__about">
+                    <div class="landing__about-description">
+                        <div class="landing__offset-text">Simplify</div>
+                        <h1 class="landing__title">Track and Manage Your Personal Finances Easily</h1>
+                        <div class="landing__actions">
+                            <div class="landing__button button button--primary button--medium" @click="launchApp">Get Started</div>
+                            <div class="landing__button button button--secondary button--medium">Learn More</div>
+                        </div>
+                    </div>
+                    <div class="landing__about-features">Test</div>
+                </div>
             </div>
             <div ref="solutions" class="landing__section">
                 <h1 class="landing__title">Solutions</h1>
             </div>
             <div ref="blog" class="landing__section">
                 <h1 class="landing__title">Blog</h1>
+            </div> -->
+            <!-- <div class="landing__section">
+                <h1 class="landing__title">FAQ</h1>
             </div>
+            <landing-footer></landing-footer> -->
         </div>
     </div>
 </template>
@@ -27,6 +41,7 @@
 <script setup>
 import { ref, computed, onMounted, getCurrentInstance } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
+import LandingFooter from './@components/LandingFooter.vue';
 
 const app = getCurrentInstance();
 
@@ -88,9 +103,9 @@ const launchApp = () => {
 
 onMounted(() => {
     home.value.focus();
-    about.value.focus();
-    solutions.value.focus();
-    blog.value.focus();
+    // about.value.focus();
+    // solutions.value.focus();
+    // blog.value.focus();
 })
 
 </script>
@@ -109,6 +124,10 @@ onMounted(() => {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+.landing__about {
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .landing__cta {
