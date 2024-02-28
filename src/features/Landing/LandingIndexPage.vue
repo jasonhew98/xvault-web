@@ -32,8 +32,8 @@
             </div> -->
             <!-- <div class="landing__section">
                 <h1 class="landing__title">FAQ</h1>
-            </div>
-            <landing-footer></landing-footer> -->
+            </div> -->
+            <landing-footer></landing-footer>
         </div>
     </div>
 </template>
