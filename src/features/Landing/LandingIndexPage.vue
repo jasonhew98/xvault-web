@@ -2,11 +2,20 @@
     <div class="page__container">
         <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
         <div class="landing__content">
-            <div ref="home" class="landing__attraction">
-                <h1 class="landing__title">Save money, without <br> thinking about it.</h1>
-                <div class="landing__caption">Xvault tracks and analyzes your daily spending so you don't have to think about it.</div>
-
-                <div class="landing__button button button--round button--medium">Sign Up Now</div>
+            <div ref="home" class="landing__section--hero">
+                <div class="landing__cta">
+                    <h1 class="landing__title">Take control of</h1>
+                    <h1 class="landing__title">your finances</h1>
+                    <h1 class="landing__title">today!</h1>
+                    <div class="landing__caption">Xvault tracks your daily expenses and manage your money with ease.</div>
+                    <div class="landing__actions">
+                        <div class="landing__button button button--primary button--medium" @click="launchApp">Sign Up</div>
+                        <div class="landing__button button button--secondary button--medium">Learn More</div>
+                    </div>
+                </div>
+                <div class="landing__assets">
+                    <img src="@/assets/expense-track.svg"/>
+                </div>
             </div>
             <div ref="about" class="landing__attraction">
                 <h1 class="landing__title">About</h1>
@@ -22,20 +31,22 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, getCurrentInstance } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
+import { Application } from '@splinetool/runtime';
 
+const app = getCurrentInstance();
+
+// region ref
 const home = ref();
 const about = ref();
 const solutions = ref();
 const blog = ref();
 
-onMounted(() => {
-    home.value.focus();
-    about.value.focus();
-    solutions.value.focus();
-    blog.value.focus();
-})
+// region computed
+const router = computed(() => {
+    return app.appContext.config.globalProperties.$router;
+});
 
 const navBarOptions = computed(() => {
     return [
@@ -62,12 +73,57 @@ const navBarOptions = computed(() => {
     ]
 });
 
+// region methods
+const goToApp = () => {
+    router.value.push({
+        name: "TransactionIndexPage"
+    })
+};
+
+const goToAuth = () => {
+    router.value.push({
+        name: "AuthIndexPage"
+    })
+};
+
+const launchApp = () => {
+    if (localStorage.getItem("jwtToken"))
+        goToApp();
+    else
+        goToAuth();
+};
+
+onMounted(() => {
+    home.value.focus();
+    about.value.focus();
+    solutions.value.focus();
+    blog.value.focus();
+})
+
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 .landing__content {
     height: 100%;
+}
+
+.landing__section--hero {
+    max-width: 1248px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.landing__cta {
+    width: 49%;
+}
+
+.landing__assets {
+    width: 40.5%;
+    padding-left: 5rem;
 }
 
 .landing__attraction {
@@ -85,10 +141,20 @@ const navBarOptions = computed(() => {
 }
 
 .landing__caption {
+    color: var(--dull);
     max-width: 400px;
     line-height: 20px;
     margin-bottom: var(--margin-1);
-    opacity: .5;
+}
+
+.landing__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.landing__button {
+    text-align: center;
 }
 
 /* For large devices */
@@ -100,6 +166,9 @@ const navBarOptions = computed(() => {
 
 /* For medium devices */
 @media only screen and (min-width: 768px) {
+    .landing__section--hero {
+        padding: 48px 24px;
+    }
 }
 
 @media only screen and (max-width: 576px) {

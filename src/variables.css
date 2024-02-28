@@ -1,19 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
+    --primary-100:#2E2E7E;
+    --primary-200:#211D4E;
+    --primary-300:#c3b4ff;
+    --accent-100:#6E6EA1;
+    --accent-200:#ffffff;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#0F0F3D;
+    --bg-200:#211d4e;
+    --bg-300:#3c3468;
+
+    --primary-visible: var(--accent-200);
+    --primary-dull: var(--primary-200);
+    --clear: var(--text-100);
+    --dull: var(--text-200);
+    --body-color: var(--primary-100);
+    --button-color: var(--primary-dull);
+    --button-color-hover: var(--text-100);
+    --text-color-hover: var(--primary-dull);
+
+    --app-primary-visible: var(--primary-300);
+    --app-primary-dull: var(--primary-200);
+    --app-clear: var(--text-100);
+    --app-dull: var(--text-200);
+    --app-body-color: var(--bg-100);
+    --app-button-color: var(--primary-dull);
+    --app-button-color-hover: var(--bg-300);
+
     --header-height: 3.5rem;
-    --primary-color: rgba(37, 39, 77, 1);
-    --primary-color-alt: rgba(37, 39, 77, 1);
-    --secondary-color: rgba(0, 161, 242, 1);
-    --secondary-color-alt: rgba(0, 82, 181, 1);
-    --title-color: #fff;
-    --text-color: #fff;
-    --text-color-alt: rgba(41, 100, 138, 1);
-    --text-color-dark: rgba(70, 72, 102, 1);
-
-    --title-color-hover: rgba(170, 171, 184, 1);
-
-    --body-color: var(--primary-color);
 
     /*=============== Font and typography ===============*/
     /*.5rem = 8px | 1rem = 16px ...*/
