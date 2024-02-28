@@ -2,28 +2,22 @@
     <div class="page__container">
         <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
         <div class="landing__content">
-            <div ref="home" class="landing__section--hero">
-                <div class="landing__cta">
-                    <h1 class="landing__title">Take control of</h1>
-                    <h1 class="landing__title">your finances</h1>
-                    <h1 class="landing__title">today!</h1>
-                    <div class="landing__caption">Xvault tracks your daily expenses and manage your money with ease.</div>
-                    <div class="landing__actions">
-                        <div class="landing__button button button--primary button--medium" @click="launchApp">Sign Up</div>
-                        <div class="landing__button button button--secondary button--medium">Learn More</div>
-                    </div>
-                </div>
-                <div class="landing__assets">
-                    <img src="@/assets/expense-track.svg"/>
+            <div ref="home" class="landing__section">
+                <h1 class="landing__title">Take control of your finances</h1>
+                <h1 class="landing__title">today!</h1>
+                <div class="landing__caption">Track your daily expenses and manage your money with ease.</div>
+                <div class="landing__actions">
+                    <div class="landing__button button button--primary button--medium" @click="launchApp">Sign Up</div>
+                    <div class="landing__button button button--secondary button--medium">Learn More</div>
                 </div>
             </div>
-            <div ref="about" class="landing__attraction">
+            <div ref="about" class="landing__section">
                 <h1 class="landing__title">About</h1>
             </div>
-            <div ref="solutions" class="landing__attraction">
+            <div ref="solutions" class="landing__section">
                 <h1 class="landing__title">Solutions</h1>
             </div>
-            <div ref="blog" class="landing__attraction">
+            <div ref="blog" class="landing__section">
                 <h1 class="landing__title">Blog</h1>
             </div>
         </div>
@@ -107,11 +101,12 @@ onMounted(() => {
     height: 100%;
 }
 
-.landing__section--hero {
-    max-width: 1248px;
+.landing__section {
+    height: 60%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
 }
@@ -141,7 +136,6 @@ onMounted(() => {
 
 .landing__caption {
     color: var(--dull);
-    max-width: 400px;
     line-height: 20px;
     margin-bottom: var(--margin-1);
 }
@@ -150,6 +144,7 @@ onMounted(() => {
     display: flex;
     flex-direction: row;
     gap: 16px;
+    padding-top: 8px;
 }
 
 .landing__button {
