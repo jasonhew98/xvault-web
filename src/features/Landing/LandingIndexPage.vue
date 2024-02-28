@@ -33,7 +33,6 @@
 <script setup>
 import { ref, computed, onMounted, getCurrentInstance } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
-import { Application } from '@splinetool/runtime';
 
 const app = getCurrentInstance();
 
