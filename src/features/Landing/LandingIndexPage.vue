@@ -42,6 +42,14 @@ import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
 import LandingFaq from './@components/LandingFaq.vue';
 import LandingFooter from './@components/LandingFooter.vue';
 
+const scrollReveal = ScrollReveal({
+    origin: "bottom",
+    distance: "60px",
+    duration: 500,
+    delay: 100,
+    easing: "ease-in-out"
+})
+
 const app = getCurrentInstance();
 
 // region ref
@@ -105,6 +113,12 @@ onMounted(() => {
     // about.value.focus();
     // solutions.value.focus();
     // blog.value.focus();
+
+    scrollReveal.reveal('.landing__title');
+    scrollReveal.reveal('.landing__caption', { delay: 400 });
+    scrollReveal.reveal('.landing__actions', { delay: 700 });
+    scrollReveal.reveal('.faq__title');
+    scrollReveal.reveal('.faq', { delay: 400 });
 })
 
 </script>
@@ -123,6 +137,7 @@ onMounted(() => {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    padding: 12rem 0;
 }
 
 .landing__about {
