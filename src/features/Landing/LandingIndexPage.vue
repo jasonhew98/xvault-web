@@ -30,9 +30,9 @@
             <div ref="blog" class="landing__section">
                 <h1 class="landing__title">Blog</h1>
             </div> -->
-            <!-- <div class="landing__section">
+            <div class="landing__section">
                 <h1 class="landing__title">FAQ</h1>
-            </div> -->
+            </div>
             <landing-footer></landing-footer>
         </div>
     </div>
