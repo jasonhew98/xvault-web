@@ -29,9 +29,9 @@
                 <div class="footer__list-menu">
                     <div class="footer__list-row column-title">Socials</div>
                     <ul>
-                        <li><a><i class='bx bxl-discord'></i>Discord</a></li>
-                        <li><a><i class='bx bxl-linkedin-square'></i>LinkedIn</a></li>
-                        <li><a><i class='bx bxl-github'></i>GitHub</a></li>
+                        <li><a href="https://discord.com/users/nyann1211"><i class='bx bxl-discord'></i>Discord</a></li>
+                        <li><a href="https://linkedin.com/in/jia-sheng-hew"><i class='bx bxl-linkedin-square'></i>LinkedIn</a></li>
+                        <li><a href="https://github.com/jasonhew98"><i class='bx bxl-github'></i>GitHub</a></li>
                     </ul>
                 </div>
             </div>
