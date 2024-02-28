@@ -56,6 +56,7 @@
 }
 
 .footer__content {
+    width: 1200px;
     grid-template-columns: 2fr 3fr;
     grid-column-gap: 24px;
     margin: 0 auto;
@@ -81,6 +82,8 @@
 .footer__list {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 24px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .column-title {
@@ -95,6 +98,7 @@
     }
 
     li {
+        display: flex;
         margin-bottom: 8px;
     }
 
@@ -128,6 +132,7 @@
 }
 
 .footer__copyright {
+    max-width: 1200px;
     margin: 64px auto 0;
 }
 
