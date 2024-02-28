@@ -1,6 +1,5 @@
 <template>
     <div class="page__container">
-        <div class="landing__button button button--round button--medium" @click="login">Login</div>
         <div class="landing__button button button--round button--medium" @click="add">Add</div>
         <div class="landing__button button button--round button--medium" @click="getList">Get List</div>
         <div class="landing__button button button--round button--medium">Get Page Size</div>
@@ -16,32 +15,6 @@ const app = getCurrentInstance();
 const transactionRepository = computed(() => {
     return app.appContext.config.globalProperties.$repository.transactionRepository;
 });
-
-const authRepository = computed(() => {
-    return app.appContext.config.globalProperties.$repository.authRepository;
-});
-
-const login = async () => {
-    const record = {
-        userName: "jasonhew98",
-        password: "Dferas@98"
-    }
-
-    try {
-        const [error, result] = await authRepository.value.login(record);
-        let jwtToken = result.jwtToken;
-
-        // Assuming you have the JWT token available as 'accessToken'
-        const accessToken = jwtToken.token;
-        const expiryDate = jwtToken.expiry;
-
-        localStorage.setItem("jwtToken", accessToken);
-        // Set the cookie
-        document.cookie = `accessToken=${accessToken}; expires=${expiryDate}; path=/;`;
-    } catch (ex) {
-        console.log(ex);
-    }
-}
 
 const add = async () => {
     try {

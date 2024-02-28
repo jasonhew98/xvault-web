@@ -16,8 +16,8 @@
     --primary-dull: var(--primary-200);
     --clear: var(--text-100);
     --dull: var(--text-200);
-    --body-color: var(--primary-100);
-    --button-color: var(--primary-dull);
+    --body-color: var(--bg-100);
+    --button-color: var(--primary-100);
     --button-color-hover: var(--text-100);
     --text-color-hover: var(--primary-dull);
 
