@@ -30,7 +30,6 @@
             <div ref="blog" class="landing__section">
                 <h1 class="landing__title">Blog</h1>
             </div> -->
-            <landing-faq></landing-faq>
             <landing-footer></landing-footer>
         </div>
     </div>
@@ -65,26 +64,26 @@ const router = computed(() => {
 
 const navBarOptions = computed(() => {
     return [
-        {
-            id: 1,
-            displayName: "Home",
-            action: () => { home.value.scrollIntoView({ behavior: "smooth" }) }
-        },
-        {
-            id: 2,
-            displayName: "About us",
-            action: () => { about.value.scrollIntoView({ behavior: "smooth" }) }
-        },
-        {
-            id: 3,
-            displayName: "Solutions",
-            action: () => { solutions.value.scrollIntoView({ behavior: "smooth" }) }
-        },
-        {
-            id: 4,
-            displayName: "Blog",
-            action: () => { blog.value.scrollIntoView({ behavior: "smooth" }) }
-        }
+        // {
+        //     id: 1,
+        //     displayName: "Home",
+        //     action: () => { home.value.scrollIntoView({ behavior: "smooth" }) }
+        // },
+        // {
+        //     id: 2,
+        //     displayName: "About us",
+        //     action: () => { about.value.scrollIntoView({ behavior: "smooth" }) }
+        // },
+        // {
+        //     id: 3,
+        //     displayName: "Solutions",
+        //     action: () => { solutions.value.scrollIntoView({ behavior: "smooth" }) }
+        // },
+        // {
+        //     id: 4,
+        //     displayName: "Blog",
+        //     action: () => { blog.value.scrollIntoView({ behavior: "smooth" }) }
+        // }
     ]
 });
 
@@ -114,11 +113,11 @@ onMounted(() => {
     // solutions.value.focus();
     // blog.value.focus();
 
-    scrollReveal.reveal('.landing__title');
-    scrollReveal.reveal('.landing__caption', { delay: 400 });
-    scrollReveal.reveal('.landing__actions', { delay: 700 });
-    scrollReveal.reveal('.faq__title');
-    scrollReveal.reveal('.faq', { delay: 400 });
+    // scrollReveal.reveal('.landing__title');
+    // scrollReveal.reveal('.landing__caption', { delay: 400 });
+    // scrollReveal.reveal('.landing__actions', { delay: 700 });
+    // scrollReveal.reveal('.faq__title');
+    // scrollReveal.reveal('.faq', { delay: 400 });
 })
 
 </script>

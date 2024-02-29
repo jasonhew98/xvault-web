@@ -2,7 +2,7 @@
     <footer class="footer">
         <div class="footer__content grid">
             <div class="footer__newsletter">
-                <div class="footer__logo"><i class='bx bxl-codepen'></i> Xvault</div>
+                <div class="footer__logo"><i class='bx bxl-codepen'></i> X V A U L T</div>
                 <div class="footer__newsletter-text">Join our newsletter to receive updates on new features and releases.</div>
                 <div class="footer__subscribe">
                     <input type="text" class="newsletter__email" placeholder="johndoe@email.com">
@@ -39,8 +39,7 @@
         <div class="footer__copyright">
             <div class="footer__copyright-line"></div>
             <div class="footer__copyright-text">
-                <span>Xvault</span>
-                <span class="no-wrap">© 2024</span>
+                <span class="product__name">X V A U L T</span>
             </div>
         </div>
     </footer>

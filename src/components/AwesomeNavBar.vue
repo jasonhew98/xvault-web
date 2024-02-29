@@ -2,7 +2,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
-                <i class='bx bxl-codepen'></i> Xvault
+                <i class='bx bxl-codepen'></i> X V A U L T
             </a>
 
             <div class="nav__menu" :class="navMenuClass">
