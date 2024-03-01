@@ -61,9 +61,11 @@ const login = async () => {
 
     try {
         const [error, result] = await authRepository.value.login(record);
-        if (error)
+        if (error) {
+            console.log(error);
             return;
-
+        }
+        
         let jwtToken = result.jwtToken;
 
         // Assuming you have the JWT token available as 'accessToken'

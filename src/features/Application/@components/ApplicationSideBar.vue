@@ -55,7 +55,8 @@ const app = getCurrentInstance();
 const MENUPAGES = {
     dashboard: "TransactionIndexPage",
     wallet: "WalletIndexPage",
-    settings: "SettingsIndexPage"
+    settings: "SettingsIndexPage",
+    home: "LandingIndexPage"
 };
 
 // region ref
@@ -123,19 +124,27 @@ const setSelectedMenuItem = (menuItemId) => {
 };
 
 const logOut = () => {
-
+    localStorage.setItem("jwtToken", "");
+    router.value.push({
+        name: MENUPAGES.home
+    });
 };
 
-// region watch
-watch(selectedMenuItemId, async () => {
+const goToPage = () => {
     router.value.push({
         name: MENUPAGES[selectedMenuItemId.value]
     });
+}
+
+// region watch
+watch(selectedMenuItemId, async () => {
+    goToPage();
 });
 
 onMounted(() => {
     let menuPreference = localStorage.getItem("isMenuExpanded");
     isExpanded.value = menuPreference == null ? true : menuPreference;
+    goToPage();
 })
 
 </script>
