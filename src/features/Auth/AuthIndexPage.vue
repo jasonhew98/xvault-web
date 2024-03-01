@@ -20,7 +20,7 @@
                 <a href="#">Forgot Password?</a>
             </div>
 
-            <button class="login__btn">Login</button>
+            <button class="login-button button button--primary button--medium">Login</button>
 
             <p class="register">
                 Don't have an account?
@@ -167,20 +167,13 @@ const login = async () => {
     text-decoration: underline;
 }
 
-.login__btn {
+.login-button {
     width: 100%;
     padding: 10px 0;
-    background: #2F9CF4;
     border: none;
     border-radius: 99px;
-    color: white;
     font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.login__btn:hover {
-    background: #0B87EC;
 }
 
 .register {
