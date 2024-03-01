@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 
 const app = getCurrentInstance();
 

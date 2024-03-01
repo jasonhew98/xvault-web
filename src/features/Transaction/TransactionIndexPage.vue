@@ -1,16 +1,20 @@
 <template>
-    <div class="page__container">
-        <div class="landing__button button button--round button--medium" @click="add">Add</div>
-        <div class="landing__button button button--round button--medium" @click="getList">Get List</div>
-        <div class="landing__button button button--round button--medium">Get Page Size</div>
-        <div class="landing__button button button--round button--medium">Update</div>
-        <div class="landing__button button button--round button--medium">Delete</div>
+    <div class="app__content">
+        <h1>MVP</h1>
+        <h1>Add Transaction</h1>
+        <awesome-text-box label="Main Category" tooltip="Main Category" v-model="transaction.mainCategory"></awesome-text-box>
     </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 const app = getCurrentInstance();
+
+const transaction = reactive({
+    mainCategory: "",
+    subCategory: ""
+});
 
 const transactionRepository = computed(() => {
     return app.appContext.config.globalProperties.$repository.transactionRepository;

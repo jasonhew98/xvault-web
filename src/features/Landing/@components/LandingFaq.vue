@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { ref, computed, getCurrentInstance, onMounted } from 'vue';
+import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 const faqs = computed(() => {
     return [
         {
@@ -83,9 +83,6 @@ onMounted(() => {
     font-size: var(--h1-font-size);
     text-align: center;
     margin-bottom: 24px;
-}
-
-.faq__question {
 }
 
 .faq {

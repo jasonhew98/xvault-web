@@ -4,7 +4,10 @@ import NotFound from '@/NotFound.vue'
 
 import AuthIndexPage from '@/features/Auth/AuthIndexPage.vue'
 import LandingIndexPage from '@/features/Landing/LandingIndexPage.vue'
+import ApplicationIndexPage from '@/features/Application/ApplicationIndexPage.vue'
 import TransactionIndexPage from '@/features/Transaction/TransactionIndexPage.vue'
+import WalletIndexPage from '@/features/Wallet/WalletIndexPage.vue'
+import SettingsIndexPage from '@/features/Settings/SettingsIndexPage.vue'
 
 const routes = [
     {
@@ -24,11 +27,28 @@ const routes = [
     },
     {
         path: "/app",
-        name: "TransactionIndexPage",
-        component: TransactionIndexPage,
+        name: "ApplicationIndexPage",
+        component: ApplicationIndexPage,
         meta: {
             requiresAuth: true
-        }
+        },
+        children: [
+            {
+                path: "",
+                component: TransactionIndexPage,
+                name: "TransactionIndexPage"
+            },
+            {
+                path: "",
+                component: WalletIndexPage,
+                name: "WalletIndexPage"
+            },
+            {
+                path: "",
+                component: SettingsIndexPage,
+                name: "SettingsIndexPage"
+            }
+        ]
     },
 ]
 

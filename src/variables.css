@@ -25,11 +25,12 @@
     --app-primary-dull: var(--primary-200);
     --app-clear: var(--text-100);
     --app-dull: var(--text-200);
-    --app-body-color: var(--bg-100);
+    --app-body-color: var(--text-100);
     --app-button-color: var(--primary-dull);
     --app-button-color-hover: var(--bg-300);
 
     --header-height: 3.5rem;
+    --sidebar-width: 300px;
 
     /*=============== Font and typography ===============*/
     /*.5rem = 8px | 1rem = 16px ...*/

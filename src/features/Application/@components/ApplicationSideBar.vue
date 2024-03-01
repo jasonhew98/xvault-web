@@ -1,0 +1,282 @@
+<template>
+	<div class="sidebar" :class="sidebarMenuClass">
+        <div class="sidebar__logo-section">
+            <div class="sidebar__logo pointer logo-name" v-show="isExpanded">
+                <i class='icon__medium bx bxl-codepen'></i>XVAULT
+            </div>
+
+            <div class="menu-toggle-wrap">
+                <div class="menu__toggle sidebar__icons pointer" @click="toggleMenu"><i class='bx bx-menu'></i></div>
+            </div>
+        </div>
+
+		<div class="sidebar__menu">
+			<div class="sidebar__button"
+                :class="{'sidebar__button--selected' : isCurrentSelected(menuItem.id)}"
+                v-for="menuItem in topMenuItems"
+                :key="menuItem.id"
+                @click="setSelectedMenuItem(menuItem.id)">
+                <div class="sidebar__description">
+                    <div class="sidebar__icons"><i :class="menuItem.iconClass"></i></div>
+                    <div class="sidebar__text">{{ menuItem.name }}</div>
+                </div>
+				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
+			</div>
+		</div>
+
+		<div class="flex"></div>
+		
+		<div class="sidebar__menu">
+			<div class="sidebar__button"
+                :class="{'sidebar__button--selected' : isCurrentSelected(menuItem.id)}"
+                v-for="menuItem in bottomMenuItems"
+                :key="menuItem.id"
+                @click="setSelectedMenuItem(menuItem.id)">
+				<div class="sidebar__description">
+                    <div class="sidebar__icons"><i :class="menuItem.iconClass"></i></div>
+                    <div class="sidebar__text">{{ menuItem.name }}</div>
+                </div>
+				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
+			</div>
+            <div class="sidebar__button" @click="logOut">
+				<div class="sidebar__description">
+                    <div class="sidebar__icons"><i class='bx bx-log-out'></i></div>
+                    <div class="sidebar__text">Exit</div>
+                </div>
+				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
+			</div>
+		</div>
+	</div>
+</template>
+<script setup>
+import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
+
+const app = getCurrentInstance();
+const MENUPAGES = {
+    dashboard: "TransactionIndexPage",
+    wallet: "WalletIndexPage",
+    settings: "SettingsIndexPage"
+};
+
+// region ref
+const selectedMenuItemId = ref("dashboard");
+const isExpanded = ref(true);
+
+// region computed
+const router = computed(() => {
+    return app.appContext.config.globalProperties.$router;
+});
+
+const sidebarMenuClass = computed(() => {
+    return !isExpanded.value ? "sidebar--collapsed" : "";
+});
+
+const topMenuItems = computed(() => {
+    return [
+        {
+            id: "dashboard",
+            name: "Dashboard",
+            iconClass: "bx bx-grid-alt"
+        },
+        // {
+        //     id: "trade",
+        //     name: "Trade",
+        //     iconClass: "bx bx-chart"
+        // },
+        {
+            id: "wallet",
+            name: "Wallet",
+            iconClass: "bx bx-wallet-alt"
+        },
+        // {
+        //     id: "analytics",
+        //     name: "Analytics",
+        //     iconClass: "uil uil-chart-pie-alt"
+        // }
+    ];
+});
+
+const bottomMenuItems = computed(() => {
+    return [
+        {
+            id: "settings",
+            name: "Settings",
+            iconClass: "bx bx-cog"
+        }
+    ];
+});
+
+const isCurrentSelected = computed(() => {
+    return (id) => {
+        return id == selectedMenuItemId.value;
+      };
+});
+
+// region methods
+const toggleMenu = () => {
+    isExpanded.value = !isExpanded.value;
+    localStorage.setItem("isMenuExpanded", isExpanded.value)
+};
+
+const setSelectedMenuItem = (menuItemId) => {
+    selectedMenuItemId.value = menuItemId; 
+};
+
+const logOut = () => {
+
+};
+
+// region watch
+watch(selectedMenuItemId, async () => {
+    router.value.push({
+        name: MENUPAGES[selectedMenuItemId.value]
+    });
+});
+
+onMounted(() => {
+    let menuPreference = localStorage.getItem("isMenuExpanded");
+    isExpanded.value = menuPreference == null ? true : menuPreference;
+})
+
+</script>
+
+<style lang="scss" scoped>
+.sidebar {
+	display: flex;
+    position: relative;
+	flex-direction: column;
+	background-color: var(--body-color);
+	color: var(--clear);
+	width: var(--sidebar-width);
+	overflow: hidden;
+	min-height: 100vh;
+	padding: 1rem;
+    transition: width .5s ease;
+
+    .sidebar__logo-section {
+        height: 48px;
+        display: flex;
+        justify-content: center;
+    }
+
+	.flex {
+		flex: 1 1 0%;
+	}
+
+	.sidebar__logo {
+        display: flex;
+        align-items: center;
+        column-gap: .25rem;
+
+        i {
+            color: var(--title-color);
+            font-size: 2rem;
+            font-weight: initial;
+        }
+
+		img {
+			width: 2rem;
+		}
+	}
+
+    .sidebar__description {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: .25s;
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        margin-top: 1rem;
+
+        &:hover {
+            color: var(--body-color);
+            background-color: #fff;
+
+            .sidebar__icons {
+                color: var(--body-color);
+            }
+        }
+    }
+
+    .sidebar__button--selected {
+        .sidebar__description {
+            color: var(--body-color);
+            background-color: #fff;
+
+            .sidebar__icons {
+                color: var(--body-color);
+            }
+        }
+    }
+
+    .sidebar__icons {
+        display: flex;
+        font-size: 1.25rem;
+        color: var(--font-color);
+        margin-right: .5rem;
+    }
+
+    .menu-toggle-wrap {
+		display: flex;
+        margin-left: auto;
+
+		.menu__toggle {
+            display: flex;
+            align-self: center;
+		}
+	}
+
+	&.sidebar--collapsed {
+        width: calc(3rem + 32px);
+
+        .sidebar__description {
+            justify-content: center;
+            margin-left: auto;
+        }
+
+        .menu-toggle-wrap {
+            margin-left: 0;
+        }
+
+        .sidebar__icons {
+            margin-right: auto;
+        }
+
+        .sidebar__text {
+            display: none;
+        }
+	}
+
+	@media (max-width: 1024px) {
+		z-index: 99;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+    .sidebar {
+        width: calc(3rem + 32px);
+
+        .sidebar__logo {
+            display: none;
+        }
+
+        .sidebar__text {
+            display: none;
+        }
+
+        .sidebar__description {
+            justify-content: center;
+            margin-left: auto;
+        }
+
+        .menu-toggle-wrap {
+            margin-left: 0;
+        }
+
+        .sidebar__icons {
+            margin-right: auto;
+        }
+	}
+}
+</style>

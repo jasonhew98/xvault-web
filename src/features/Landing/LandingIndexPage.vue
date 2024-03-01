@@ -1,5 +1,5 @@
 <template>
-    <div class="page__container">
+    <div class="main">
         <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
         <div class="landing__content">
             <div ref="home" class="landing__section">
@@ -11,32 +11,13 @@
                     <div class="landing__button button button--secondary button--medium">Learn More</div>
                 </div>
             </div>
-            <!-- <div ref="about" class="landing__section">
-                <div class="div grid landing__about">
-                    <div class="landing__about-description">
-                        <div class="landing__offset-text">Simplify</div>
-                        <h1 class="landing__title">Track and Manage Your Personal Finances Easily</h1>
-                        <div class="landing__actions">
-                            <div class="landing__button button button--primary button--medium" @click="launchApp">Get Started</div>
-                            <div class="landing__button button button--secondary button--medium">Learn More</div>
-                        </div>
-                    </div>
-                    <div class="landing__about-features">Test</div>
-                </div>
-            </div>
-            <div ref="solutions" class="landing__section">
-                <h1 class="landing__title">Solutions</h1>
-            </div>
-            <div ref="blog" class="landing__section">
-                <h1 class="landing__title">Blog</h1>
-            </div> -->
             <landing-footer></landing-footer>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
 import LandingFaq from './@components/LandingFaq.vue';
 import LandingFooter from './@components/LandingFooter.vue';

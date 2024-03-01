@@ -33,9 +33,6 @@ html {
 body {
     width: 100%;
     height: 100vh;
-    background-color: var(--body-color);
-    background-image: var(--body-color);
-    color: var(--clear);
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
 }
@@ -145,15 +142,29 @@ img {
 }
 
 #xvault__app {
-    .content__container {
+    .main {
         width: 100%;
         height: 100%;
         margin-top: var(--header-height);
+        background-color: var(--body-color);
+        background-image: var(--body-color);
+        color: var(--clear);
     }
 
-    .page__container {
-        width: 100%;
-        height: 100%;
+    .app {
+        background-color: var(--app-body-color);
+    }
+
+    .app__content {
+        padding: var(--padding-1) var(--padding-3);
+    }
+
+    .logo-name {
+        letter-spacing: 5px;
+    }
+
+    .pointer {
+        cursor: pointer;
     }
     
     /* For large devices */
@@ -163,7 +174,7 @@ img {
             margin-inline: var(--header-height);
         }
 
-        .page__container {
+        .main {
             padding: 0 3.5rem;
         }
 
@@ -225,7 +236,7 @@ img {
     }
 
     @media only screen and (max-width: 576px) {
-        .page__container {
+        .main {
             padding: var(--padding-1);
         }
     }

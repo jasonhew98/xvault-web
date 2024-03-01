@@ -1,8 +1,8 @@
 <template>
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">
-                <i class='bx bxl-codepen'></i> X V A U L T
+            <a href="#" class="nav__logo logo-name">
+                <i class='bx bxl-codepen'></i> XVAULT
             </a>
 
             <div class="nav__menu" :class="navMenuClass">
