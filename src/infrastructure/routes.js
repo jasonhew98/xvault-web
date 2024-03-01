@@ -59,7 +59,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth) {
-        const token = localStorage.getItem('jwt');
+        const token = localStorage.getItem('jwtToken');
         if (token) {
             next();
         } else {
