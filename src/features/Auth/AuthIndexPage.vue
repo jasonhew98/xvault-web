@@ -49,7 +49,7 @@ const rememberMe = ref(false);
 
 const goToApp = () => {
     router.value.push({
-        name: "TransactionIndexPage"
+        name: "ApplicationIndexPage"
     })
 }
 
