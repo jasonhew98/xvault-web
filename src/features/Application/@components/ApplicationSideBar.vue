@@ -252,31 +252,4 @@ onMounted(() => {
 		z-index: 99;
 	}
 }
-
-@media only screen and (max-width: 992px) {
-    .sidebar {
-        width: calc(3rem + 32px);
-
-        .sidebar__logo {
-            display: none;
-        }
-
-        .sidebar__text {
-            display: none;
-        }
-
-        .sidebar__description {
-            justify-content: center;
-            margin-left: auto;
-        }
-
-        .menu-toggle-wrap {
-            margin-left: 0;
-        }
-
-        .sidebar__icons {
-            margin-right: auto;
-        }
-	}
-}
 </style>
