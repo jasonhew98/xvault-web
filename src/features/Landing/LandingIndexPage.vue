@@ -1,5 +1,5 @@
 <template>
-    <div class="main">
+    <div class="main main-landing">
         <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
         <div class="landing__content">
             <div ref="home" class="landing__section">
@@ -21,14 +21,6 @@ import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
 import LandingFaq from './@components/LandingFaq.vue';
 import LandingFooter from './@components/LandingFooter.vue';
-
-const scrollReveal = ScrollReveal({
-    origin: "bottom",
-    distance: "60px",
-    duration: 500,
-    delay: 100,
-    easing: "ease-in-out"
-})
 
 const app = getCurrentInstance();
 
@@ -71,7 +63,7 @@ const navBarOptions = computed(() => {
 // region methods
 const goToApp = () => {
     router.value.push({
-        name: "TransactionIndexPage"
+        name: "ApplicationIndexPage"
     })
 };
 
@@ -89,16 +81,6 @@ const launchApp = () => {
 };
 
 onMounted(() => {
-    home.value.focus();
-    // about.value.focus();
-    // solutions.value.focus();
-    // blog.value.focus();
-
-    // scrollReveal.reveal('.landing__title');
-    // scrollReveal.reveal('.landing__caption', { delay: 400 });
-    // scrollReveal.reveal('.landing__actions', { delay: 700 });
-    // scrollReveal.reveal('.faq__title');
-    // scrollReveal.reveal('.faq', { delay: 400 });
 })
 
 </script>

@@ -145,10 +145,13 @@ img {
     .main {
         width: 100%;
         height: 100%;
-        margin-top: var(--header-height);
         background-color: var(--body-color);
         background-image: var(--body-color);
         color: var(--clear);
+    }
+
+    .main-landing {
+        margin-top: var(--header-height);
     }
 
     .app {

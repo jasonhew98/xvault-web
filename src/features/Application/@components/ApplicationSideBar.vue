@@ -125,13 +125,13 @@ const setSelectedMenuItem = (menuItemId) => {
 
 const logOut = () => {
     localStorage.setItem("jwtToken", "");
-    router.value.push({
+    router.value.replace({
         name: MENUPAGES.home
     });
 };
 
 const goToPage = () => {
-    router.value.push({
+    router.value.replace({
         name: MENUPAGES[selectedMenuItemId.value]
     });
 }

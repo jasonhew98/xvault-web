@@ -1,5 +1,5 @@
 <template>
-  	<div class="content__container">
+  	<div class="content-container">
       	<router-view></router-view>
     </div>
 </template>
@@ -9,4 +9,9 @@
 
 <style lang="scss">
 	@import "./styles.scss";
+
+	.content-container {
+		height: 100%;
+		width: 100%;
+	}
 </style>
