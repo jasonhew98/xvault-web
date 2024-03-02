@@ -20,9 +20,9 @@
             <div class="nav__actions">
                 <div class="button button--secondary button--small" @click="launchApp">Launch</div>
 
-                <div class="nav__toggle">
+                <!-- <div class="nav__toggle">
                     <i class='bx bx-menu nav__open' @click="toggleMenu"></i>
-                </div>
+                </div> -->
             </div>
         </nav>
     </header>
