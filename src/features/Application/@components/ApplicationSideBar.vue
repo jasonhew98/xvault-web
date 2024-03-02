@@ -144,7 +144,7 @@ watch(selectedMenuItemId, async () => {
 onMounted(() => {
     let menuPreference = localStorage.getItem("isMenuExpanded");
     isExpanded.value = menuPreference == null ? true : menuPreference;
-    goToPage();
+    //goToPage();
 })
 
 </script>

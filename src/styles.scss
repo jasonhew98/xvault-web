@@ -35,6 +35,8 @@ body {
     height: 100vh;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
+    font-weight: var(--font-regular);
+    letter-spacing: .025rem;
 }
 
 h1, h2, h3, h4 {
@@ -58,15 +60,21 @@ img {
     height: auto;
 }
 
-/*=============== REUSABLE CLASSES ===============*/
-.container {
-    margin-inline: 1.5rem;
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.grid {
-    display: grid;
-    gap: 1.5rem;
+.icon-logo {
+    background-color: var(--clear);
+    -webkit-mask-image: url("@/assets/x-logo.svg");
+    mask-image: url("@/assets/x-logo.svg");
 }
+
+/*=============== REUSABLE CLASSES ===============*/
 
 .flex-center {
     display: flex;
@@ -109,12 +117,12 @@ img {
 }
 
 .button--medium {
-    width: 180px;
+    @apply md:w-44 w-full;
     padding: 1rem 2rem;
 }
 
 .button--small {
-    width: 130px;
+    @apply md:w-32 w-full;
     padding: 8px 16px;
 }
 
@@ -173,12 +181,8 @@ img {
     /* For large devices */
     @media only screen and (min-width: 1150px) {
 
-        .container {
-            margin-inline: var(--header-height);
-        }
-
-        .main {
-            padding: 0 3.5rem;
+        .nav {
+            padding: 0 var(--header-height);
         }
 
         .section {
@@ -214,6 +218,7 @@ img {
 
     /* For medium devices */
     @media only screen and (min-width: 768px) {
+
         .nav__menu {
             width: 50%;
         }
@@ -239,9 +244,6 @@ img {
     }
 
     @media only screen and (max-width: 576px) {
-        .main {
-            padding: var(--padding-1);
-        }
     }
     
     /* For small devices */

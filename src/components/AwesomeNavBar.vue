@@ -1,8 +1,8 @@
 <template>
     <header class="header" id="header">
-        <nav class="nav container">
+        <nav class="nav">
             <a href="#" class="nav__logo logo-name">
-                <i class='bx bxl-codepen'></i> XVAULT
+                <div class="w-12 h-12 icon icon-logo"></div>XVAULT
             </a>
 
             <div class="nav__menu" :class="navMenuClass">
@@ -98,6 +98,7 @@ const onClick = (option) => {
     justify-content: space-between;
     align-items: center;
     font-size: var(--normal-font-size);
+    padding: 0 1.5rem;
 }
 
 .nav__menu {

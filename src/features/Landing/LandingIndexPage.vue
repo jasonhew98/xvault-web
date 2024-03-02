@@ -1,24 +1,28 @@
 <template>
-    <div class="main main-landing">
-        <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
-        <div class="landing__content">
-            <div ref="home" class="landing__section">
-                <h1 class="landing__title">Take control of your finances</h1>
-                <h1 class="landing__title">today!</h1>
-                <div class="landing__caption">Track your daily expenses and manage your money with ease.</div>
-                <div class="landing__actions">
-                    <div class="landing__button button button--primary button--medium" @click="launchApp">Sign Up</div>
-                    <div class="landing__button button button--secondary button--medium">Learn More</div>
+    <div class="landing-container">
+        <div class="main main-landing">
+            <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
+            <div class="flex h-full flex-col justify-center items-center">
+                <div ref="home" class="landing__section">
+                    <h1 class="landing__title">Take control of your finances</h1>
+                    <h1 class="landing__title">today!</h1>
+                    <div class="landing__caption">Track your daily expenses and manage your money with ease.</div>
+                    <div class="landing__actions">
+                        <div class="landing__button button button--primary button--medium" @click="launchApp">Sign Up</div>
+                        <div class="landing__button button button--secondary button--medium">Learn More</div>
+                    </div>
                 </div>
+                <landing-footer></landing-footer>
             </div>
-            <landing-footer></landing-footer>
         </div>
+        <!-- <AwesomeShufflePreloader contentContainer="landing-container"></AwesomeShufflePreloader> -->
     </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
+import AwesomeShufflePreloader from '@/components/AwesomeShufflePreloader.vue';
 import LandingFaq from './@components/LandingFaq.vue';
 import LandingFooter from './@components/LandingFooter.vue';
 
