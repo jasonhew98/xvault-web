@@ -1,6 +1,6 @@
 <template>
     <footer class="w-full">
-        <div class="div container md:pb-4 mx-auto pt-14 px-6">
+        <div class="container md:pb-4 mx-auto pt-14 px-6">
             <div class="grid md:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                 <div class="lg:col-span-5 md:col-span-6 col-span-12 pb-4">
                     <div class="-m-2 flex items-center">
@@ -276,6 +276,7 @@ const currentYear = computed(() => {
 .newsletter__email {
     @apply py-2 px-4 outline-none text-black;
     font-size: var(--normal-font-size);
+    border-radius: 0;
 }
 
 .accordion {
