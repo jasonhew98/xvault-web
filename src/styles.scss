@@ -68,6 +68,10 @@ img {
     background-position: center;
 }
 
+.landing-image {
+    background-image: url("@/assets/expense-track.svg");
+}
+
 .icon-logo {
     background-color: var(--clear);
     -webkit-mask-image: url("@/assets/x-logo.svg");
@@ -98,6 +102,7 @@ img {
 }
 
 .button {
+    @apply md:text-base text-xs py-2 w-28;
     display: inline-block;
     font-weight: var(--font-semi-bold);
     transition: .2s ease;
@@ -116,14 +121,16 @@ img {
     border: 1px solid var(--button-color);
 }
 
+.button-full {
+    @apply w-full;
+}
+
 .button--medium {
-    @apply md:w-44 w-full;
-    padding: 1rem 2rem;
+    @apply md:w-44;
 }
 
 .button--small {
-    @apply md:w-32 w-full;
-    padding: 8px 16px;
+    @apply md:w-32;
 }
 
 .button--round {

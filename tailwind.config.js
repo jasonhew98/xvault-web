@@ -17,6 +17,12 @@ module.exports = {
       'black' : "#000000"
     },
     extend: {
+      height: {
+        '500': '31.25rem',
+      },
+      width: {
+        '500': '31.25rem',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },

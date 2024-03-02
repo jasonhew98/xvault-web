@@ -110,7 +110,6 @@ const onClick = (option) => {
 .nav__toggle,
 .nav__actions {
     display: flex;
-    color: var(--title-color);
     cursor: pointer;
 }
 
@@ -121,7 +120,6 @@ const onClick = (option) => {
 }
 
 .nav__logo i {
-    color: var(--title-color);
     font-size: 2rem;
     font-weight: initial;
 }
@@ -157,15 +155,10 @@ const onClick = (option) => {
 }
 
 .nav__link {
-    color: var(--title-color);
     font-weight: var(--font-semi-bold);
     transition: color .4s;
     cursor: pointer;
     position: relative;
-}
-
-.nav__link:hover {
-    color: var(--title-color-hover);
 }
 
 .nav__close {

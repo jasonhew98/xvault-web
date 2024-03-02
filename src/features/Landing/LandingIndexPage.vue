@@ -2,20 +2,23 @@
     <div class="landing-container">
         <div class="main main-landing">
             <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
-            <div class="flex h-full flex-col justify-center items-center">
-                <div ref="home" class="landing__section">
-                    <h1 class="landing__title">Take control of your finances</h1>
-                    <h1 class="landing__title">today!</h1>
-                    <div class="landing__caption">Track your daily expenses and manage your money with ease.</div>
-                    <div class="landing__actions">
-                        <div class="landing__button button button--primary button--medium" @click="launchApp">Sign Up</div>
-                        <div class="landing__button button button--secondary button--medium">Learn More</div>
+            <div class="section-hero py-16">
+                <div class="container md:pb-4 mx-auto pt-14 px-6">
+                    <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
+                        <div ref="home" class="md:col-span-7 lg:order-none col-span-12 pb-4 order-2">
+                            <h1 class="landing__title">Take control of your finances <br>today!</h1>
+                            <div class="landing__caption">Track your daily expenses and manage your money with ease.</div>
+                            <div class="landing__actions">
+                                <div class="landing__button button button--primary button--medium" @click="launchApp">Sign Up</div>
+                                <div class="landing__button button button--secondary button--medium">Learn More</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <landing-footer></landing-footer>
             </div>
+            <landing-footer></landing-footer>
+            <!-- <AwesomeShufflePreloader contentContainer="landing-container"></AwesomeShufflePreloader> -->
         </div>
-        <!-- <AwesomeShufflePreloader contentContainer="landing-container"></AwesomeShufflePreloader> -->
     </div>
 </template>
 

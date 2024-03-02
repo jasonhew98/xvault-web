@@ -178,7 +178,6 @@ onMounted(() => {
         column-gap: .25rem;
 
         i {
-            color: var(--title-color);
             font-size: 2rem;
             font-weight: initial;
         }
