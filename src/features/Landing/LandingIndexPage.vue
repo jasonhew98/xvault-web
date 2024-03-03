@@ -1,6 +1,8 @@
 <template>
     <div class="landing-container">
+        <awesome-shuffle-preloader></awesome-shuffle-preloader>
         <div class="main main-landing">
+            
             <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
             <div class="section-hero py-16">
                 <div class="container md:pb-4 mx-auto pt-14 px-6">
@@ -17,7 +19,6 @@
                 </div>
             </div>
             <landing-footer></landing-footer>
-            <!-- <AwesomeShufflePreloader contentContainer="landing-container"></AwesomeShufflePreloader> -->
         </div>
     </div>
 </template>

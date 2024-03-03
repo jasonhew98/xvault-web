@@ -39,6 +39,11 @@ body {
     font-size: var(--normal-font-size);
     font-weight: var(--font-regular);
     letter-spacing: .025rem;
+    overflow: hidden;
+}
+
+.is-ready {
+    overflow: auto;
 }
 
 h1, h2, h3, h4 {

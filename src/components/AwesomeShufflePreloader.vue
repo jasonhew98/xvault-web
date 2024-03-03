@@ -8,10 +8,6 @@
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import { gsap } from "gsap";
 
-const props = defineProps({
-    contentContainer: { type: String, required: false, default: "" },
-});
-
 function animateScale(element, scaleValue) {
     gsap.fromTo(element, { scale: 1 }, { scale:scaleValue, duration:2, ease:"power1.out" })
 }
@@ -77,6 +73,9 @@ function shuffleLetters(placeholder, finalText) {
 }
 
 onMounted(() => {
+    if (document.body.classList.contains('is-ready'))
+        document.body.classList.remove('is-ready');
+
     const placeholder = document.querySelector(".placeholder");
     animateScale(placeholder, 1.25);
     shuffleLetters(placeholder, "XVAULT");
@@ -85,14 +84,9 @@ onMounted(() => {
         opacity: 0,
         duration: 0.5,
         delay: 3,
-        ease: "power1.inOut"
-    })
-
-    gsap.to(`.${props.contentContainer}`, {
-        delay: 3.5,
-        ease: "power4.inOut",
-        stagger: {
-            amount: 0.1,
+        ease: "power1.inOut",
+        onComplete: () => {
+            document.body.classList.add('is-ready');
         }
     })
 });
