@@ -106,7 +106,7 @@ onMounted(() => {
 }
 
 .placeholder {
-    font-size: 80px;
+    @apply md:text-8xl text-4xl;
     position: absolute;
     top: 50%;
     left: 50%;
