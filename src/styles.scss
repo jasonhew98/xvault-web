@@ -139,17 +139,17 @@ img {
     margin-left: var(--mb-0-5);
 }
 
-.button--flex {
+.button-flex {
     display: inline-flex;
     align-items: center;
 }
 
-.button--primary:hover {
+.button-primary:hover {
     color: var(--text-color-hover);
     background-color: var(--button-color-hover);
 }
 
-.button--secondary:hover {
+.button-secondary:hover {
     color: var(--clear);
     background-color: var(--button-color);
 }
