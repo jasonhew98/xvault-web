@@ -1,5 +1,5 @@
 <template>
-    <footer class="w-full">
+    <footer class="main-footer w-full hidden">
         <div class="container md:pb-4 mx-auto pt-14 px-6">
             <div class="grid md:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                 <div class="lg:col-span-5 md:col-span-6 col-span-12 pb-4">
@@ -78,7 +78,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="lg:col-span-3 md:col-span-6 md:pt-0 md:block pt-4 col-span-12 hidden">
                     <h5 class="tracking-wide font-semibold">Support</h5>
                     <ul class="list-none mt-6 space-y-2">
                         <li>
@@ -204,7 +204,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-4 border-t border-white">
+        <div class="mt-4 border-t border-white-100">
             <div class="text-center container mx-auto py-7 px-6">
                 &copy; {{ currentYear }} <span class="tracking-widest">XVAULT</span>
             </div>
@@ -269,7 +269,7 @@ const currentYear = computed(() => {
     transition: .3s;
 
     &:hover {
-        color: var(--dull);
+        color: var(--text-color-hover);
     }
 }
 
@@ -280,7 +280,7 @@ const currentYear = computed(() => {
 }
 
 .accordion {
-    @apply md:hidden border-t border-white mt-4 pt-4 col-span-12;
+    @apply md:hidden border-t border-white-100 mt-4 pt-4 col-span-12;
 }
 
 .accordion-title {
@@ -293,25 +293,6 @@ const currentYear = computed(() => {
 
 .accordion-answer {
     @apply grid overflow-hidden transition-all duration-500;
-}
-
-.footer__subscribe {
-    display: flex;
-    gap: 16px;
-}
-
-.footer__copyright-line {
-    width: 100%;
-    height: 1px;
-    background-color: var(--primary-visible);
-}
-
-.footer__copyright-text {
-    color: var(--dull);
-}
-
-@media only screen and (min-width: 768px) {
-
 }
 
 </style>

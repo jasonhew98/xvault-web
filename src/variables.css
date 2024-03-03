@@ -4,33 +4,25 @@
 @tailwind utilities;
 
 :root {
-    --primary-100:#2E2E7E;
-    --primary-200:#211D4E;
-    --primary-300:#c3b4ff;
-    --accent-100:#6E6EA1;
-    --accent-200:#ffffff;
+    
+    --primary-100:#56ffff;
+    --primary-200:#36e5e5;
+    --accent-100:#7f2ae1;
     --text-100:#FFFFFF;
     --text-200:#e0e0e0;
     --bg-100:#0F0F3D;
-    --bg-200:#211d4e;
-    --bg-300:#3c3468;
 
-    --primary-visible: var(--accent-200);
+    --scrollbar-bg-color:#211D4E;
+    --scrollbar-color:#6E6EA1;
+
+    --primary-visible: var(--accent-100);
     --primary-dull: var(--primary-200);
     --clear: var(--text-100);
     --dull: var(--text-200);
     --body-color: var(--bg-100);
     --button-color: var(--primary-100);
-    --button-color-hover: var(--text-100);
-    --text-color-hover: var(--primary-dull);
-
-    --app-primary-visible: var(--primary-300);
-    --app-primary-dull: var(--primary-200);
-    --app-clear: var(--text-100);
-    --app-dull: var(--text-200);
-    --app-body-color: var(--text-100);
-    --app-button-color: var(--primary-dull);
-    --app-button-color-hover: var(--bg-300);
+    --button-color-hover: var(--primary-200);
+    --text-color-hover: var(--primary-100);
 
     --header-height: 3.5rem;
     --sidebar-width: 240px;

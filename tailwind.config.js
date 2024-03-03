@@ -6,14 +6,12 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'cosmic-cobalt': "#2E2E7E",
-      'vodka': "#C3B4FF",
-      'dark-blue-gray': "#6E6EA1",
-      'white': "#FFFFFF",
-      'cn-white': "#E0E0E0",
-      'cetacean-blue': "#0F0F3D",
-      'space-cadet': "#211D4E",
-      'us-blue': "#3C3468",
+      'primary-100': "#56FFFF",
+      'primary-200': "#36E5E5",
+      'accent-100': "#7F2AE1",
+      'white-100': "#FFFFFF",
+      'white-200': "#E0E0E0",
+      'bg-100': "#0F0F3D",
       'black' : "#000000"
     },
     extend: {
