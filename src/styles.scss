@@ -119,20 +119,12 @@ img {
 }
 
 .button {
-    @apply md:text-base text-sm text-bg-100;
+    @apply md:text-base text-sm text-bg-100 md:w-32 p-2 w-24;
     display: inline-block;
     font-weight: var(--font-semi-bold);
     transition: .2s ease;
     cursor: pointer;
     border: 1px solid var(--button-color);
-}
-
-.button-medium {
-    @apply md:w-44 py-3 w-28;
-}
-
-.button-small {
-    @apply md:w-32 py-2 w-24;
 }
 
 .button--round {

@@ -9,7 +9,7 @@
                     <p class="mt-4">Join our newsletter to receive updates on new features and releases.</p>
                     <form class="flex md:flex-row flex-col gap-4 py-2" action="">
                         <input type="text" class="md:w-80 w-full newsletter__email" placeholder="johndoe@email.com">
-                        <div class="button button-secondary text-center tracking-wide md:w-44 py-3 w-full">Subscribe</div>
+                        <div class="button button-secondary text-center tracking-wide md:w-32 py-2 w-full">Subscribe</div>
                     </form>
                 </div>
                 <!-- Default -->

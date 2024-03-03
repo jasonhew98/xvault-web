@@ -20,7 +20,7 @@
                 <a href="#">Forgot Password?</a>
             </div>
 
-            <button class="login-button button button--primary button--medium">Login</button>
+            <button class="login-button button button-primary">Login</button>
 
             <p class="register">
                 Don't have an account?

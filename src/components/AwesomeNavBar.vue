@@ -18,7 +18,7 @@
             </div>
 
             <div class="nav__actions">
-                <div class="button button-small button-secondary text-center" @click="launchApp">Launch</div>
+                <div class="button button-secondary text-center" @click="launchApp">Launch</div>
 
                 <!-- <div class="nav__toggle">
                     <i class='bx bx-menu nav__open' @click="toggleMenu"></i>
