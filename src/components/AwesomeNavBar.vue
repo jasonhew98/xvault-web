@@ -1,5 +1,5 @@
 <template>
-    <header class="header" id="header">
+    <header class="header" id="header" :class="headerClass">
         <nav class="nav">
             <a href="#" class="nav__logo logo-name">
                 <div class="w-12 h-12 icon icon-logo"></div>XVAULT
@@ -29,11 +29,13 @@
 </template>
 
 <script setup>
-import { ref, computed, getCurrentInstance } from 'vue';
+import { ref, computed, onMounted, onUnmounted, getCurrentInstance } from 'vue';
 
 const app = getCurrentInstance();
 
 // region ref
+const showNavBar = ref(true);
+const lastScrollPosition = ref(0);
 const showMenu = ref(false);
 
 // region props
@@ -44,6 +46,10 @@ const props = defineProps({
 // region computed
 const router = computed(() => {
     return app.appContext.config.globalProperties.$router;
+});
+
+const headerClass = computed(() => {
+    return showNavBar.value ? "" : "header--hidden";
 });
 
 const navMenuClass = computed(() => {
@@ -78,6 +84,24 @@ const onClick = (option) => {
     toggleMenu();
     option.action();
 }
+
+const onScroll = () => {
+    const currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
+    if (currentScrollPosition < 0) {
+        return;
+    }
+
+    showNavBar.value = currentScrollPosition < lastScrollPosition.value;
+    lastScrollPosition.value = currentScrollPosition;
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', onScroll)
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', onScroll)
+});
 </script>
 
 <style lang="scss" scoped>
@@ -89,6 +113,13 @@ const onClick = (option) => {
     left: 0;
     background-color: var(--body-color);
     z-index: var(--z-fixed);
+
+    transform: translate3d(0, 0, 0);
+    transition: 0.1s all ease-out;
+}
+
+.header--hidden {
+    transform: translate3d(0, -100%, 0);
 }
 
 .nav {
