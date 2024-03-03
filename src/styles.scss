@@ -102,35 +102,31 @@ img {
 }
 
 .button {
-    @apply md:text-base text-sm py-3 w-28;
+    @apply md:text-base text-sm;
     display: inline-block;
     font-weight: var(--font-semi-bold);
     transition: .2s ease;
     cursor: pointer;
 }
 
-.button--primary {
+.button-primary {
     color: var(--clear);
     background-color: var(--button-color);
     border: 1px solid var(--button-color);
 }
 
-.button--secondary {
+.button-secondary {
     color: var(--text-color-hover);
     background-color: var(--button-color-hover);
     border: 1px solid var(--button-color);
 }
 
-.button-full {
-    @apply w-full;
+.button-medium {
+    @apply md:w-44 py-3 w-28;
 }
 
-.button--medium {
-    @apply md:w-44;
-}
-
-.button--small {
-    @apply md:w-32;
+.button-small {
+    @apply md:w-32 py-2 w-24;
 }
 
 .button--round {
