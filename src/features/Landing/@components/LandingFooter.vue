@@ -205,7 +205,7 @@
             </div>
         </div>
         <div class="mt-4 border-t border-white-100">
-            <div class="text-center container mx-auto py-7 px-6">
+            <div class="text-center text-white-200 container mx-auto py-7 px-6">
                 &copy; {{ currentYear }} <span class="tracking-widest">XVAULT</span>
             </div>
         </div>
