@@ -98,19 +98,21 @@ onMounted(() => {
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     background: var(--body-color);
     color: #fff;
     pointer-events: none;
     z-index: 999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .placeholder {
     @apply md:text-8xl text-4xl;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     letter-spacing: 5px;
 }
