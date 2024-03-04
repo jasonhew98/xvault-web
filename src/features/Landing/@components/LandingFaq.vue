@@ -1,20 +1,19 @@
 <template>
     <div class="container md:pb-4 mx-auto pt-14 px-6">
-        <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
-            <div class="lg:col-span-12 md:text-center md:col-span-7 col-span-12 pb-4">
+        <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16 pb-16">
+            <div class="lg:col-span-12 md:text-center md:col-span-7 col-span-12">
                 <h1 class="landing__title">Frequently Asked Questions</h1>
-                <div class="landing__caption">Check our website's FAQs for quick answers about our services.</div>
             </div>
         </div>
-            <!-- Accordion -->
-            <transition-group name="accordion" tag="div" >
-            <div class="lg:col-span-12 md:col-span-7 col-span-12 border-t border-white-100 mt-4 pt-4" v-for="faq in faqs.value" :key="faq.id" :class="faq.id == faqs.value.length ? 'last-faq' : ''">
+        <!-- Accordion -->
+        <div class="flex justify-center align-items-center flex-col 2xl:px-80 md:px-8">
+            <div class="border-t border-white-100 mt-4 pt-4" v-for="faq in faqs.value" :key="faq.id" :class="faq.id == faqs.value.length ? 'border-b pb-4' : ''">
                 <div class="faq-title" @click="toggleAccordion(faq.id)">
                     <h5 class="tracking-wide font-semibold">{{ faq.question }}</h5>
                     <i v-if="!faq.active" class='bx bx-plus'></i>
                     <i v-else class='bx bx-minus' ></i>
                 </div>
-                <div class="faq-answer" :class="faq.active ? 'grid-rows-[1fr] max-h-64' : 'grid-rows-[0fr] max-h-0'">
+                <div class="faq-answer" :class="faq.active ? 'max-h-64' : 'max-h-0'">
                     <ul class="list-none mt-6 space-y-2">
                         <li>
                             <div class="footer__menu-link">
@@ -24,7 +23,7 @@
                     </ul>
                 </div>
             </div>
-        </transition-group>
+        </div>
     </div>
 </template>
 
@@ -74,14 +73,6 @@ const toggleAccordion = (id) => {
 </script>
 
 <style lang="scss" scoped>
-
-.faq {
-    @apply lg:col-span-10 md:col-span-10 border-t border-white-100 mt-4 pt-4 col-span-1;
-}
-
-.last-faq {
-    @apply border-b pb-4;
-}
 
 .faq-title {
     @apply flex items-center;

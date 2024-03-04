@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="section-hero py-16">
-                <!-- <landing-faq></landing-faq> -->
+                <landing-faq></landing-faq>
             </div>
             <landing-footer></landing-footer>
         </div>
