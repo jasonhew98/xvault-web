@@ -45,12 +45,8 @@ body {
 .is-ready {
     overflow: auto;
 
-    footer {
-        @apply block;
-    }
-
     .main {
-        z-index: 1;
+        @apply block;
     }
 }
 
@@ -113,8 +109,8 @@ img {
 }
 
 .main {
+    display: none;
     @apply relative;
-    z-index: -1;
     overflow: hidden;
 }
 
@@ -146,15 +142,17 @@ img {
 
 .button-secondary {
     @apply text-primary-100;
+    transition: .2s;
 }
 
 .button-primary:hover {
-    background-color: var(--button-color-hover);
+    @apply text-primary-100;
+    background-color: var(--body-color);
+    box-shadow: inset 0 0 0 1px var(--primary-100);
 }
 
 .button-secondary:hover {
-    @apply text-bg-100;
-    background-color: var(--button-color-hover);
+    box-shadow: inset 0 0 0 1px var(--primary-100);
 }
 
 #xvault__app {

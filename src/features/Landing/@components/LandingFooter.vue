@@ -1,5 +1,5 @@
 <template>
-    <footer class="main-footer w-full hidden">
+    <footer class="main-footer w-full">
         <div class="container md:pb-4 mx-auto pt-14 px-6">
             <div class="grid md:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                 <div class="lg:col-span-5 md:col-span-6 col-span-12 pb-4">
