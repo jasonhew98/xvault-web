@@ -1,134 +1,99 @@
 <template>
-    <div class="faq__container">
-        <div class="faq__title">Frequently Asked Questions</div>
-        <div class="faq" v-for="faq in faqs" :key="faq.id" :id="faq.id">
-            <div class="faq__question"><h3>{{ faq.question }}</h3></div>
-            <div class="faq__answer"><p>{{ faq.answer }}</p></div>
+    <div class="container md:pb-4 mx-auto pt-14 px-6">
+        <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
+            <div class="lg:col-span-12 md:text-center md:col-span-7 col-span-12 pb-4">
+                <h1 class="landing__title">Frequently Asked Questions</h1>
+                <div class="landing__caption">Check our website's FAQs for quick answers about our services.</div>
+            </div>
         </div>
+            <!-- Accordion -->
+            <transition-group name="accordion" tag="div" >
+            <div class="lg:col-span-12 md:col-span-7 col-span-12 border-t border-white-100 mt-4 pt-4" v-for="faq in faqs.value" :key="faq.id" :class="faq.id == faqs.value.length ? 'last-faq' : ''">
+                <div class="faq-title" @click="toggleAccordion(faq.id)">
+                    <h5 class="tracking-wide font-semibold">{{ faq.question }}</h5>
+                    <i v-if="!faq.active" class='bx bx-plus'></i>
+                    <i v-else class='bx bx-minus' ></i>
+                </div>
+                <div class="faq-answer" :class="faq.active ? 'grid-rows-[1fr] max-h-64' : 'grid-rows-[0fr] max-h-0'">
+                    <ul class="list-none mt-6 space-y-2">
+                        <li>
+                            <div class="footer__menu-link">
+                                {{ faq.answer }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </transition-group>
     </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
-const faqs = computed(() => {
-    return [
-        {
-            id: "faq-1",
-            question: "How to get started?",
-            answer: "To get started, simply sign up for an account and start tracking your daily expenses. Our user-friendly interface makes it easy to input and categorize your expenses."
-        },
-        {
-            id: "faq-2",
-            question: "How secure is my data?",
-            answer: "We take the security of your data seriously. Our website uses industry-standard encryption protocols to ensure that your personal and financial information is protected."
-        },
-        {
-            id: "faq-3",
-            question: "Can I access my data from multiple devices?",
-            answer: "Yes, you can access your data from any device with an internet connection. Simply log in to your account and all your information will be synced across devices."
-        },
-        {
-            id: "faq-4",
-            question: "How can I track my expenses?",
-            answer: "Tracking your expenses is easy. Use our intuitive interface to enter your expenses, assign categories, and view detailed reports to gain insights into your spending habits."
-        },
-        {
-            id: "faq-5",
-            question: "What if I need help?",
-            answer: "If you need any assistance or have further questions, please don't hesitate to contact our support team. We're here to help!"
-        }
-    ]
+
+const faqs = reactive({
+    value: [{
+        id: 1,
+        active: false,
+        question: "How to get started?",
+        answer: "To get started, simply sign up for an account and start tracking your daily expenses. Our user-friendly interface makes it easy to input and categorize your expenses."
+    },
+    {
+        id: 2,
+        active: false,
+        question: "How secure is my data?",
+        answer: "We take the security of your data seriously. Our website uses industry-standard encryption protocols to ensure that your personal and financial information is protected."
+    },
+    {
+        id: 3,
+        active: false,
+        question: "Can I access my data from multiple devices?",
+        answer: "Yes, you can access your data from any device with an internet connection. Simply log in to your account and all your information will be synced across devices."
+    },
+    {
+        id: 4,
+        active: false,
+        question: "How can I track my expenses?",
+        answer: "Tracking your expenses is easy. Use our intuitive interface to enter your expenses, assign categories, and view detailed reports to gain insights into your spending habits."
+    },
+    {
+        id: 5,
+        active: false,
+        question: "What if I need help?",
+        answer: "If you need any assistance or have further questions, please don't hesitate to contact our support team. We're here to help!"
+    }]
 });
 
-const onToggle = (faqId) => {
-    let faqs = document.querySelectorAll(".faq");
-    faqs.forEach((faq) => {
-        faq.classList.remove("faq--active");
-    })
-
-    const element = document.getElementById(faqId);
-    if (!element) return;
-    element.classList.add("faq--active");
+const toggleAccordion = (id) => {
+    faqs.value = faqs.value.map((faq) => ({
+        ...faq,
+        active: faq.id === id ? !faq.active : false
+    }));
 };
-
-onMounted(() => {
-    let faqs = document.querySelectorAll(".faq");
-    faqs.forEach((faq) => {
-        faq.onclick = () => {
-            var otherFaqs = Array.from(faqs).filter(x => x != faq);
-            otherFaqs.forEach((otherFaq) => {
-                otherFaq.classList.remove("faq--active");
-            })
-            faq.classList.toggle("faq--active");
-        }
-    })
-})
 
 </script>
 
 <style lang="scss" scoped>
 
-.faq__container {
-    display: flex;
-    flex-direction: column;
-    padding: 80px 0;
-    max-width: 1248px;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.faq__title {
-    font-size: var(--h1-font-size);
-    text-align: center;
-    margin-bottom: 24px;
-}
-
 .faq {
-    width: 100%;
-    max-width: 700px;
-    padding: 2rem;
+    @apply lg:col-span-10 md:col-span-10 border-t border-white-100 mt-4 pt-4 col-span-1;
+}
+
+.last-faq {
+    @apply border-b pb-4;
+}
+
+.faq-title {
+    @apply flex items-center;
     cursor: pointer;
-}
 
-.faq__answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .4s ease;
-
-    p {
-        padding-top: 1rem;
+    i {
+        @apply ml-auto;
     }
 }
 
-.faq--active {
-    background-color: var(--button-color);
-    
-    .faq__answer {
-        max-height: 300px;
-    }
-}
-
-.faq:hover {
-    background-color: var(--button-color);
-}
-
-@media only screen and (min-width: 768px) {
-    .faq {
-        padding: 16px 24px;
-        margin-bottom: 16px;
-    }
-
-    .faq__title {
-        margin-bottom: 64px;
-    }
-}
-
-@media only screen and (max-width: 576px) {
-}
-
-@media only screen and (max-width: 350px) {
+.faq-answer {
+    @apply grid overflow-hidden transition-all duration-500;
 }
 
 </style>

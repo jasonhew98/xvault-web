@@ -100,12 +100,12 @@
                 </div>
                 <!-- Accordion -->
                 <div class="accordion">
-                    <div class="accordion-title" @click="toggleAccordionA">
+                    <div class="accordion-title" @click="toggleAccordionAbout">
                         <h5 class="tracking-wide font-semibold">About Us</h5>
-                        <i v-if="!accordionA" class='bx bx-plus'></i>
+                        <i v-if="!accordionAbout" class='bx bx-plus'></i>
                         <i v-else class='bx bx-minus' ></i>
                     </div>
-                    <div class="accordion-answer" :class="accordionAClass">
+                    <div class="accordion-answer" :class="accordionAboutClass">
                         <ul class="list-none mt-6 space-y-2">
                             <li>
                                 <div class="footer__menu-link">
@@ -146,12 +146,12 @@
                     </div>
                 </div>
                 <div class="accordion">
-                    <div class="accordion-title" @click="toggleAccordionB">
+                    <div class="accordion-title" @click="toggleAccordionService">
                         <h5 class="tracking-wide font-semibold">Service</h5>
-                        <i v-if="!accordionB" class='bx bx-plus'></i>
+                        <i v-if="!accordionService" class='bx bx-plus'></i>
                         <i v-else class='bx bx-minus' ></i>
                     </div>
-                    <div class="accordion-answer" :class="accordionBClass">
+                    <div class="accordion-answer" :class="accordionServiceClass">
                         <ul class="list-none mt-6 space-y-2">
                             <li>
                                 <div class="footer__menu-link">
@@ -177,12 +177,12 @@
                     </div>
                 </div>
                 <div class="accordion">
-                    <div class="accordion-title" @click="toggleAccordionC">
+                    <div class="accordion-title" @click="toggleAccordionSupport">
                         <h5 class="tracking-wide font-semibold">Support</h5>
-                        <i v-if="!accordionC" class='bx bx-plus'></i>
+                        <i v-if="!accordionSupport" class='bx bx-plus'></i>
                         <i v-else class='bx bx-minus' ></i>
                     </div>
-                    <div class="accordion-answer" :class="accordionCClass">
+                    <div class="accordion-answer" :class="accordionSupportClass">
                         <ul class="list-none mt-6 space-y-2">
                             <li>
                                 <div class="footer__menu-link">
@@ -215,41 +215,41 @@
 <script setup>
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 
-const accordionA = ref(false);
-const accordionB = ref(false);
-const accordionC = ref(false);
+const accordionAbout = ref(false);
+const accordionService = ref(false);
+const accordionSupport = ref(false);
 
-const toggleAccordionA = () => {
-    accordionB.value = false;
-    accordionC.value = false;
+const toggleAccordionAbout = () => {
+    accordionService.value = false;
+    accordionSupport.value = false;
 
-    accordionA.value = !accordionA.value;
+    accordionAbout.value = !accordionAbout.value;
 }
 
-const accordionAClass = computed(() => {
-    return accordionA.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
+const accordionAboutClass = computed(() => {
+    return accordionAbout.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
 })
 
-const toggleAccordionB = () => {
-    accordionA.value = false;
-    accordionC.value = false;
+const toggleAccordionService = () => {
+    accordionAbout.value = false;
+    accordionSupport.value = false;
 
-    accordionB.value = !accordionB.value;
+    accordionService.value = !accordionService.value;
 }
 
-const accordionBClass = computed(() => {
-    return accordionB.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
+const accordionServiceClass = computed(() => {
+    return accordionService.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
 })
 
-const toggleAccordionC = () => {
-    accordionA.value = false;
-    accordionB.value = false;
+const toggleAccordionSupport = () => {
+    accordionAbout.value = false;
+    accordionService.value = false;
 
-    accordionC.value = !accordionC.value;
+    accordionSupport.value = !accordionSupport.value;
 }
 
-const accordionCClass = computed(() => {
-    return accordionC.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
+const accordionSupportClass = computed(() => {
+    return accordionSupport.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
 })
 
 const currentYear = computed(() => {
@@ -285,6 +285,7 @@ const currentYear = computed(() => {
 
 .accordion-title {
     @apply flex items-center;
+    cursor: pointer;
 
     i {
         @apply ml-auto;
