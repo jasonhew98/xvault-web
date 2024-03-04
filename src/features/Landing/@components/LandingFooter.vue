@@ -274,8 +274,7 @@ const currentYear = computed(() => {
 }
 
 .newsletter__email {
-    @apply py-2 px-4 outline-none text-black;
-    font-size: var(--normal-font-size);
+    @apply py-2 px-4 outline-none text-black text-base;
     border-radius: 0;
 }
 

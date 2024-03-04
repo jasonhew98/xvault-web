@@ -123,12 +123,12 @@ onUnmounted(() => {
 }
 
 .nav {
+    @apply text-base;
     position: relative;
     height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: var(--normal-font-size);
     padding: 0 1.5rem;
 }
 
@@ -145,7 +145,7 @@ onUnmounted(() => {
 }
 
 .nav__logo {
-    font-weight: var(--font-semi-bold);
+    @apply font-semibold;
     column-gap: .25rem;
     align-items: center;
 }
@@ -186,7 +186,7 @@ onUnmounted(() => {
 }
 
 .nav__link {
-    font-weight: var(--font-semi-bold);
+    @apply font-semibold;
     transition: color .4s;
     cursor: pointer;
     position: relative;

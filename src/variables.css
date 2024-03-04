@@ -28,22 +28,9 @@
     --sidebar-width: 240px;
 
     /*=============== Font and typography ===============*/
-    /*.5rem = 8px | 1rem = 16px ...*/
     --body-font: "Roboto", sans-serif;
-    --biggest-font-size: 2.25rem;
-    --h1-font-size: 1.5rem;
-    --h2-font-size: 1.25rem;
-    --h3-font-size: 1rem;
-    --normal-font-size: .938rem;
-    --small-font-size: .813rem;
 
-    /*=============== Font weight ===============*/
-    --font-regular: 400;
-    --font-semi-bold: 600;
-    --font-bold: 700;
-
-    /*=============== Font weight ===============*/
-    --z-tooltip: 10;
+    /*=============== Z-index ===============*/
     --z-fixed: 100;
 
     /*=============== Padding ===============*/
@@ -65,16 +52,4 @@
     --margin-2: 2rem;
     --margin-2-5: 2.5rem;
     --margin-3: 3rem;
-}
-
-/*=============== Responsive typography ===============*/
-@media screen and (min-width: 1150px) {
-    :root {
-        --biggest-font-size: 4.25rem;
-        --h1-font-size: 2.25rem;
-        --h2-font-size: 1.5rem;
-        --h3-font-size: 1.25rem;
-        --normal-font-size: 1rem;
-        --small-font-size: .873rem;
-    }
 }
