@@ -1,32 +1,34 @@
 <template>
-    <div class="main flex-center">
-        <form action="#" class="login__form" @submit.prevent="login">
-            <h1 class="login__title">Login</h1>
+    <div class="auth-container">
+        <div class="main flex-center">
+            <form action="#" class="login__form" @submit.prevent="login">
+                <h1 class="login__title">Login</h1>
 
-            <div class="input__box">
-                <i class='bx bxs-user'></i>
-                <input type="text" placeholder="Username" v-model="username">
-            </div>
-            <div class="input__box">
-                <i class='bx bxs-lock-alt'></i>
-                <input type="password" placeholder="Password" v-model="password">
-            </div>
+                <div class="input__box">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Username" v-model="username">
+                </div>
+                <div class="input__box">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Password" v-model="password">
+                </div>
 
-            <div class="session__box">
-                <label for="remember">
-                    <input type="checkbox" id="remember" v-model="rememberMe">
-                    Remember me
-                </label>
-                <a href="#">Forgot Password?</a>
-            </div>
+                <div class="session__box">
+                    <label for="remember">
+                        <input type="checkbox" id="remember" v-model="rememberMe">
+                        Remember me
+                    </label>
+                    <a href="#">Forgot Password?</a>
+                </div>
 
-            <button class="login-button button button-primary">Login</button>
+                <button class="login-button button button-primary">Login</button>
 
-            <p class="register">
-                Don't have an account?
-                <a href="#">Register</a>
-            </p>
-        </form>
+                <p class="register">
+                    Don't have an account?
+                    <a href="#">Register</a>
+                </p>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -68,7 +70,6 @@ const login = async () => {
         
         let jwtToken = result.jwtToken;
 
-        // Assuming you have the JWT token available as 'accessToken'
         const accessToken = jwtToken.token;
         const expiryDate = jwtToken.expiry;
 
@@ -89,7 +90,6 @@ const login = async () => {
 <style lang="scss" scoped>
 
 .login__form {
-    background: rgba(64, 64, 64, 0.15);
     padding: 30px;
     border-radius: 16px;
     backdrop-filter: blur(25px);
@@ -97,7 +97,6 @@ const login = async () => {
     color: white;
     width: 400px;
     height: fit-content;
-    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.15);
 }
 
 .login__title {
