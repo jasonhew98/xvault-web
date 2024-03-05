@@ -2,7 +2,7 @@
     <header class="header" id="header" :class="headerClass">
         <nav class="nav">
             <a href="#" class="nav__logo logo-name">
-                <div class="w-12 h-12 icon icon-logo"></div>XVAULT
+                <div class="w-12 h-12 icon icon-box-logo"></div>XVAULT
             </a>
 
             <div class="nav__menu" :class="navMenuClass">
@@ -111,7 +111,6 @@ onUnmounted(() => {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: var(--body-color);
     z-index: var(--z-fixed);
 
     transform: translate3d(0, 0, 0);

@@ -1,10 +1,11 @@
 <template>
     <div class="landing-container">
-        <awesome-shuffle-preloader></awesome-shuffle-preloader>
+        <landing-preloader-text-shuffle></landing-preloader-text-shuffle>
         <div class="main main-landing">
-            <awesome-nav-bar :options="navBarOptions"></awesome-nav-bar>
-            <div class="section-hero py-16">
-                <div class="container md:pb-4 mx-auto pt-14 px-6">
+            <landing-nav :options="navBarOptions"></landing-nav>
+            <main class="section-hero py-16 w-screen h-screen">
+                <div class="intro-background"></div>
+                <div class="container md:pb-4 mx-auto pt-14 px-6 z-10">
                     <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                         <div class="lg:col-span-12 md:text-center md:col-span-7 lg:order-none col-span-12 pb-4 order-2">
                             <h1 class="landing__title">Take control of your finances <br>today!</h1>
@@ -16,8 +17,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="section-hero py-16">
+            </main>
+            <div class="section-faq py-16">
                 <landing-faq></landing-faq>
             </div>
             <landing-footer></landing-footer>
@@ -27,10 +28,13 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
-import AwesomeNavBar from '@/components/AwesomeNavBar.vue';
-import AwesomeShufflePreloader from '@/components/AwesomeShufflePreloader.vue';
+import LandingPreloaderTextShuffle from './@components/LandingPreloaderTextShuffle.vue';
+import LandingNav from './@components/LandingNav.vue';
 import LandingFaq from './@components/LandingFaq.vue';
 import LandingFooter from './@components/LandingFooter.vue';
+import * as THREE from 'three'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import circle from '@/assets/circle.png'
 
 const app = getCurrentInstance();
 
@@ -91,11 +95,153 @@ const launchApp = () => {
 };
 
 onMounted(() => {
+    // Load your texture here
+    const textureLoader = new THREE.TextureLoader();
+    const imgTex = textureLoader.load(circle);
+
+    // Set up scene
+    const scene = new THREE.Scene();
+
+    // Set up camera
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // Camera position x, y ,z
+    camera.position.set(0, 100, 0);
+    
+
+    // Set up renderer
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setClearColor( 0xffffff, 0 );
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.querySelector('.intro-background').appendChild(renderer.domElement);
+
+    // Set up controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enabled = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = -0.2;
+    
+    const sizes = {
+        width: window.innerWidth,
+        height: window.innerHeight
+    }
+
+    window.addEventListener('resize', () =>
+    {
+        // Update sizes
+        sizes.width = window.innerWidth
+        sizes.height = window.innerHeight
+
+        // Update camera
+        camera.aspect = sizes.width / sizes.height
+        camera.updateProjectionMatrix()
+
+        // Update renderer
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    })
+
+    // Function to generate points
+    function generatePoints() {
+        const count = 100;
+        const sep = 3;
+        let positions = [];
+
+        for (let xi = 0; xi < count; xi++) {
+            for (let zi = 0; zi < count; zi++) {
+                let x = sep * (xi - count / 2);
+                let z = sep * (zi - count / 2);
+                let y = graph(x, z);
+                positions.push(x, y, z);
+            }
+        }
+
+        return new Float32Array(positions);
+    }
+
+    // Function to update points
+    function updatePoints(positions) {
+        let i = 0;
+        for (let xi = 0; xi < count; xi++) {
+            for (let zi = 0; zi < count; zi++) {
+                let x = sep * (xi - count / 2);
+                let z = sep * (zi - count / 2);
+                positions[i + 1] = graph(x, z);
+                i += 3;
+            }
+        }
+    }
+
+    // Function to define the graph
+    function graph(x, z) {
+        return Math.sin(f * (x ** 2 + z ** 2 + t)) * a;
+    }
+
+    // Set up points
+    const count = 100;
+    const sep = 3;
+    let t = 0;
+    let f = 0.002;
+    let a = 3;
+    let positions = generatePoints();
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    const material = new THREE.PointsMaterial({
+        map: imgTex,
+        color: 0x00AAFF,
+        size: 0.5,
+        sizeAttenuation: true,
+        transparent: false,
+        alphaTest: 0.5,
+        opacity: 1.0,
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        t += 15;
+        updatePoints(positions);
+        geometry.attributes.position.needsUpdate = true;
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    animate();
 })
 
 </script>
 
 <style lang="scss">
+
+.section-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-background > canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .landing__content {
     height: 100%;

@@ -1,7 +1,7 @@
 <template>
-    <div class="app">
+    <div class="app bg-gray-100">
         <div class="app-content">
-            <ApplicationSideBar></ApplicationSideBar>
+            <application-nav-bar></application-nav-bar>
             <router-view></router-view>
         </div>
     </div>
@@ -9,20 +9,13 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
-import ApplicationSideBar from './@components/ApplicationSideBar.vue';
+import ApplicationNavBar from './@components/ApplicationNavBar.vue';
+
 </script>
 
 <style lang="scss" scoped>
 
-.app {
-    display: flex;
-}
 
-.app-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
 
 
 

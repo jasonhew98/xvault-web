@@ -35,14 +35,11 @@ body {
     width: 100%;
     height: 100vh;
     background-color: var(--body-color);
-    background-image: var(--body-color);
     font-family: var(--body-font);
     letter-spacing: .025rem;
-    overflow: hidden;
 }
 
 .is-ready {
-    overflow: auto;
 
     #xvault__app .main {
         @apply block;
@@ -58,7 +55,6 @@ ul {
 }
 
 a {
-    color: var(--clear);
     cursor: pointer;
     text-decoration: none;
     transition: .2s;
@@ -83,9 +79,13 @@ img {
 }
 
 .icon-logo {
-    background-color: var(--clear);
     -webkit-mask-image: url("@/assets/x-logo.svg");
     mask-image: url("@/assets/x-logo.svg");
+}
+
+.icon-box-logo {
+    -webkit-mask-image: url("@/assets/box-logo.svg");
+    mask-image: url("@/assets/box-logo.svg");
 }
 
 /*=============== REUSABLE CLASSES ===============*/
@@ -157,18 +157,19 @@ img {
         display: none;
         @apply relative;
         overflow: hidden;
+
+        a {
+            color: var(--clear);
+        }
+
+        .icon-logo,
+        .icon-box-logo {
+            background-color: var(--clear);
+        }
     }
 
     .main-landing {
         padding-top: var(--header-height);
-    }
-
-    .app {
-        background-color: var(--app-body-color);
-    }
-
-    .app__content {
-        padding: var(--padding-1) var(--padding-3);
     }
 
     .landing__title {
@@ -188,6 +189,19 @@ img {
 
     .pointer {
         cursor: pointer;
+    }
+
+    .app {
+        @apply w-full h-full bg-gray-100 dark:bg-gray-900 dark:text-gray-100;
+
+        .app-content {
+            @apply w-full h-full bg-gray-100 dark:bg-gray-900 dark:text-gray-100;
+        }
+
+        .icon-logo,
+        .icon-box-logo {
+            @apply bg-blue-600;
+        }
     }
     
     /* For large devices */

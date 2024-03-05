@@ -1,14 +1,32 @@
 <template>
-    <div class="app__content">
-        <h1>MVP</h1>
-        <h1>Add Transaction</h1>
-        <awesome-text-box label="Main Category" tooltip="Main Category" v-model="transaction.mainCategory"></awesome-text-box>
+    <div class="app-content bg-gray-100 flex max-w-full flex-auto flex-col">
+        <main id="page-content" class="app-content bg-gray-100 flex justify-center items-center max-w-full flex-auto flex-col">
+            <div class="container w-full p-4">
+                <div class="md:p-16 p-4 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 text-gray-400 dark:border-gray-700 dark:bg-gray-800">
+                    <transaction-add-form></transaction-add-form>
+                </div>
+            </div>
+        </main>
+        <main id="page-content" class="app-content bg-gray-100 flex justify-center items-center max-w-full flex-auto flex-col">
+            <div class="container w-full p-4">
+                <div class="md:p-16 p-4 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 text-gray-400 dark:border-gray-700 dark:bg-gray-800">
+                    <transaction-add-form></transaction-add-form>
+                </div>
+            </div>
+        </main>
+        <main id="page-content" class="app-content bg-gray-100 flex justify-center items-center max-w-full flex-auto flex-col">
+            <div class="container w-full p-4">
+                <div class="md:p-16 p-4 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 text-gray-400 dark:border-gray-700 dark:bg-gray-800">
+                    <transaction-add-form></transaction-add-form>
+                </div>
+            </div>
+        </main>
     </div>
 </template>
 
 <script setup>
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
-import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
+import TransactionAddForm from './@components/TransactionAddForm.vue';
 const app = getCurrentInstance();
 
 const transaction = reactive({
