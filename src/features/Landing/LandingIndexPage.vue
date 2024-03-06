@@ -1,10 +1,10 @@
 <template>
     <div class="landing-container">
-        <landing-preloader-text-shuffle></landing-preloader-text-shuffle>
+        <!-- <landing-preloader-text-shuffle></landing-preloader-text-shuffle> -->
         <div class="main main-landing">
             <landing-nav :options="navBarOptions"></landing-nav>
-            <main class="section-hero py-16 w-screen h-screen">
-                <div class="intro-background"></div>
+            <main class="section-hero py-16 h-screen">
+                <!-- <div class="intro-background"></div> -->
                 <div class="container md:pb-4 mx-auto pt-14 px-6 z-10">
                     <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                         <div class="lg:col-span-12 md:text-center md:col-span-7 lg:order-none col-span-12 pb-4 order-2">
@@ -94,7 +94,7 @@ const launchApp = () => {
         goToAuth();
 };
 
-onMounted(() => {
+const constructPreload = () => {
     // Load your texture here
     const textureLoader = new THREE.TextureLoader();
     const imgTex = textureLoader.load(circle);
@@ -211,6 +211,10 @@ onMounted(() => {
     }
 
     animate();
+}
+
+onMounted(() => {
+    
 })
 
 </script>

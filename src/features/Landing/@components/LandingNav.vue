@@ -2,7 +2,7 @@
     <header class="header" id="header" :class="headerClass">
         <nav class="nav">
             <a href="#" class="nav__logo logo-name">
-                <div class="w-12 h-12 icon icon-box-logo"></div>XVAULT
+                <div class="w-8 h-8 icon icon-box-logo"></div>XVAULT
             </a>
 
             <div class="nav__menu" :class="navMenuClass">
