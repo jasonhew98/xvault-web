@@ -1,5 +1,5 @@
 <template>
-    <div class="app__content">
+    <div class="w-full h-full overflow-auto bg-gray-100 flex max-w-full flex-auto flex-col">
         <h1>Wallet</h1>
     </div>
 </template>

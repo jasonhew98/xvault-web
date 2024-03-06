@@ -79,21 +79,11 @@ const topMenuItems = computed(() => {
             name: "Dashboard",
             iconClass: "bx bx-grid-alt"
         },
-        // {
-        //     id: "trade",
-        //     name: "Trade",
-        //     iconClass: "bx bx-chart"
-        // },
         {
             id: "wallet",
             name: "Wallet",
             iconClass: "bx bx-wallet-alt"
         },
-        // {
-        //     id: "analytics",
-        //     name: "Analytics",
-        //     iconClass: "uil uil-chart-pie-alt"
-        // }
     ];
 });
 
