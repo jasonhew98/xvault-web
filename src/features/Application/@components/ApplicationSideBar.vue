@@ -1,5 +1,5 @@
 <template>
-	<div class="sidebar" :class="sidebarMenuClass">
+	<aside class="sidebar" :class="sidebarMenuClass">
         <div class="sidebar__logo-section">
             <div class="sidebar__logo pointer logo-name" v-show="isExpanded">
                 <i class='icon__medium bx bxl-codepen'></i>XVAULT
@@ -20,11 +20,10 @@
                     <div class="sidebar__icons"><i :class="menuItem.iconClass"></i></div>
                     <div class="sidebar__text">{{ menuItem.name }}</div>
                 </div>
-				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
 			</div>
 		</div>
 
-		<div class="flex"></div>
+		<div class="space"></div>
 		
 		<div class="sidebar__menu">
 			<div class="sidebar__button"
@@ -36,17 +35,15 @@
                     <div class="sidebar__icons"><i :class="menuItem.iconClass"></i></div>
                     <div class="sidebar__text">{{ menuItem.name }}</div>
                 </div>
-				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
 			</div>
             <div class="sidebar__button" @click="logOut">
 				<div class="sidebar__description">
                     <div class="sidebar__icons"><i class='bx bx-log-out'></i></div>
                     <div class="sidebar__text">Exit</div>
                 </div>
-				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
 			</div>
 		</div>
-	</div>
+	</aside>
 </template>
 <script setup>
 import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
@@ -141,16 +138,10 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .sidebar {
-	display: flex;
-    position: relative;
-	flex-direction: column;
+    @apply  absolute left-0 top-0 z-50 flex flex-col h-screen overflow-y-hidden w-72.5 lg:translate-x-0 -translate-x-full lg:p-4 lg:static duration-300;
 	background-color: var(--body-color);
 	color: var(--clear);
-	width: var(--sidebar-width);
 	overflow: hidden;
-	min-height: 100vh;
-	padding: 1rem;
-    transition: width .5s ease;
 
     .sidebar__logo-section {
         height: 48px;
@@ -158,9 +149,9 @@ onMounted(() => {
         justify-content: center;
     }
 
-	.flex {
+    .space {
 		flex: 1 1 0%;
-	}
+    }
 
 	.sidebar__logo {
         display: flex;
@@ -209,7 +200,6 @@ onMounted(() => {
     }
 
     .sidebar__icons {
-        display: flex;
         font-size: 1.25rem;
         color: var(--font-color);
         margin-right: .5rem;
@@ -244,10 +234,6 @@ onMounted(() => {
         .sidebar__text {
             display: none;
         }
-	}
-
-	@media (max-width: 1024px) {
-		z-index: 99;
 	}
 }
 </style>
