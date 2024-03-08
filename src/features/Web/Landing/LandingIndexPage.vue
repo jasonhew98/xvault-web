@@ -74,13 +74,13 @@ const sideActionConfigurations = computed(() => {
             id: 1,
             label: "Log In",
             actionType: "label",
-            action: () => goToAuth
+            action: () => goToAuth()
         },
         {
             id: 2,
             label: "Sign Up",
             actionType: "button",
-            action: () => goToAuth
+            action: () => goToAuth()
         }
     ]
 });
