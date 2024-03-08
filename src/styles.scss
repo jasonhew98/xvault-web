@@ -39,13 +39,6 @@ body {
     letter-spacing: .025rem;
 }
 
-.is-ready {
-
-    #xvault__app .main {
-        @apply block;
-    }
-}
-
 h1, h2, h3, h4 {
     @apply font-semibold;
 }
@@ -169,7 +162,6 @@ img {
         background-color: var(--body-color);
         background-image: var(--body-color);
         color: var(--clear);
-        display: none;
         @apply relative;
         overflow: hidden;
 

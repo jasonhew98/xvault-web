@@ -1,6 +1,6 @@
 <template>
     <div class="container md:pb-4 mx-auto pt-14 px-6">
-        <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16 pb-16">
+        <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16 md:pb-16 pb-4">
             <div class="lg:col-span-12 md:text-center md:col-span-7 col-span-12">
                 <h1 class="landing__title">Frequently Asked Questions</h1>
             </div>

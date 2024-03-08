@@ -2,12 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import NotFound from '@/NotFound.vue'
 
-import AuthIndexPage from '@/features/Auth/AuthIndexPage.vue'
-import LandingIndexPage from '@/features/Landing/LandingIndexPage.vue'
+import LandingIndexPage from '@/features/Web/Landing/LandingIndexPage.vue'
+import AuthIndexPage from '@/features/Web/Auth/AuthIndexPage.vue'
+
 import ApplicationIndexPage from '@/features/Application/ApplicationIndexPage.vue'
-import TransactionIndexPage from '@/features/Transaction/TransactionIndexPage.vue'
-import WalletIndexPage from '@/features/Wallet/WalletIndexPage.vue'
-import SettingsIndexPage from '@/features/Settings/SettingsIndexPage.vue'
+import TransactionIndexPage from '@/features/Application/Transaction/TransactionIndexPage.vue'
+import WalletIndexPage from '@/features/Application/Wallet/WalletIndexPage.vue'
+import SettingsIndexPage from '@/features/Application/Settings/SettingsIndexPage.vue'
 
 const routes = [
     {
