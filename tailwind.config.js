@@ -14,12 +14,17 @@ module.exports = {
         'white-100': "#FFFFFF",
         'white-200': "#E0E0E0",
         'bg-100': "#0F0F3D",
-        'black' : "#000000"
+        'black' : "rgb(28 36 52)",
+        'graydark' : "rgb(51 58 72)",
+        'bodydark1': "rgb(222 228 238)",
+        'bodydark2': "rgb(138 153 175)"
       },
       height: {
         '500': '31.25rem',
       },
       width: {
+        '72.5': '18.125rem',
+        'sidebar': '15rem',
         '500': '31.25rem',
       },
       keyframes: {
@@ -40,4 +45,3 @@ module.exports = {
   },
   plugins: [],
 }
-
