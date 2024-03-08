@@ -1,7 +1,7 @@
 <template>
     <div class="landing-container">
         <div class="main main-landing">
-            <XWebNav :options="navBarOptions"></XWebNav>
+            <XWebNav :options="actionConfigurations" :sideOptions="sideActionConfigurations"></XWebNav>
             <main class="section-hero py-16 w-screen md:h-screen">
                 <div class="container md:pb-4 mx-auto pt-14 px-6 z-10">
                     <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
@@ -43,28 +43,45 @@ const router = computed(() => {
     return app.appContext.config.globalProperties.$router;
 });
 
-const navBarOptions = computed(() => {
+const actionConfigurations = computed(() => {
     return [
-        // {
-        //     id: 1,
-        //     displayName: "Home",
-        //     action: () => { home.value.scrollIntoView({ behavior: "smooth" }) }
-        // },
-        // {
-        //     id: 2,
-        //     displayName: "About us",
-        //     action: () => { about.value.scrollIntoView({ behavior: "smooth" }) }
-        // },
-        // {
-        //     id: 3,
-        //     displayName: "Solutions",
-        //     action: () => { solutions.value.scrollIntoView({ behavior: "smooth" }) }
-        // },
-        // {
-        //     id: 4,
-        //     displayName: "Blog",
-        //     action: () => { blog.value.scrollIntoView({ behavior: "smooth" }) }
-        // }
+        {
+            id: 1,
+            label: "Home",
+            action: () => {  }
+        },
+        {
+            id: 2,
+            label: "About us",
+            action: () => {  }
+        },
+        {
+            id: 3,
+            label: "Solutions",
+            action: () => {  }
+        },
+        {
+            id: 4,
+            label: "Blog",
+            action: () => {  }
+        }
+    ]
+});
+
+const sideActionConfigurations = computed(() => {
+    return [
+        {
+            id: 1,
+            label: "Log In",
+            actionType: "label",
+            action: () => goToAuth
+        },
+        {
+            id: 2,
+            label: "Sign Up",
+            actionType: "button",
+            action: () => goToAuth
+        }
     ]
 });
 
@@ -94,7 +111,11 @@ onMounted(() => {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
+body {
+    background-color: var(--body-color);
+}
 
 .section-hero {
     display: flex;

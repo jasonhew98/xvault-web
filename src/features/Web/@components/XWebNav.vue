@@ -1,28 +1,43 @@
 <template>
     <header class="header" id="header" :class="headerClass">
         <nav class="nav">
-            <a href="#" class="nav__logo logo-name">
-                <div class="w-12 h-12 icon icon-box-logo"></div>XVAULT
+            <a href="#" class="nav__logo logo-name pr-4">
+                <div class="w-8 h-8 icon icon-box-logo"></div>XVAULT
             </a>
 
-            <div class="nav__menu" :class="navMenuClass">
-                <ul class="nav__list">
-                    <li class="nav__item" v-for="option in options" :key="option.id">
-                        <div class="nav__link" @click="onClick(option)">{{ option.displayName }}</div>
+            <div class="nav__menu xl:w-auto md:w-1/2 w-full" :class="navMenuClass">
+                <ul class="md:hidden visible flex items-center text-sm font-medium gap-2 pb-12">
+                    <li class="w-full text-center bg-bg-300 rounded-md hover:bg-bg-200 transition-background-color pointer px-4 py-2 duration-200 ease-in-out"
+                        v-for="(option, index) in sideOptions" :key="option.id" :index="index">
+                        <div @click="option.action">{{ option.label }}</div>
+                    </li>
+                </ul>
+
+                <ul class="xl:flex items-center text-sm font-medium">
+                    <li class="pointer xl:px-4 py-2 duration-200 ease-in-out" v-for="option in options" :key="option.id">
+                        <div class="hover:text-primary-300 transition-colors" @click="onClick(option)">{{ option.label }}</div>
                     </li>
                 </ul>
 
                 <div class="nav__close">
-                    <i class="uil uil-times nav__close" @click="toggleMenu"></i>
+                    <i class="uil uil-times nav__close" @click="webNavStore.toggleWebNav"></i>
                 </div>
             </div>
 
-            <div class="nav__actions">
-                <div class="button button-secondary text-center" @click="launchApp">Launch</div>
+            <div class="flex flex-row items-center">
+                <ul class="md:visible md:flex hidden items-center text-sm font-medium">
+                    <li class="pointer px-4 py-2 duration-200 ease-in-out" v-for="(option, index) in sideOptions" :key="option.id" :index="index"
+                        :class="{
+                            'hover:text-primary-300 transition-colors': option.actionType == 'label',
+                            'bg-bg-300 rounded-md hover:bg-bg-200 transition-background-color': option.actionType == 'button'
+                        }">
+                        <div @click="option.action">{{ option.label }}</div>
+                    </li>
+                </ul>
 
-                <!-- <div class="nav__toggle">
-                    <i class='bx bx-menu nav__open' @click="toggleMenu"></i>
-                </div> -->
+                <div class="xl:hidden pl-4 py-2">
+                    <i class='bx bx-menu nav__open' @click="webNavStore.toggleWebNav"></i>
+                </div>
             </div>
         </nav>
     </header>
@@ -30,17 +45,20 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, getCurrentInstance } from 'vue';
+import { useWebNavStore } from '@/infrastructure/stores/webNav.js';
+
+const webNavStore = useWebNavStore();
 
 const app = getCurrentInstance();
 
 // region ref
 const showNavBar = ref(true);
 const lastScrollPosition = ref(0);
-const showMenu = ref(false);
 
 // region props
 const props = defineProps({
-    options: { type: Array, required: true, default() { return []; } }
+    options: { type: Array, required: true, default() { return []; } },
+    sideOptions: { type: Array, required: true, default() { return []; } }
 });
 
 // region computed
@@ -53,35 +71,11 @@ const headerClass = computed(() => {
 });
 
 const navMenuClass = computed(() => {
-    return showMenu.value ? "nav__menu--show" : "";
+    return webNavStore.isWebNavOpen ? "nav__menu--show" : "";
 });
 
-// region methods
-const toggleMenu = () => {
-    showMenu.value = !showMenu.value;
-};
-
-const goToApp = () => {
-    router.value.push({
-        name: "TransactionIndexPage"
-    })
-};
-
-const goToAuth = () => {
-    router.value.push({
-        name: "AuthIndexPage"
-    })
-};
-
-const launchApp = () => {
-    if (localStorage.getItem("jwtToken"))
-        goToApp();
-    else
-        goToAuth();
-};
-
 const onClick = (option) => {
-    toggleMenu();
+    webNavStore.toggleWebNav();
     option.action();
 }
 
@@ -132,7 +126,7 @@ onUnmounted(() => {
 }
 
 .nav__menu {
-    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav__logo,
@@ -163,16 +157,13 @@ onUnmounted(() => {
     }
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1280px) {
     .nav__menu {
         position: fixed;
         top: 0;
         right: -100%;
-        background-color: hsla(228, 24%, 6%, .2);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        width: 80%;
-        height: 100%;
+        background-color: var(--bg-200);
+        height: 100vh;
         padding: 6rem 3rem 0;
         transition: right .4s;
     }

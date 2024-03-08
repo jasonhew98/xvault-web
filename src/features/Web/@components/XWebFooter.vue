@@ -2,18 +2,18 @@
     <footer class="main-footer w-full">
         <div class="container md:pb-4 mx-auto pt-14 px-6">
             <div class="grid md:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
-                <div class="lg:col-span-5 md:col-span-6 col-span-12 pb-4">
+                <div class="xl:col-span-5 md:col-span-6 col-span-12 pb-4">
                     <div class="-m-2 flex items-center">
                         <div class="w-10 h-10 icon icon-logo"></div><span class="tracking-widest">XVAULT</span>
                     </div>
                     <p class="mt-4">Join our newsletter to receive updates on new features and releases.</p>
                     <form class="flex md:flex-row flex-col gap-4 py-2" action="">
                         <input type="text" class="md:w-80 w-full newsletter__email" placeholder="johndoe@email.com">
-                        <div class="button button-secondary text-center tracking-wide md:w-32 py-2 w-full">Subscribe</div>
+                        <div class="button-full button-secondary text-center tracking-wide">Subscribe</div>
                     </form>
                 </div>
                 <!-- Default -->
-                <div class="footer-section">
+                <div class="xl:col-span-2 md:col-span-6 md:pt-0 md:block pt-4 col-span-12 hidden">
                     <h5 class="tracking-wide font-semibold">About Us</h5>
                     <ul class="list-none mt-6 space-y-2">
                         <li>
@@ -53,7 +53,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="xl:col-span-2 md:col-span-6 md:pt-0 md:block pt-4 col-span-12 hidden">
                     <h5 class="tracking-wide font-semibold">Service</h5>
                     <ul class="list-none mt-6 space-y-2">
                         <li>
@@ -78,7 +78,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="lg:col-span-3 md:col-span-6 md:pt-0 md:block pt-4 col-span-12 hidden">
+                <div class="xl:col-span-3 md:col-span-6 md:pt-0 md:block pt-4 col-span-12 hidden">
                     <h5 class="tracking-wide font-semibold">Support</h5>
                     <ul class="list-none mt-6 space-y-2">
                         <li>
@@ -259,18 +259,8 @@ const currentYear = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-
-.footer-section {
-    @apply lg:col-span-2 md:col-span-6 md:pt-0 md:block pt-4 col-span-12 hidden;
-}
-
 .footer__menu-link {
-    cursor: pointer;
-    transition: .3s;
-
-    &:hover {
-        color: var(--text-color-hover);
-    }
+    @apply hover:text-primary-300 transition-colors duration-200 ease-in-out cursor-pointer;
 }
 
 .newsletter__email {
