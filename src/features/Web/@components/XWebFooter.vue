@@ -4,8 +4,8 @@
             <div  class="container md:pb-4 mx-auto pt-14 px-6">
                 <div class="grid md:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                     <div class="xl:col-span-5 md:col-span-6 col-span-12 pb-4">
-                        <div class="-m-2 flex items-center">
-                            <div class="w-10 h-10 icon icon-logo"></div><span class="tracking-widest">XVAULT</span>
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 icon icon-box-logo"></div><span class="tracking-widest">XVAULT</span>
                         </div>
                         <p class="mt-4">Join our newsletter to receive updates on new features and releases.</p>
                         <form class="flex md:flex-row flex-col gap-4 py-2" action="">
