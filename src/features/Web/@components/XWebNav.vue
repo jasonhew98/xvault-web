@@ -1,9 +1,9 @@
 <template>
     <header class="header" id="header" :class="headerClass">
         <nav class="nav">
-            <a href="#" class="nav__logo logo-name pr-4">
+            <div class="nav__logo logo-name pr-4" @click="goToHome">
                 <div class="w-8 h-8 icon icon-box-logo"></div>XVAULT
-            </a>
+            </div>
 
             <div class="nav__menu xl:w-auto md:w-1/2 w-full" :class="navMenuClass">
                 <ul class="md:hidden visible flex items-center text-sm font-medium gap-2 pb-12">
@@ -15,7 +15,7 @@
 
                 <ul class="xl:flex items-center text-sm font-medium">
                     <li class="pointer xl:px-4 py-2 duration-200 ease-in-out" v-for="option in options" :key="option.id">
-                        <div class="hover:text-primary-300 transition-colors" @click="onClick(option)">{{ option.label }}</div>
+                        <div class="hover:text-primary-300 transition-colors" @click="onMenuClick(option)">{{ option.label }}</div>
                     </li>
                 </ul>
 
@@ -74,7 +74,14 @@ const navMenuClass = computed(() => {
     return webNavStore.isWebNavOpen ? "nav__menu--show" : "";
 });
 
-const onClick = (option) => {
+// region methods
+const goToHome = () => {
+    router.value.push({
+        name: "LandingIndexPage"
+    })
+}
+
+const onMenuClick = (option) => {
     webNavStore.toggleWebNav();
     option.action();
 }
