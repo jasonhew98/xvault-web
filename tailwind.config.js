@@ -18,6 +18,8 @@ module.exports = {
         'bg-100': "#0F1C2E",
         'bg-200': "#1F2B3E",
         'bg-300': "#374357",
+        'boxdark': "rgb(36 48 63)",
+        'strokedark': "rgb(46 58 71)",
         'black' : "rgb(28 36 52)",
         'graydark' : "rgb(51 58 72)",
         'bodydark1': "rgb(222 228 238)",

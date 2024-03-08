@@ -25,10 +25,10 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import XWebNav from '../@components/XWebNav.vue';
 import XWebFaq from '../@components/XWebFaq.vue';
 import XWebFooter from '../@components/XWebFooter.vue';
+import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 
 const app = getCurrentInstance();
 
