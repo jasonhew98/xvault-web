@@ -60,7 +60,7 @@ const MENUPAGES = {
 };
 
 // region ref
-const selectedMenuItemId = ref("dashboard");
+const selectedMenuItemId = ref();
 const isExpanded = ref(true);
 
 // region computed
@@ -130,6 +130,8 @@ const goToPage = () => {
 watch(selectedMenuItemId, async () => {
     goToPage();
 });
+
+setSelectedMenuItem("dashboard");
 
 onMounted(() => {
     let menuPreference = localStorage.getItem("isMenuExpanded");

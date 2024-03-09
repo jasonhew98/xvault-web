@@ -52,7 +52,11 @@
                                                 </div>
                                         </div>
                                         <div class="mb-5 mt-6">
-                                            <input type="submit" class="w-full h-12 cursor-pointer rounded-lg border border-primary bg-primary px-4 font-medium text-white transition hover:bg-opacity-90" value="Next">
+                                            <button class="w-full h-12 cursor-pointer rounded-lg border border-primary bg-primary px-4 font-medium text-white transition hover:bg-opacity-90">
+                                                <i class="fa fa-spinner fa-spin" :class="{'hidden': !isLoginLoading}"></i>
+                                                <span :class="{'hidden': isLoginLoading}">Next</span>
+                                            </button>
+                                            <!-- <input type="submit" class="w-full h-12 cursor-pointer rounded-lg border border-primary bg-primary px-4 font-medium text-white transition hover:bg-opacity-90" value="Next"> -->
                                         </div>
                                         <button class="flex w-full h-12 items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray px-4 font-medium hover:bg-opacity-70">
                                             <span>
@@ -111,6 +115,7 @@ const authRepository = computed(() => {
 const username = ref();
 const password = ref();
 const rememberMe = ref(false);
+const isLoginLoading = ref(false);
 
 const actionConfigurations = computed(() => {
     return [
@@ -135,11 +140,15 @@ const login = async () => {
     }
 
     try {
+        isLoginLoading.value = true;
         const [error, result] = await authRepository.value.login(record);
         if (error) {
+            isLoginLoading.value = false;
             console.log(error);
             return;
         }
+
+        isLoginLoading.value = false;
 
         let jwtToken = result.jwtToken;
 
