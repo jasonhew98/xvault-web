@@ -23,11 +23,11 @@
                                     <h2 class="text-3xl font-bold text-white dark:text-white sm:text-title-xl2 mb-9">
                                         Log In
                                     </h2>
-                                    <form>
+                                    <form @submit.prevent="login">
                                         <div class="mb-4">
-                                            <label class="mb-2.5 block font-medium text-white dark:text-white">Email</label>
+                                            <label class="mb-2.5 block font-medium text-white dark:text-white">Username</label>
                                             <div class="relative flex items-center justify-center">
-                                                <input type="email" placeholder="Enter your email" class="w-full h-12 rounded-lg border border-stroke bg-transparent pl-6 pr-10 outline-none hover:border-primary-100 focus-visible:shadow-none text-white transition-colors duration-250 ease-in-out">
+                                                <input type="text" v-model="username" class="w-full h-12 rounded-lg border border-stroke bg-transparent pl-6 pr-10 outline-none hover:border-primary-100 focus-visible:shadow-none text-white transition-colors duration-250 ease-in-out">
                                                     <span class="absolute right-4">
                                                     <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <g opacity="0.5">
@@ -40,7 +40,7 @@
                                         <div class="mb-4">
                                             <label class="mb-2.5 block font-medium text-white dark:text-white">Password</label>
                                             <div class="relative flex items-center justify-center">
-                                                <input type="password" placeholder="6+ Characters, 1 Capital letter" class="w-full h-12 rounded-lg border border-stroke bg-transparent pl-6 pr-10 outline-none hover:border-primary-100 focus-visible:shadow-none text-white">
+                                                <input type="password" v-model="password" class="w-full h-12 rounded-lg border border-stroke bg-transparent pl-6 pr-10 outline-none hover:border-primary-100 focus-visible:shadow-none text-white">
                                                     <span class="absolute right-4">
                                                             <svg class="fill-current" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <g opacity="0.5">
