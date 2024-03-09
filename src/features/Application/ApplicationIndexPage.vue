@@ -9,7 +9,6 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
-import ApplicationNavBar from './@components/ApplicationNavBar.vue';
 import ApplicationSideBar from './@components/ApplicationSideBar.vue';
 
 </script>

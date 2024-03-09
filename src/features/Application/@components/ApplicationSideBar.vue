@@ -1,5 +1,5 @@
 <template>
-	<div class="sidebar" :class="sidebarMenuClass">
+	<aside class="sidebar lg:relative absolute flex flex-col lg:translate-x-0 -translate-x-full duration-300 ease-linear" :class="sidebarMenuClass">
         <div class="sidebar__logo-section">
             <div class="sidebar__logo pointer logo-name" v-show="isExpanded">
                 <i class='icon__medium bx bxl-codepen'></i>XVAULT
@@ -20,7 +20,6 @@
                     <div class="sidebar__icons"><i :class="menuItem.iconClass"></i></div>
                     <div class="sidebar__text">{{ menuItem.name }}</div>
                 </div>
-				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
 			</div>
 		</div>
 
@@ -36,17 +35,15 @@
                     <div class="sidebar__icons"><i :class="menuItem.iconClass"></i></div>
                     <div class="sidebar__text">{{ menuItem.name }}</div>
                 </div>
-				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
 			</div>
             <div class="sidebar__button" @click="logOut">
 				<div class="sidebar__description">
                     <div class="sidebar__icons"><i class='bx bx-log-out'></i></div>
                     <div class="sidebar__text">Exit</div>
                 </div>
-				<!-- <div class="tooltip">{{ menuItem.name }}</div> -->
 			</div>
 		</div>
-	</div>
+	</aside>
 </template>
 <script setup>
 import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
@@ -143,16 +140,12 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .sidebar {
-	display: flex;
-    position: relative;
-	flex-direction: column;
 	background-color: var(--body-color);
 	color: var(--clear);
 	width: var(--sidebar-width);
 	overflow: hidden;
 	min-height: 100vh;
 	padding: 1rem;
-    transition: width .5s ease;
 
     .sidebar__logo-section {
         height: 48px;
