@@ -18,6 +18,7 @@ module.exports = {
         'bg-100': "#0F1C2E",
         'bg-200': "#1F2B3E",
         'bg-300': "#374357",
+        'stroke': "rgb(226 232 240)",
         'boxdark': "rgb(36 48 63)",
         'strokedark': "rgb(46 58 71)",
         'black' : "rgb(28 36 52)",

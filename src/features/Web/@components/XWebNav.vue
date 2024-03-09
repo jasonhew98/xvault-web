@@ -35,7 +35,7 @@
                     </li>
                 </ul>
 
-                <div class="xl:hidden pl-4 py-2">
+                <div class="xl:hidden pl-4 py-2" :class="{hidden: !hasOptions}">
                     <i class='bx bx-menu nav__open' @click="webNavStore.toggleWebNav"></i>
                 </div>
             </div>
@@ -72,6 +72,10 @@ const headerClass = computed(() => {
 
 const navMenuClass = computed(() => {
     return webNavStore.isWebNavOpen ? "nav__menu--show" : "";
+});
+
+const hasOptions = computed(() => {
+    return props.options.length > 0 || props.sideOptions.length > 0;
 });
 
 // region methods

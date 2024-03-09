@@ -1,12 +1,13 @@
 <template>
-	<aside class="sidebar lg:relative absolute flex flex-col lg:translate-x-0 -translate-x-full duration-300 ease-linear" :class="sidebarMenuClass">
+	<aside class="sidebar lg:relative absolute flex flex-col lg:translate-x-0 -translate-x-full duration-300 ease-linear"
+        ref="target"
+        :class="{
+            'translate-x-0': appSidebarStore.isAppSidebarOpen,
+            '-translate-x-full': !appSidebarStore.isAppSidebarOpen
+        }">
         <div class="sidebar__logo-section">
             <div class="sidebar__logo pointer logo-name" v-show="isExpanded">
                 <i class='icon__medium bx bxl-codepen'></i>XVAULT
-            </div>
-
-            <div class="menu-toggle-wrap">
-                <div class="menu__toggle sidebar__icons pointer" @click="toggleMenu"><i class='bx bx-menu'></i></div>
             </div>
         </div>
 
@@ -47,6 +48,10 @@
 </template>
 <script setup>
 import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
+import { onClickOutside } from '@vueuse/core'
+import { useAppSidebarStore } from '@/infrastructure/stores/appSidebar.js'
+
+const appSidebarStore = useAppSidebarStore();
 
 const app = getCurrentInstance();
 const MENUPAGES = {
@@ -59,6 +64,7 @@ const MENUPAGES = {
 // region ref
 const selectedMenuItemId = ref();
 const isExpanded = ref(true);
+const target = ref(null)
 
 // region computed
 const router = computed(() => {
@@ -100,12 +106,6 @@ const isCurrentSelected = computed(() => {
       };
 });
 
-// region methods
-const toggleMenu = () => {
-    isExpanded.value = !isExpanded.value;
-    localStorage.setItem("isMenuExpanded", isExpanded.value)
-};
-
 const setSelectedMenuItem = (menuItemId) => {
     selectedMenuItemId.value = menuItemId; 
 };
@@ -134,6 +134,10 @@ onMounted(() => {
     let menuPreference = localStorage.getItem("isMenuExpanded");
     isExpanded.value = menuPreference == null ? true : menuPreference;
     //goToPage();
+})
+
+onClickOutside(target, () => {
+	appSidebarStore.isAppSidebarOpen = false;
 })
 
 </script>

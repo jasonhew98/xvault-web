@@ -240,7 +240,7 @@ const toggleAccordionAbout = () => {
 }
 
 const accordionAboutClass = computed(() => {
-    return accordionAbout.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
+    return accordionAbout.value ? 'grid-rows-[1fr] max-h-64' : 'grid-rows-[0fr] max-h-0';
 })
 
 const toggleAccordionService = () => {
@@ -251,7 +251,7 @@ const toggleAccordionService = () => {
 }
 
 const accordionServiceClass = computed(() => {
-    return accordionService.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
+    return accordionService.value ? 'grid-rows-[1fr] max-h-64' : 'grid-rows-[0fr] max-h-0';
 })
 
 const toggleAccordionSupport = () => {
@@ -262,7 +262,7 @@ const toggleAccordionSupport = () => {
 }
 
 const accordionSupportClass = computed(() => {
-    return accordionSupport.value ? 'grid-rows-[1fr] max-h-56' : 'grid-rows-[0fr] max-h-0';
+    return accordionSupport.value ? 'grid-rows-[1fr] max-h-64' : 'grid-rows-[0fr] max-h-0';
 })
 
 const currentYear = computed(() => {
