@@ -2,7 +2,7 @@
     <div class="landing-container">
         <div class="main main-landing">
             <XWebNav :options="actionConfigurations" :sideOptions="sideActionConfigurations"></XWebNav>
-            <main class="section-hero py-16 w-screen md:h-screen">
+            <main class="section-hero py-16 md:h-screen">
                 <div class="container md:pb-4 mx-auto pt-14 px-6 z-10">
                     <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                         <div class="lg:col-span-12 md:text-center md:col-span-7 lg:order-none col-span-12 pb-4 order-2">
