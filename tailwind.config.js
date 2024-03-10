@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'primary': "rgb(60 80 224)",
         'primary-100': "#1F3A5F",
         'primary-200': "#4D648D",
         'primary-300': "#ACC2EF",
@@ -18,6 +19,7 @@ module.exports = {
         'bg-100': "#0F1C2E",
         'bg-200': "#1F2B3E",
         'bg-300': "#374357",
+        'meta-4': "rgb(49 61 74)",
         'stroke': "rgb(226 232 240)",
         'boxdark': "rgb(36 48 63)",
         'strokedark': "rgb(46 58 71)",
@@ -33,6 +35,10 @@ module.exports = {
         '72.5': '18.125rem',
         'sidebar': '15rem',
         '500': '31.25rem',
+      },
+      boxShadow: {
+        '11': '0px 1px 3px 0px rgba(166, 175, 195, .4)',
+        '12': '0px .5px 3px 0px rgba(0, 0, 0, .18)'
       },
       keyframes: {
         'accordion-down': {

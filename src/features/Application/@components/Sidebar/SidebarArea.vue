@@ -48,8 +48,8 @@
 </template>
 <script setup>
 import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
-import { onClickOutside } from '@vueuse/core'
-import { useAppSidebarStore } from '@/infrastructure/stores/appSidebar.js'
+import { onClickOutside } from '@vueuse/core';
+import { useAppSidebarStore } from '@/infrastructure/stores/appSidebar.js';
 
 const appSidebarStore = useAppSidebarStore();
 
@@ -64,7 +64,7 @@ const MENUPAGES = {
 // region ref
 const selectedMenuItemId = ref();
 const isExpanded = ref(true);
-const target = ref(null)
+const target = ref(null);
 
 // region computed
 const router = computed(() => {
@@ -134,11 +134,11 @@ onMounted(() => {
     let menuPreference = localStorage.getItem("isMenuExpanded");
     isExpanded.value = menuPreference == null ? true : menuPreference;
     //goToPage();
-})
+});
 
 onClickOutside(target, () => {
 	appSidebarStore.isAppSidebarOpen = false;
-})
+});
 
 </script>
 
