@@ -60,8 +60,9 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth) {
-        const token = localStorage.getItem('jwtToken');
-        if (token) {
+        const isAuthenticated = hasValidCredentials();
+
+        if (isAuthenticated) {
             next();
         } else {
             next('/auth');
@@ -70,5 +71,24 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
+
+const hasValidCredentials = () => {
+    const jwtToken = localStorage.getItem('jwtToken');
+    const jwtExpiry = localStorage.getItem('jwtExpiry');
+
+    if (!jwtToken || !jwtExpiry)
+        return false;
+
+    const now = new Date();
+    const expiryDateTime = new Date(jwtExpiry);
+
+    if (now > expiryDateTime) {
+        localStorage.setItem('jwtToken', null);
+        localStorage.setItem('jwtExpiry', null);
+        return false;
+    }
+
+    return true;
+}
 
 export default router;

@@ -160,6 +160,7 @@ const login = async () => {
         }
 
         localStorage.setItem("jwtToken", accessToken);
+        localStorage.setItem("jwtExpiry", expiryDate);
 
         goToApp();
     } catch (ex) {
