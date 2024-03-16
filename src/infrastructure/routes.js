@@ -3,7 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import NotFound from '@/NotFound.vue'
 
 import LandingIndexPage from '@/features/Web/Landing/LandingIndexPage.vue'
-import AuthIndexPage from '@/features/Web/Auth/AuthIndexPage.vue'
+import AuthLogInPage from '@/features/Web/Auth/AuthLogInPage.vue'
+import AuthSignUpPage from '@/features/Web/Auth/AuthSignUpPage.vue'
 
 import ApplicationIndexPage from '@/features/Application/ApplicationIndexPage.vue'
 import TransactionIndexPage from '@/features/Application/Transaction/TransactionIndexPage.vue'
@@ -22,9 +23,14 @@ const routes = [
         component: LandingIndexPage,
     },
     {
-        path: "/auth",
-        name: "AuthIndexPage",
-        component: AuthIndexPage
+        path: "/login",
+        name: "AuthLogInPage",
+        component: AuthLogInPage
+    },
+    {
+        path: "/register",
+        name: "AuthSignUpPage",
+        component: AuthSignUpPage
     },
     {
         path: "/app",
