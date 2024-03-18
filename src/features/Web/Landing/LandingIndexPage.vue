@@ -9,8 +9,8 @@
                             <h1 class="landing__title">Take control of your finances <br>today!</h1>
                             <div class="landing__caption">Track your daily expenses and manage your money with ease.</div>
                             <div class="landing__actions md:justify-center">
-                                <div class="text-center button button-primary" @click="goToSignUp">Sign Up</div>
-                                <div class="text-center button button-secondary">Learn More</div>
+                                <div class="text-center button button-primary button-medium" @click="goToSignUp">Sign Up</div>
+                                <div class="text-center button button-secondary button-medium">Learn More</div>
                             </div>
                         </div>
                     </div>
