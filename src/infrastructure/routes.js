@@ -71,7 +71,7 @@ router.beforeEach((to, from, next) => {
         if (isAuthenticated) {
             next();
         } else {
-            next('/auth');
+            next('/login');
         }
     } else {
         next();

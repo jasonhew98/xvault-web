@@ -86,11 +86,6 @@ const sideActionConfigurations = computed(() => {
 });
 
 // region methods
-const goToApp = () => {
-    router.value.push({
-        name: "ApplicationIndexPage"
-    })
-};
 
 const goToLogIn = () => {
     router.value.push({
@@ -106,7 +101,7 @@ const goToSignUp = () => {
 
 onMounted(() => {
     
-})
+});
 
 </script>
 

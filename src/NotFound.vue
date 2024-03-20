@@ -16,12 +16,20 @@
 </template>
 
 <script setup>
+import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import XWebNav from '@/features/Web/@components/XWebNav.vue';
 import XWebFooter from '@/features/Web/@components/XWebFooter.vue';
 
+const app = getCurrentInstance();
+
+const router = computed(() => {
+    return app.appContext.config.globalProperties.$router;
+});
 
 const goToHome = () => {
-
+    router.value.push({
+        name: "LandingIndexPage"
+    });
 };
 
 </script>
