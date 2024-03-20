@@ -114,11 +114,19 @@ img {
 }
 
 .button {
-    @apply md:text-base text-sm text-bg-100 md:w-32 p-2 w-24 font-semibold;
+    @apply md:text-base text-sm text-bg-100 p-2 font-semibold;
     display: inline-block;
     transition: .2s ease;
     cursor: pointer;
     border: 1px solid var(--button-color);
+}
+
+.button-medium {
+    @apply md:w-32 w-24;
+}
+
+.button-large {
+    @apply w-32;
 }
 
 .button-full {

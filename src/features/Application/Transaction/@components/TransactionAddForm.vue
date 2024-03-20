@@ -1,6 +1,10 @@
 <template>
     <form class="space-y-6 dark:text-gray-100" onsubmit="return false;">
         <div class="space-y-1">
+            <label for="style1" class="font-medium">Vehicle Colour</label>
+            <input type="color" id="style1" class="m-2.5"/>
+        </div>
+        <div class="space-y-1">
             <label for="mainCategory" class="font-medium">Main Category</label>
             <select id="mainCategory" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Choose a category</option>

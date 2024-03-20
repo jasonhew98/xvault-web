@@ -9,8 +9,8 @@
                             <h1 class="landing__title">Take control of your finances <br>today!</h1>
                             <div class="landing__caption">Track your daily expenses and manage your money with ease.</div>
                             <div class="landing__actions md:justify-center">
-                                <div class="landing__button button button-primary" @click="launchApp">Sign Up</div>
-                                <div class="landing__button button button-secondary">Learn More</div>
+                                <div class="text-center button button-primary button-medium" @click="goToSignUp">Sign Up</div>
+                                <div class="text-center button button-secondary button-medium">Learn More</div>
                             </div>
                         </div>
                     </div>
@@ -74,40 +74,34 @@ const sideActionConfigurations = computed(() => {
             id: 1,
             label: "Log In",
             actionType: "label",
-            action: () => launchApp()
+            action: () => goToLogIn()
         },
         {
             id: 2,
             label: "Sign Up",
             actionType: "button",
-            action: () => launchApp()
+            action: () => goToSignUp()
         }
     ]
 });
 
 // region methods
-const goToApp = () => {
+
+const goToLogIn = () => {
     router.value.push({
-        name: "ApplicationIndexPage"
-    })
+        name: "AuthLogInPage"
+    });
 };
 
-const goToAuth = () => {
+const goToSignUp = () => {
     router.value.push({
-        name: "AuthIndexPage"
-    })
-};
-
-const launchApp = () => {
-    if (localStorage.getItem("jwtToken"))
-        goToApp();
-    else
-        goToAuth();
+        name: "AuthSignUpPage"
+    });
 };
 
 onMounted(() => {
     
-})
+});
 
 </script>
 
@@ -175,10 +169,6 @@ body {
     flex-direction: row;
     gap: 16px;
     padding-top: 8px;
-}
-
-.landing__button {
-    text-align: center;
 }
 
 /* For large devices */
