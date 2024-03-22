@@ -19,6 +19,9 @@
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import TransactionTable from './@components/TransactionTable.vue';
 import TransactionAddForm from './@components/TransactionAddForm.vue';
+import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
+
+const pageStateStore = usePageStateStore();
 
 const app = getCurrentInstance();
 const transactions = reactive({
@@ -76,7 +79,7 @@ const add = async () => {
         }
         const [error, result] = await transactionRepository.value.addTransaction(record);
     } catch (err) {
-        console.log(err)
+        pageStateStore.setError({});
     }
 }
 
@@ -85,7 +88,7 @@ const getList = async () => {
         const [error, result] = await transactionRepository.value.getTransactions();
         transactions.value = result;
     } catch (err) {
-        console.log(err)
+        pageStateStore.setError({});
     }
 }
 

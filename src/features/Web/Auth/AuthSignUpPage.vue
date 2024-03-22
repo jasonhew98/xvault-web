@@ -100,9 +100,11 @@
 
 <script setup>
 import XWebNav from '../@components/XWebNav.vue';
-import XWebFaq from '../@components/XWebFaq.vue';
 import XWebFooter from '../@components/XWebFooter.vue';
 import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
+
+const pageStateStore = usePageStateStore();
 
 const app = getCurrentInstance();
 
@@ -146,11 +148,9 @@ const login = async () => {
         const [error, result] = await authRepository.value.login(record);
         if (error) {
             isLoginLoading.value = false;
-            console.log(error);
+            pageStateStore.setError({});
             return;
         }
-
-        isLoginLoading.value = false;
 
         let jwtToken = result.jwtToken;
 
@@ -166,8 +166,10 @@ const login = async () => {
 
         goToApp();
     } catch (ex) {
-        console.log(ex);
+        pageStateStore.setError({});
     }
+
+    isLoginLoading.value = false;
 }
 
 </script>

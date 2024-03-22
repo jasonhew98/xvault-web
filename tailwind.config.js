@@ -26,7 +26,8 @@ module.exports = {
         'black' : "rgb(28 36 52)",
         'graydark' : "rgb(51 58 72)",
         'bodydark1': "rgb(222 228 238)",
-        'bodydark2': "rgb(138 153 175)"
+        'bodydark2': "rgb(138 153 175)",
+        'meta-1': "rgb(220 53 69)",
       },
       height: {
         '500': '31.25rem',
