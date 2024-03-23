@@ -28,6 +28,7 @@ module.exports = {
         'bodydark1': "rgb(222 228 238)",
         'bodydark2': "rgb(138 153 175)",
         'meta-1': "rgb(220 53 69)",
+        'error': "#F6465D",
       },
       height: {
         '500': '31.25rem',
