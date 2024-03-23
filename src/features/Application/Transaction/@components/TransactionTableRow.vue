@@ -15,7 +15,7 @@
         <div class="col-span-2">
             <p class="text-[#637381] dark:text-bodydark">{{ paymentAmount }}</p>
         </div>
-        <div class="relative col-span-1">
+        <div class="relative col-span-2 ml-auto">
             <div class="flex items-center space-x-3.5">
                 <button class="hover:text-primary">
                     <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
