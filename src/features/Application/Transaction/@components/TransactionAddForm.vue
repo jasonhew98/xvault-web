@@ -1,13 +1,19 @@
 <template>
-    <form class="space-y-6 dark:text-gray-100" onsubmit="return false;">
+    <form class="space-y-6 dark:text-gray-100" @submit.prevent="addTransaction">
         <div class="space-y-1">
-            <awesome-drop-down label="Main Category" v-model="transaction.mainCategory" :options="mainCategoryOptions"></awesome-drop-down>
+            <awesome-drop-down label="Main Category" v-model="transaction.mainCategory" :options="mainCategoryOptions.value"></awesome-drop-down>
         </div>
         <div class="space-y-1">
-            <awesome-drop-down label="Sub Category" v-model="transaction.subCategory" :options="subCategoryOptions"></awesome-drop-down>
+            <awesome-drop-down label="Sub Category" v-model="transaction.subCategory" :options="subCategoryOptions.value"></awesome-drop-down>
         </div>
         <div class="space-y-1">
             <AwesomeTextBox label="Notes" v-model="transaction.notes"></AwesomeTextBox>
+        </div>
+        <div class="space-y-1">
+            <awesome-drop-down label="Payment Method" v-model="transaction.paymentMethod" :options="paymentMethodOptions.value"></awesome-drop-down>
+        </div>
+        <div class="space-y-1">
+            <AwesomeTextBox label="Payment Amount" v-model="transaction.paymentAmount"></AwesomeTextBox>
         </div>
         <button type="submit" class="inline-flex items-center justify-center space-x-2 rounded-lg border border-blue-700 bg-blue-700 px-3 py-2 text-sm font-semibold leading-5 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90">
             Add Transaction
@@ -18,11 +24,18 @@
 <script setup>
 import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 import AwesomeDropDown from '@/components/AwesomeDropDown.vue';
-import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
+import { ref, reactive, toRefs, computed, watch, onBeforeMount, onMounted, getCurrentInstance } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { formatDate } from '@/seedwork/formatters/dateFormatter';
+import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
+
+const pageStateStore = usePageStateStore();
 
 const app = getCurrentInstance();
+
+const lookUpRepository = computed(() => {
+    return app.appContext.config.globalProperties.$repository.lookUpRepository;
+});
 
 const transactionRepository = computed(() => {
     return app.appContext.config.globalProperties.$repository.transactionRepository;
@@ -31,86 +44,42 @@ const transactionRepository = computed(() => {
 const transaction = reactive({
     mainCategory: "",
     subCategory: "",
-    transactionDate: "",
+    transactionDate: "2024-02-01T11:41:32.123Z",
     notes: "",
     paymentMethod: "",
-    paymentAmount: null
+    paymentAmount: ""
 });
 
-const mainCategoryOptions = computed(() => {
-    return [
-        {
-            id: "electronics",
-            label: "Electronics"
-        },
-        {
-            id: "entertainment",
-            label: "Entertainment"
-        },
-        {
-            id: "foodBeverage",
-            label: "Food & Beverage"
-        },
-        {
-            id: "healthBeauty",
-            label: "Health & Beauty"
-        },
-        {
-            id: "homeProperty",
-            label: "Home & Property"
-        },
-        {
-            id: "leisureSports",
-            label: "Leisure & Sports"
-        },
-        {
-            id: "medical",
-            label: "Medical"
-        },
-        {
-            id: "shopping",
-            label: "Shopping"
-        },
-        {
-            id: "telecommunications",
-            label: "Telecommunications"
-        },
-        {
-            id: "transportation",
-            label: "Transportation"
-        },
-        {
-            id: "travel",
-            label: "Travel"
-        },
-        {
-            id: "utilities",
-            label: "Utilities"
-        },
-    ];
+const mainCategoryOptions = reactive({ value: [] });
+const subCategoryOptions = reactive({ value: [] });
+const paymentMethodOptions = reactive({ value: [] });
+
+const loadOptions = async () => {
+    const [
+        [, mainCategory_Options],
+        [, subCategory_Options],
+        [, paymentMethod_Options],
+    ] = await Promise.all([
+        lookUpRepository.value.getMainCategories(),
+        lookUpRepository.value.getSubCategories(),
+        lookUpRepository.value.getPaymentMethods(),
+    ]);
+
+    mainCategoryOptions.value = mainCategory_Options;
+    subCategoryOptions.value = subCategory_Options;
+    paymentMethodOptions.value = paymentMethod_Options;
+};
+
+const addTransaction = async () => {
+    try {
+        const [error, result] = await transactionRepository.value.addTransaction(transaction);
+    } catch (err) {
+        pageStateStore.setError({});
+    }
+};
+
+onBeforeMount(async () => {
+    await loadOptions();
 });
-
-const subCategoryOptions = computed(() => {
-    return [
-        {
-            id: "householdAppliances",
-            label: "Household appliances"
-        },
-        {
-            id: "computer",
-            label: "Computer"
-        },
-        {
-            id: "digitalApplications",
-            label: "Digital applications"
-        },
-        {
-            id: "electronics",
-            label: "Electronics"
-        }
-    ];
-});
-
-
 
 </script>

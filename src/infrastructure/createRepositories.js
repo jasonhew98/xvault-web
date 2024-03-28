@@ -1,10 +1,10 @@
-import lookupRepository from "./repositories/lookupRepository";
+import lookUpRepository from "./repositories/lookUpRepository";
 import authRepository from "./repositories/authRepository";
 import userRepository from "./repositories/userRepository";
 import transactionRepository from "./repositories/transactionRepository";
 
 const repositories = {
-    lookupRepository,
+    lookUpRepository,
     authRepository,
 	userRepository,
     transactionRepository,

@@ -3,7 +3,7 @@
         <awesome-question :label="label" :tooltip="tooltip"></awesome-question>
         <div ref="target">
             <button class="w-full rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center border border-gray-300 text-gray-900 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                @click="toggleDropDown">
+                @click="toggleDropDown($event)">
                 {{ buttonLabel }}
                 <svg class="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -26,7 +26,7 @@
 
 <script setup>
 import AwesomeQuestion from './AwesomeQuestion.vue';
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 
 const props = defineProps({
@@ -43,7 +43,8 @@ const target = ref(null);
 const isActive = ref(false);
 const selectedValue = ref(props.modelValue);
 
-const toggleDropDown = () => {
+const toggleDropDown = (event) => {
+    event.preventDefault();
     isActive.value = !isActive.value;
 };
 
