@@ -28,13 +28,11 @@
                             fill="" />
                     </svg>
                 </button>
-
-                <button class="hover:text-primary">
-                    <i class='bx bx-trash text-lg'></i>
-                </button>
-
                 <button class="hover:text-primary">
                     <i class='bx bx-edit text-lg'></i>
+                </button>
+                <button class="hover:text-primary">
+                    <i class='bx bx-trash text-lg'></i>
                 </button>
             </div>
         </div>
@@ -46,14 +44,17 @@ import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { formatDate } from '@/seedwork/formatters/dateFormatter';
 
+const app = getCurrentInstance();
+
 const props = defineProps({
     record: { type: Object, required: false, default() { return {} } },
 });
 
-const target = ref(null);
-const actionDropdownActive = ref(false);
-
 // region computed
+const transactionRepository = computed(() => {
+    return app.appContext.config.globalProperties.$repository.transactionRepository;
+});
+
 const mainCategory = computed(() => {
     return props.record ? props.record.mainCategory : "-";
 });
@@ -74,12 +75,16 @@ const paymentAmount = computed(() => {
     return props.record ? props.record.paymentAmount : "-";
 });
 
-const toggleActionDropdown = () => {
-    actionDropdownActive.value = !actionDropdownActive.value;
+const viewTransaction = () => {
+
 };
 
-onClickOutside(target, () => {
-    actionDropdownActive.value = false;
-});
+const editTransaction = () => {
+
+};
+
+const deleteTransaction = () => {
+
+};
 
 </script>

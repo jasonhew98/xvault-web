@@ -2,7 +2,7 @@
     <div class="w-full h-full overflow-auto flex max-w-full flex-auto flex-col">
         <main id="page-content" class="w-full flex justify-center items-center max-w-full flex-auto flex-col">
             <div class="container w-full p-4">
-                <transaction-table :headers="tableHeaders" :records="transactions.value"></transaction-table>
+                <transaction-table :records="transactions.value"></transaction-table>
             </div>
         </main>
         <main id="page-content" class="w-full flex justify-center items-center max-w-full flex-auto flex-col">
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, reactive, computed, onBeforeMount, onMounted, getCurrentInstance } from 'vue';
 import TransactionTable from './@components/TransactionTable.vue';
 import TransactionAddForm from './@components/TransactionAddForm.vue';
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
@@ -28,60 +28,9 @@ const transactions = reactive({
     value: []
 });
 
-const transaction = reactive({
-    mainCategory: "",
-    subCategory: ""
-});
-
-const tableHeaders = computed(() => {
-    return [
-        {
-            id: 1,
-            label: "Main Category",
-            property: "mainCategory"
-        },
-        {
-            id: 2,
-            label: "Sub Category",
-            property: "subCategory"
-        },
-        {
-            id: 3,
-            label: "Transaction Date",
-            property: "transactionDate"
-        },
-        {
-            id: 4,
-            label: "Payment Method",
-            property: "paymentMethod"
-        },
-        {
-            id: 5,
-            label: "Payment Amount",
-            property: "paymentAmount"
-        }
-    ]
-});
-
 const transactionRepository = computed(() => {
     return app.appContext.config.globalProperties.$repository.transactionRepository;
 });
-
-const add = async () => {
-    try {
-        var record = {
-            "MainCategory": "test",
-            "SubCategory": "test",
-            "TransactionDate": "2024-02-01T11:41:32.123Z",
-            "Notes": "test",
-            "PaymentMethod": "Cash",
-            "PaymentAmount": 250.00
-        }
-        const [error, result] = await transactionRepository.value.addTransaction(record);
-    } catch (err) {
-        pageStateStore.setError({});
-    }
-}
 
 const getList = async () => {
     try {
@@ -92,7 +41,9 @@ const getList = async () => {
     }
 }
 
-getList();
+onBeforeMount(async () => {
+    await getList();
+});
 
 </script>
 

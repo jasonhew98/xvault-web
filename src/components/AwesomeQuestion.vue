@@ -1,7 +1,7 @@
 <template>
     <div class="awesome__label-container">
         <div class="awesome__label">{{ awesomeLabel }}</div>
-        <i class="uil uil-exclamation-circle"></i>
+        <i class="uil uil-exclamation-circle cursor-pointer"></i>
     </div>
 </template>
 

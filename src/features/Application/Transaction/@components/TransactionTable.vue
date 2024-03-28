@@ -2,7 +2,7 @@
 	<div class="custom-table w-full overflow-x-auto">
 		<div class="min-w-[1170px]">
 			<div class="grid grid-cols-12 rounded-t-[10px] bg-primary px-5 py-4 lg:px-7.5 2xl:px-11">
-				<div class="col-span-2" v-for="(header, index) in props.headers"
+				<div class="col-span-2" v-for="(header, index) in tableHeaders"
 					:key="header.id"
 					:index="index">
 					<h5 class="font-medium text-white">{{ header.label }}</h5>
@@ -26,8 +26,37 @@ import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import TransactionTableRow from './TransactionTableRow.vue';
 
 const props = defineProps({
-	headers: { type: Array, required: true, default() { return [] } },
 	records: { type: Array, required: true, default() { return [] } },
+});
+
+const tableHeaders = computed(() => {
+    return [
+        {
+            id: 1,
+            label: "Main Category",
+            property: "mainCategory"
+        },
+        {
+            id: 2,
+            label: "Sub Category",
+            property: "subCategory"
+        },
+        {
+            id: 3,
+            label: "Transaction Date",
+            property: "transactionDate"
+        },
+        {
+            id: 4,
+            label: "Payment Method",
+            property: "paymentMethod"
+        },
+        {
+            id: 5,
+            label: "Payment Amount",
+            property: "paymentAmount"
+        }
+    ]
 });
 
 </script>
