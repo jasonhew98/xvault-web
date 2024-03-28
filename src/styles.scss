@@ -114,7 +114,7 @@ img {
 }
 
 .button {
-    @apply md:text-base text-sm text-bg-100 p-2 font-semibold;
+    @apply md:text-base text-sm text-darkblue p-2 font-semibold;
     display: inline-block;
     transition: .2s ease;
     cursor: pointer;
@@ -130,7 +130,7 @@ img {
 }
 
 .button-full {
-    @apply md:text-base text-sm text-bg-100 md:w-32 p-2 w-full font-semibold;
+    @apply md:text-base text-sm text-darkblue md:w-32 p-2 w-full font-semibold;
     display: inline-block;
     transition: .2s ease;
     cursor: pointer;

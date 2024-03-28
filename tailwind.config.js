@@ -16,7 +16,7 @@ module.exports = {
         'accent-200': "#CEE8FF",
         'white-100': "#FFFFFF",
         'white-200': "#E0E0E0",
-        'bg-100': "#0F1C2E",
+        'darkblue': "#0F1C2E",
         'bg-200': "#1F2B3E",
         'bg-300': "#374357",
         'meta-4': "rgb(49 61 74)",
