@@ -1,6 +1,5 @@
-import { ref, reactive } from 'vue'
-import { defineStore } from 'pinia'
-import { useStorage } from '@vueuse/core'
+import { ref, reactive } from 'vue';
+import { defineStore } from 'pinia';
 
 export const useModalStore = defineStore('modal', () => {
 	const defaultTitle = "Modal Title";
@@ -36,5 +35,5 @@ export const useModalStore = defineStore('modal', () => {
 		isModalActive.value = false;
 	};
 
-	return { isModalActive, modalDetails, show, hide, setModalDetails }
-})
+	return { isModalActive, modalDetails, show, hide, setModalDetails };
+});

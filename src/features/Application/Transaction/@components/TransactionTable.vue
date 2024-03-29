@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { computed } from 'vue';
 import TransactionTableRow from './TransactionTableRow.vue';
 
 const props = defineProps({

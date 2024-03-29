@@ -1,6 +1,6 @@
-import { ref } from 'vue'
-import { defineStore } from 'pinia'
-import { useStorage } from '@vueuse/core'
+import { ref } from 'vue';
+import { defineStore } from 'pinia';
+import { useStorage } from '@vueuse/core';
 
 export const useDarkModeStore = defineStore('darkMode', () => {
 	const darkMode = useStorage('darkMode', ref(false));
@@ -12,5 +12,5 @@ export const useDarkModeStore = defineStore('darkMode', () => {
 		document.documentElement.classList.toggle('dark', darkMode.value);
 	}
 
-	return { darkMode, toggleDarkMode }
-})
+	return { darkMode, toggleDarkMode };
+});

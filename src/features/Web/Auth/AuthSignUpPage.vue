@@ -56,7 +56,7 @@
                                             </button>
                                         </div>
                                     </form>
-                                    <button class="flex w-full h-12 items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray px-4 font-medium hover:bg-opacity-70">
+                                    <div class="flex w-full h-12 items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray px-4 font-medium hover:bg-opacity-70">
                                         <span>
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_191_13499)">
@@ -73,7 +73,7 @@
                                             </svg>
                                         </span> 
                                         Continue with Google 
-                                    </button>
+                                    </div>
                                     <div class="mt-6 text-center">
                                         <p class="font-medium"> Already have an account?
                                             <a href="/login"
@@ -86,9 +86,6 @@
                             </div>
                             <div class="hidden w-full items-center justify-center xl:flex xl:w-1/2">
                                 <div class="py-17.5 text-center w-full max-w-[350px]">
-                                    <!-- <a href="#" class="flex items-center justify-center mb-5.5 logo-name pr-4 gap-2">
-                                        <div class="w-8 h-8 icon icon-box-logo"></div>XVAULT
-                                    </a> -->
                                     <p class="font-medium">
                                     </p>
                                     <span class="mt-15 inline-block">
@@ -108,7 +105,7 @@
 <script setup>
 import XWebNav from '../@components/XWebNav.vue';
 import XWebFooter from '../@components/XWebFooter.vue';
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, computed, getCurrentInstance } from 'vue';
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
@@ -139,19 +136,19 @@ const v$ = useVuelidate(rules, { username, password }).value;
 
 const actionConfigurations = computed(() => {
     return [
-    ]
+    ];
 });
 
 const sideActionConfigurations = computed(() => {
     return [
-    ]
+    ];
 });
 
 const goToApp = () => {
     router.value.push({
         name: "ApplicationIndexPage"
-    })
-}
+    });
+};
 
 const login = async () => {
     const result = await v$.$validate();
@@ -190,7 +187,7 @@ const login = async () => {
     }
 
     isLoginLoading.value = false;
-}
+};
 
 </script>
 

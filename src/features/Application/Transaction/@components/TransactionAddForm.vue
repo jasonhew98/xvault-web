@@ -24,9 +24,7 @@
 <script setup>
 import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 import AwesomeDropDown from '@/components/AwesomeDropDown.vue';
-import { ref, reactive, toRefs, computed, watch, onBeforeMount, onMounted, getCurrentInstance } from 'vue';
-import { onClickOutside } from '@vueuse/core';
-import { formatDate } from '@/seedwork/formatters/dateFormatter';
+import { reactive, computed, onBeforeMount, getCurrentInstance } from 'vue';
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
 
 const pageStateStore = usePageStateStore();
@@ -72,6 +70,10 @@ const loadOptions = async () => {
 
 const addTransaction = async () => {
     try {
+        pageStateStore.setLoading({
+            title: "Processing Transaction...",
+            body: "Please wait while we create your transaction. This should only take a moment."
+        });
         const [error, result] = await transactionRepository.value.addTransaction(transaction);
     } catch (err) {
         pageStateStore.setError({});

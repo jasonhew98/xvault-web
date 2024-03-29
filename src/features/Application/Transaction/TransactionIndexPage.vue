@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onBeforeMount, onMounted, getCurrentInstance } from 'vue';
+import { reactive, computed, onBeforeMount, getCurrentInstance } from 'vue';
 import TransactionTable from './@components/TransactionTable.vue';
 import TransactionAddForm from './@components/TransactionAddForm.vue';
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';

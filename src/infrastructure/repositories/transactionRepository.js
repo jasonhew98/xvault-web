@@ -25,4 +25,4 @@ export default {
     async deleteTransaction(record) {
         return await xvaultService.delete(`${paths.transaction}`, record, { authType: 'bearer' });
     }
-}
+};

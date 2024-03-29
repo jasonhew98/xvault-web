@@ -57,12 +57,12 @@ const routes = [
             }
         ]
     },
-]
+];
 
 const router = createRouter({
     history : createWebHistory(process.env.BASE_URL),
     routes : routes
-})
+});
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth) {
@@ -95,6 +95,6 @@ const hasValidCredentials = () => {
     }
 
     return true;
-}
+};
 
 export default router;

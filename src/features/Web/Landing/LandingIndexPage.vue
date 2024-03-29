@@ -28,7 +28,7 @@
 import XWebNav from '../@components/XWebNav.vue';
 import XWebFaq from '../@components/XWebFaq.vue';
 import XWebFooter from '../@components/XWebFooter.vue';
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, computed, getCurrentInstance } from 'vue';
 
 const app = getCurrentInstance();
 
@@ -65,7 +65,7 @@ const actionConfigurations = computed(() => {
             label: "Blog",
             action: () => {  }
         }
-    ]
+    ];
 });
 
 const sideActionConfigurations = computed(() => {
@@ -82,7 +82,7 @@ const sideActionConfigurations = computed(() => {
             actionType: "button",
             action: () => goToSignUp()
         }
-    ]
+    ];
 });
 
 // region methods
@@ -98,10 +98,6 @@ const goToSignUp = () => {
         name: "AuthSignUpPage"
     });
 };
-
-onMounted(() => {
-    
-});
 
 </script>
 

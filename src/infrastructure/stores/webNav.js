@@ -1,6 +1,5 @@
-import { useStorage } from '@vueuse/core'
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
 
 export const useWebNavStore = defineStore('webNav', () => {
     const isWebNavOpen = ref(false);
@@ -11,5 +10,5 @@ export const useWebNavStore = defineStore('webNav', () => {
         else document.body.classList.remove("overflow-hidden");
     }
 
-    return { isWebNavOpen, toggleWebNav }
-})
+    return { isWebNavOpen, toggleWebNav };
+});

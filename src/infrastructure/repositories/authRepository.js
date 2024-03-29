@@ -9,4 +9,4 @@ export default {
     async signup(record) {
         return await xvaultService.post(`/api/auth/signup`, record);
     },
-}
+};

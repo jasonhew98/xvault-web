@@ -1,6 +1,5 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import { useStorage } from '@vueuse/core';
 import { useModalStore } from './modal.js';
 
 export const usePageStateStore = defineStore('pageState', () => {
@@ -9,11 +8,16 @@ export const usePageStateStore = defineStore('pageState', () => {
 
 	const modalStore = useModalStore();
 
-	const setLoading = () => {
+	const setLoading = ({
+		title = "Loading",
+		body = "Currently Loading",
+		actions = []
+	}) => {
 		isLoading.value = true;
 		modalStore.setModalDetails({
-			title: "Loading",
-			body: "Currently Loading",
+			title: title,
+			body: body,
+			actions: actions
 		});
 		modalStore.show();
 	};
@@ -41,5 +45,5 @@ export const usePageStateStore = defineStore('pageState', () => {
 		modalStore.hide();
 	};
 
-	return { isLoading, setLoading, setCompleted, setError }
-})
+	return { isLoading, setLoading, setCompleted, setError };
+});

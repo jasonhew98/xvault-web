@@ -12,7 +12,7 @@
 
 <script setup>
 import AwesomeModal from '@/components/AwesomeModal.vue';
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { computed } from 'vue';
 
 import { useModalStore } from '@/infrastructure/stores/modal.js';
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';

@@ -11,7 +11,6 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
 import HeaderArea from './@components/Header/HeaderArea.vue';
 import SidebarArea from './@components/Sidebar/SidebarArea.vue';
 
