@@ -1,5 +1,5 @@
 <template>
-    <div class="app bg-gray-100 dark:bg-boxdark">
+    <div class="app bg-black dark:bg-black">
         <div class="app-content">
             <sidebar-area></sidebar-area>
             <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">

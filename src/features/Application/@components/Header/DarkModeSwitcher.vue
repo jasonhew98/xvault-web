@@ -1,6 +1,6 @@
 <template>
 	<label class="h-full relative m-0 block h-7.5 w-14 rounded-full"
-		:class="{ 'bg-primary-100': darkModeStore.darkMode, 'bg-stroke': !darkModeStore.darkMode }"
+		:class="{ 'bg-black-light': darkModeStore.darkMode, 'bg-gray-light': !darkModeStore.darkMode }"
 		@click="darkModeStore.toggleDarkMode">
 		<input type="checkbox" class="absolute top-0 z-50 m-0 h-full w-full cursor-pointer opacity-0" />
 		<span class="absolute top-1/2 left-1 flex h-6 w-6 -translate-y-1/2 translate-x-0 items-center justify-center rounded-full bg-white shadow-switcher duration-75 ease-linear"
