@@ -70,28 +70,9 @@ img {
     background-position: center;
 }
 
-.landing-image {
-    background-image: url("@/assets/expense-track.svg");
-}
-
 .icon-box-logo {
-    -webkit-mask-image: url("@/assets/box-logo.svg");
-    mask-image: url("@/assets/box-logo.svg");
-}
-
-.icon-home {
-    -webkit-mask-image: url("@/assets/home.svg");
-    mask-image: url("@/assets/home.svg");
-}
-
-.icon-analytics {
-    -webkit-mask-image: url("@/assets/analytics.svg");
-    mask-image: url("@/assets/analytics.svg");
-}
-
-.icon-wallet {
-    -webkit-mask-image: url("@/assets/wallet.svg");
-    mask-image: url("@/assets/wallet.svg");
+    -webkit-mask-image: url("@/assets/images/icons/box-logo.svg");
+    mask-image: url("@/assets/images/icons/box-logo.svg");
 }
 
 /*=============== REUSABLE CLASSES ===============*/

@@ -89,7 +89,7 @@
                                     <p class="font-medium">
                                     </p>
                                     <span class="mt-15 inline-block">
-                                        <img src="@/assets/images/illustration/illustration-03.svg" alt="illustration">
+                                        <img src="@/assets/images/illustration/user-auth.svg" alt="illustration">
                                     </span>
                                 </div>
                             </div>
