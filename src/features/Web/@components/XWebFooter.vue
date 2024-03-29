@@ -5,12 +5,12 @@
                 <div class="grid md:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
                     <div class="xl:col-span-5 md:col-span-6 col-span-12 pb-4">
                         <div class="flex items-center gap-2">
-                            <div class="w-8 h-8 icon icon-box-logo"></div><span class="tracking-widest">XVAULT</span>
+                            <div class="w-8 h-8 icon icon-box-logo bg-green"></div><span class="tracking-widest">XVAULT</span>
                         </div>
                         <p class="mt-4">Join our newsletter to receive updates on new features and releases.</p>
                         <form class="flex md:flex-row flex-col gap-4 py-2" action="">
                             <input type="text" class="md:w-80 w-full newsletter__email" placeholder="johndoe@email.com">
-                            <div class="button-full button-secondary text-center tracking-wide">Subscribe</div>
+                            <div class="button button-full button-secondary text-center tracking-wide">Subscribe</div>
                         </form>
                     </div>
                     <!-- Default -->
@@ -18,39 +18,29 @@
                         <h5 class="tracking-wide font-semibold">About Us</h5>
                         <ul class="list-none mt-6 space-y-2">
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     About
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Careers
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
-                                    Announcements
-                                </div>
-                            </li>
-                            <li>
-                                <div href="#" class="footer__menu-link">
-                                    News
-                                </div>
-                            </li>
-                            <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Blog
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Terms
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Privacy
-                                </div>
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -58,24 +48,24 @@
                         <h5 class="tracking-wide font-semibold">Service</h5>
                         <ul class="list-none mt-6 space-y-2">
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Expense Tracker
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Budget Planner
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Financial Tips
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Saving Strategies
-                                </div>
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -83,19 +73,19 @@
                         <h5 class="tracking-wide font-semibold">Support</h5>
                         <ul class="list-none mt-6 space-y-2">
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     24/7 Chat Support
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Support Center
-                                </div>
+                                </span>
                             </li>
                             <li>
-                                <div href="#" class="footer__menu-link">
+                                <span class="footer__menu-link">
                                     Product Feedback & Suggestions
-                                </div>
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -109,39 +99,29 @@
                         <div class="accordion-answer" :class="accordionAboutClass">
                             <ul class="list-none mt-6 space-y-2">
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         About
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Careers
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
-                                        Announcements
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="footer__menu-link">
-                                        News
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Blog
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Terms
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Privacy
-                                    </div>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
@@ -155,24 +135,24 @@
                         <div class="accordion-answer" :class="accordionServiceClass">
                             <ul class="list-none mt-6 space-y-2">
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Expense Tracker
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Budget Planner
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Financial Tips
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Saving Strategies
-                                    </div>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
@@ -186,34 +166,29 @@
                         <div class="accordion-answer" :class="accordionSupportClass">
                             <ul class="list-none mt-6 space-y-2">
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         24/7 Chat Support
-                                    </div>
+                                    </span>
                                 </li>
                                 <li>
-                                    <div class="footer__menu-link">
+                                    <span class="footer__menu-link">
                                         Support Center
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="footer__menu-link">
-                                        Product Feedback & Suggestions
-                                    </div>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-4 border-t border-white-100">
-                <div class="text-center text-white-200 container mx-auto py-7 px-6 text-sm">
+            <div class="mt-4 border-t border-gray-dark">
+                <div class="text-center text-gray-light container mx-auto py-7 px-6 text-sm">
                     &copy; {{ currentYear }} <span class="tracking-widest">XVAULT</span>
                 </div>
             </div>
         </div>
         <div v-if="type == 'minimalist'">
             <div class="mt-4">
-                <div class="text-center text-white-200 container mx-auto py-7 px-6 text-xs">
+                <div class="text-center text-gray-light container mx-auto py-7 px-6 text-xs">
                     &copy; {{ currentYear }} <span class="tracking-widest">XVAULT</span>
                 </div>
             </div>
@@ -273,7 +248,7 @@ const currentYear = computed(() => {
 
 <style lang="scss" scoped>
 .footer__menu-link {
-    @apply hover:text-primary-300 transition-colors duration-200 ease-in-out cursor-pointer;
+    @apply hover:text-green transition-colors duration-200 ease-in-out cursor-pointer;
 }
 
 .newsletter__email {

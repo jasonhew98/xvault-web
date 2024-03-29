@@ -2,20 +2,20 @@
     <header class="header" id="header" :class="headerClass">
         <nav class="nav">
             <div class="nav__logo logo-name pr-4" @click="goToHome">
-                <div class="w-8 h-8 icon icon-box-logo"></div>XVAULT
+                <div class="w-8 h-8 icon icon-box-logo bg-green"></div>XVAULT
             </div>
 
             <div class="nav__menu xl:w-auto md:w-1/2 w-full" :class="navMenuClass">
                 <ul class="md:hidden visible flex items-center text-sm font-medium gap-2 pb-12">
-                    <li class="w-full text-center bg-bg-300 rounded-md hover:bg-bg-200 transition-background-color pointer px-4 py-2 duration-200 ease-in-out"
+                    <li class="w-full text-center text-black bg-green rounded-md hover:bg-green-dark transition-background-color px-4 py-2 duration-200 ease-in-out"
                         v-for="(option, index) in sideOptions" :key="option.id" :index="index">
-                        <div @click="option.action">{{ option.label }}</div>
+                        <span class="cursor-pointer" @click="option.action">{{ option.label }}</span>
                     </li>
                 </ul>
 
                 <ul class="xl:flex items-center text-sm font-medium">
-                    <li class="pointer xl:px-4 py-2 duration-200 ease-in-out" v-for="option in options" :key="option.id">
-                        <div class="hover:text-primary-300 transition-colors" @click="onMenuClick(option)">{{ option.label }}</div>
+                    <li class="xl:px-4 py-2 duration-200 ease-in-out" v-for="option in options" :key="option.id">
+                        <span class="hover:text-green transition-colors cursor-pointer" @click="onMenuClick(option)">{{ option.label }}</span>
                     </li>
                 </ul>
 
@@ -26,12 +26,12 @@
 
             <div class="flex flex-row items-center">
                 <ul class="md:visible md:flex hidden items-center text-sm font-medium">
-                    <li class="pointer px-4 py-2 duration-200 ease-in-out" v-for="(option, index) in sideOptions" :key="option.id" :index="index"
+                    <li class="px-4 py-2 transition-colors duration-200 ease-in-out" v-for="(option, index) in sideOptions" :key="option.id" :index="index"
                         :class="{
-                            'hover:text-primary-300 transition-colors': option.actionType == 'label',
-                            'bg-bg-300 rounded-md hover:bg-bg-200 transition-background-color': option.actionType == 'button'
+                            'hover:text-green': option.actionType == 'label',
+                            'text-black cursor-pointer bg-green hover:bg-green-dark': option.actionType == 'button'
                         }">
-                        <div @click="option.action">{{ option.label }}</div>
+                        <span class="cursor-pointer" @click="option.action">{{ option.label }}</span>
                     </li>
                 </ul>
 
@@ -112,12 +112,8 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 
 .header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
+    @apply w-full fixed bg-black top-0 left-0;
     z-index: var(--z-fixed);
-
     transform: translate3d(0, 0, 0);
     transition: 0.1s all ease-out;
 }
@@ -170,10 +166,10 @@ onUnmounted(() => {
 
 @media screen and (max-width: 1280px) {
     .nav__menu {
+        @apply bg-black-light;
         position: fixed;
         top: 0;
         right: -100%;
-        background-color: var(--bg-200);
         height: 100vh;
         padding: 6rem 3rem 0;
         transition: right .4s;

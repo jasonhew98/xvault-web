@@ -8,6 +8,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        blue: {
+          DEFAULT: "#3C50E0"
+        },
+        green: {
+          DEFAULT: "#00FF00",
+          dark: "#00df00",
+          darker: "#009700"
+        },
+        pink: {
+          DEFAULT: "#FF00FF",
+          lightest: "#FFD6FF"
+        },
+        gray: {
+          light: "#E0E0E0",
+          dark: "#2C2C2C"
+        },
+        black: {
+          light: "#161616",
+          DEFAULT: "#000000"
+        },
+        white: {
+          DEFAULT: "#FFFFFF"
+        },
         'primary': "rgb(60 80 224)",
         'primary-100': "#1F3A5F",
         'primary-200': "#4D648D",
@@ -23,7 +46,6 @@ module.exports = {
         'stroke': "rgb(226 232 240)",
         'boxdark': "rgb(36 48 63)",
         'strokedark': "rgb(46 58 71)",
-        'black' : "rgb(28 36 52)",
         'graydark' : "rgb(51 58 72)",
         'bodydark1': "rgb(222 228 238)",
         'bodydark2': "rgb(138 153 175)",
@@ -39,22 +61,13 @@ module.exports = {
         '500': '31.25rem',
       },
       boxShadow: {
+        'button--hover': "inset 0 0 0 1px #00FF00",
         '11': '0px 1px 3px 0px rgba(166, 175, 195, .4)',
         '12': '0px .5px 3px 0px rgba(0, 0, 0, .18)'
       },
       keyframes: {
-        'accordion-down': {
-          from: { height: 0 },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: 0 },
-        },
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },

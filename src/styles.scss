@@ -14,30 +14,23 @@ html {
     scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 	border-radius: 10px;
-    background-color: var(--scrollbar-bg-color);
 }
 
-::-webkit-scrollbar
-{
-	width: 6px;
+::-webkit-scrollbar {
+	width: 4px;
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
+    @apply bg-green;
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-	background-color: var(--scrollbar-color);
 }
 
 body {
-    @apply font-normal text-base;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--body-color);
+    @apply w-full h-screen bg-black font-normal text-base;
     font-family: var(--body-font);
     letter-spacing: .025rem;
 }
@@ -77,29 +70,8 @@ img {
 
 /*=============== REUSABLE CLASSES ===============*/
 
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.section {
-    padding-block: 5rem 1rem;
-}
-
-.section__title {
-    @apply font-bold;
-    font-size: var(--h1-font-size);
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
 .button {
-    @apply md:text-base text-sm text-darkblue p-2 font-semibold;
-    display: inline-block;
-    transition: .2s ease;
-    cursor: pointer;
-    border: 1px solid var(--button-color);
+    @apply inline-block md:text-base text-sm text-green p-2 font-semibold transition duration-200 ease-in-out cursor-pointer;
 }
 
 .button-medium {
@@ -111,76 +83,40 @@ img {
 }
 
 .button-full {
-    @apply md:text-base text-sm text-darkblue md:w-32 p-2 w-full font-semibold;
-    display: inline-block;
-    transition: .2s ease;
-    cursor: pointer;
-    border: 1px solid var(--button-color);
-}
-
-.button-flex {
-    display: inline-flex;
-    align-items: center;
+    @apply md:w-32 w-full border border-solid border-green;
 }
 
 .button-primary {
-    @apply text-white;
-    background-color: var(--button-color);
+    @apply text-black bg-green border border-solid border-green;
 }
 
 .button-secondary {
-    @apply text-white;
-    transition: .2s;
+    @apply border border-solid border-green;
 }
 
 .button-primary:hover {
-    background-color: var(--body-color);
-    box-shadow: inset 0 0 0 1px var(--primary-100);
+    @apply bg-green-dark;
 }
 
 .button-secondary:hover {
-    box-shadow: inset 0 0 0 1px var(--primary-100);
+    @apply shadow-button--hover;
 }
 
 #xvault__app {
     .main {
-        width: 100%;
-        height: 100%;
-        background-color: var(--body-color);
-        background-image: var(--body-color);
-        color: var(--clear);
-        @apply relative overflow-hidden;
-
-        a {
-            color: var(--clear);
-        }
-
-        .icon {
-            background-color: var(--clear);
-        }
-    }
-
-    .main-landing {
-        padding-top: var(--header-height);
+        @apply w-full h-full bg-black text-white relative overflow-hidden pt-14;
     }
 
     .landing__title {
-        @apply lg:text-6xl md:text-5xl text-lg;
-        margin-bottom: var(--margin-1);
+        @apply lg:text-6xl md:text-5xl text-lg mb-4;
     }
 
     .landing__caption {
-        @apply md:text-base text-xs;
-        color: var(--dull);
-        margin-bottom: var(--margin-1);
+        @apply md:text-base text-xs mb-4 text-gray-light;
     }
 
     .logo-name {
         letter-spacing: 5px;
-    }
-
-    .pointer {
-        cursor: pointer;
     }
 
     .app {
@@ -199,15 +135,7 @@ img {
     @media only screen and (min-width: 1280px) {
 
         .nav {
-            padding: 0 var(--header-height);
-        }
-
-        .section {
-            padding-block: 7rem 2rem;
-        }
-
-        .section__title {
-            margin-bottom: 1.5rem;
+            @apply py-0 px-14;
         }
 
         .nav__toggle,

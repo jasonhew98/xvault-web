@@ -6,7 +6,7 @@
             '-translate-x-full': !appSidebarStore.isAppSidebarOpen
         }">
         <div class="sidebar__logo-section">
-            <div class="sidebar__logo pointer logo-name" v-show="isExpanded">
+            <div class="sidebar__logo cursor-pointer logo-name" v-show="isExpanded">
                 <i class='icon__medium bx bxl-codepen'></i>XVAULT
             </div>
         </div>
