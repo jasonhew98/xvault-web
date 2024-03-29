@@ -56,7 +56,7 @@
                                             </button>
                                         </div>
                                     </form>
-                                    <div class="flex w-full h-12 items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray px-4 font-medium hover:bg-opacity-70">
+                                    <div class="flex w-full h-12 items-center justify-center cursor-pointer gap-3.5 rounded-lg border border-stroke bg-gray px-4 font-medium hover:bg-opacity-70">
                                         <span>
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_191_13499)">
