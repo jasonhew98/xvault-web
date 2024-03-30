@@ -42,13 +42,11 @@ const props = defineProps({
 <style>
 
 .button-negative {
-    @apply border-stroke p-3 text-center font-medium text-black
-        transition hover:border-meta-1 hover:bg-meta-1 hover:text-white dark:border-strokedark dark:bg-meta-4 dark:text-white
-        dark:hover:border-meta-1 dark:hover:bg-meta-1;
+    @apply p-3 text-center font-medium text-white transition;
 }
 
 .button-positive {
-    @apply border-primary bg-primary p-3 text-center font-medium text-white transition hover:bg-opacity-90;
+    @apply p-3 text-center font-medium text-white transition;
 }
 
 </style>

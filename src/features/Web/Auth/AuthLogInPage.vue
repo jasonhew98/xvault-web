@@ -16,11 +16,11 @@
                                             <label class="mb-2.5 block font-medium text-white">Username</label>
                                             <div class="relative flex items-center justify-center">
                                                 <input type="text" class="input__box"
-                                                    :class="[ v$.username.$error ? 'border-error' : 'border-gray-light' ]"
+                                                    :class="[ v$.username.$error ? 'border-red-red-error' : 'border-gray-light' ]"
                                                     @click="v$.username.$reset()"
                                                     v-model="username">
                                             </div>
-                                            <div class="error-message text-error" v-if="v$.username.$error">
+                                            <div class="error-message text-red-error" v-if="v$.username.$error">
                                                 <span>Please enter your username.</span>
                                             </div>
                                         </div>
@@ -29,7 +29,7 @@
                                             <div class="relative flex items-center justify-center">
                                                 <input class="input__box"
                                                     :type="revealPassword ? 'text' : 'password'"
-                                                    :class="[ v$.password.$error ? 'border-error' : 'border-gray-light' ]"
+                                                    :class="[ v$.password.$error ? 'border-red-error' : 'border-gray-light' ]"
                                                     @click="v$.password.$reset()"
                                                     v-model="password">
                                                 <span class="absolute right-4">
@@ -40,7 +40,7 @@
                                                         ]"></i>
                                                 </span>
                                             </div>
-                                            <div class="error-message text-error" v-if="v$.password.$error">
+                                            <div class="error-message text-red-error" v-if="v$.password.$error">
                                                 <span>Please enter your password.</span>
                                             </div>
                                         </div>
@@ -53,7 +53,7 @@
                                             </button>
                                         </div>
                                     </form>
-                                    <div class="flex w-full py-2 items-center justify-center cursor-pointer gap-3.5 rounded-lg border border-stroke bg-gray px-4 font-medium hover:bg-opacity-70">
+                                    <div class="flex w-full py-2 items-center justify-center cursor-pointer gap-3.5 rounded-lg border border-gray-light bg-gray px-4 font-medium hover:bg-opacity-70">
                                         <span>
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">

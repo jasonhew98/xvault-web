@@ -257,7 +257,7 @@ const currentYear = computed(() => {
 }
 
 .accordion {
-    @apply md:hidden border-t border-white-100 mt-4 pt-4 col-span-12;
+    @apply md:hidden border-t border-white mt-4 pt-4 col-span-12;
 }
 
 .accordion-title {
