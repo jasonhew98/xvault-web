@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { reactive, computed, onBeforeMount, getCurrentInstance } from 'vue';
+import { reactive, computed, onBeforeMount, getCurrentInstance, provide } from 'vue';
 import TransactionTable from './@components/TransactionTable.vue';
 import TransactionAddForm from './@components/TransactionAddForm.vue';
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
@@ -39,7 +39,30 @@ const getList = async () => {
     } catch (err) {
         pageStateStore.setError({});
     }
-}
+};
+
+const deleteTransaction = async (transactionId) => {
+    try {
+        transactions.value = transactions.value.filter(x => x.transactionId != transactionId);
+
+        pageStateStore.setLoading({
+            title: "Processing Transaction...",
+            body: "Please wait while we delete your transaction. This should only take a moment."
+        });
+        
+        const [error, result] = await transactionRepository.value.deleteTransaction(transactionId);
+        if (error) {
+            pageStateStore.setError({});
+            return;
+        }
+
+        pageStateStore.setCompleted({});
+    } catch (err) {
+        pageStateStore.setError({});
+    }
+};
+
+provide('deleteTransaction', deleteTransaction);
 
 onBeforeMount(async () => {
     await getList();

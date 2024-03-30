@@ -31,7 +31,7 @@
                 <div class="hover:text-green cursor-pointer" @click="editTransaction">
                     <i class='bx bx-edit text-lg'></i>
                 </div>
-                <div class="hover:text-green cursor-pointer" @click="deleteTransaction">
+                <div class="hover:text-green cursor-pointer" @click="deleteTransaction(transactionId)">
                     <i class='bx bx-trash text-lg'></i>
                 </div>
             </div>
@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { computed, getCurrentInstance } from 'vue';
+import { computed, getCurrentInstance, inject } from 'vue';
 import { formatDate } from '@/seedwork/formatters/dateFormatter';
 
 const app = getCurrentInstance();
@@ -52,6 +52,10 @@ const props = defineProps({
 // region computed
 const transactionRepository = computed(() => {
     return app.appContext.config.globalProperties.$repository.transactionRepository;
+});
+
+const transactionId = computed(() => {
+    return props.record ? props.record.transactionId : "-";
 });
 
 const mainCategory = computed(() => {
@@ -82,8 +86,6 @@ const editTransaction = () => {
 
 };
 
-const deleteTransaction = () => {
-
-};
+const deleteTransaction = inject('deleteTransaction', () => {});
 
 </script>
