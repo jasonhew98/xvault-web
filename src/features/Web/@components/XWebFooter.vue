@@ -192,7 +192,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, computed } from 'vue';
 
 const props = defineProps({
     type: { type: String, required: false, default: "default" },

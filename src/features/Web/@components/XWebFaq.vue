@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { reactive } from 'vue';
 
 const faqs = reactive({
     value: [{
