@@ -8,15 +8,14 @@
                         <div class="flex flex-wrap items-stretch">
                             <div class="w-full px-4 sm:px-12.5 flex items-center justify-center xl:w-1/2 py-6">
                                 <div class="w-full py-17.5 md:max-w-[384px]">
-                                    <h2 class="text-3xl font-bold text-white dark:text-white sm:text-title-xl2 mb-9">
+                                    <h2 class="text-3xl font-bold text-white sm:text-title-xl2 mb-9">
                                         Sign Up
                                     </h2>
                                     <form @submit.prevent="login">
                                         <div class="flex flex-col gap-1 mb-4">
-                                            <label class="mb-2.5 block font-medium text-white dark:text-white">Username</label>
+                                            <label class="mb-2.5 block font-medium text-white">Username</label>
                                             <div class="relative flex items-center justify-center">
-                                                <input type="text" class="w-full rounded-lg border bg-transparent py-2 pl-6 pr-10 outline-none hover:border-green
-                                                    focus-visible:shadow-none text-white transition-all ease-in-out duration-300"
+                                                <input type="text" class="input__box"
                                                     :class="[ v$.username.$error ? 'border-error' : 'border-gray-light' ]"
                                                     @click="v$.username.$reset()"
                                                     v-model="username">
@@ -26,10 +25,9 @@
                                             </div>
                                         </div>
                                         <div class="flex flex-col gap-1 mb-4">
-                                            <label class="mb-2.5 block font-medium text-white dark:text-white">Password</label>
+                                            <label class="mb-2.5 block font-medium text-white">Password</label>
                                             <div class="relative flex items-center justify-center">
-                                                <input class="w-full rounded-lg border bg-transparent py-2 pl-6 pr-10 outline-none hover:border-green
-                                                    focus-visible:shadow-none text-white transition-all ease-in-out duration-300"
+                                                <input class="input__box"
                                                     :type="revealPassword ? 'text' : 'password'"
                                                     :class="[ v$.password.$error ? 'border-error' : 'border-gray-light' ]"
                                                     @click="v$.password.$reset()"
@@ -38,7 +36,7 @@
                                                     <i class="fas cursor-pointer"
                                                         @click="toggleRevealPassword"
                                                         :class="[
-                                                            true ? 'fa-eye-slash' : 'fa-eye'
+                                                            revealPassword ? 'fa-eye-slash' : 'fa-eye'
                                                         ]"></i>
                                                 </span>
                                             </div>
@@ -47,7 +45,7 @@
                                             </div>
                                         </div>
                                         <div class="mb-5 mt-6">
-                                            <button class="w-full py-2 cursor-pointer rounded-lg border border-green bg-green px-4 font-medium text-black transition hover:bg-opacity-90">
+                                            <button class="w-full py-2 cursor-pointer rounded-lg border border-green bg-green px-4 font-medium text-black transition hover:bg-green-dark">
                                                 <i class="fa fa-spinner fa-spin" :class="{'hidden': !isLoginLoading}"></i>
                                                 <span :class="{'hidden': isLoginLoading}">Next</span>
                                             </button>
@@ -222,110 +220,10 @@ const login = async () => {
 </script>
 
 <style lang="scss" scoped>
-.login__form {
-    padding: 30px;
-    border-radius: 16px;
-    backdrop-filter: blur(25px);
-    text-align: center;
-    color: white;
-    width: 400px;
-    height: fit-content;
-}
-
-.login__title {
-    font-size: 40px;
-    margin-bottom: 40px;
-}
 
 .input__box {
-    margin: 20px 0;
-    position: relative;
+    @apply w-full rounded-lg border bg-transparent py-2 pl-6 pr-10 outline-none hover:border-green
+        focus-visible:shadow-none text-white transition-all ease-in-out duration-300;
 }
 
-.input__box input {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    padding: 12px 12px 12px 45px;
-    border-radius: 99px;
-    outline: 3px solid transparent;
-    transition: 0.3s;
-    font-size: 17px;
-    color: white;
-    font-weight: 600;
-}
-
-.input__box input::placeholder {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 17px;
-    font-weight: 500;
-}
-
-.input__box input:focus {
-    outline: 3px solid rgba(255, 255, 255, 0.3);
-}
-
-.input__box input::-ms-reveal {
-    filter: invert(100%);
-}
-
-.input__box i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.session__box {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-    font-size: 15px;
-}
-
-.session__box label {
-    display: flex;
-    gap: 8px;
-    cursor: pointer;
-}
-
-.session__box input {
-    accent-color: white;
-    cursor: pointer;
-}
-
-.session__box a {
-    color: white;
-    text-decoration: none;
-}
-
-.session__box a:hover {
-    text-decoration: underline;
-}
-
-.login-button {
-    width: 100%;
-    padding: 10px 0;
-    border: none;
-    border-radius: 99px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.register {
-    margin-top: 15px;
-    font-size: 15px;
-}
-
-.register a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.register a:hover {
-    text-decoration: underline;
-}
 </style>
