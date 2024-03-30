@@ -1,11 +1,10 @@
 <template>
     <div class="flex h-full min-h-screen w-full items-center justify-center px-4 py-5">
-        <div class="w-[570px] rounded-lg bg-white py-12 px-8 text-center dark:bg-boxdark md:py-15 md:px-17.5">
-            <h3 class="pb-2 text-xl font-bold text-black dark:text-white sm:text-2xl">
+        <div class="w-[570px] rounded-lg bg-black-light py-12 px-8 text-center md:py-15 md:px-17.5">
+            <h3 class="pb-2 text-xl font-bold text-green sm:text-2xl mb-8">
                 {{ props.title }}
             </h3>
-            <span class="mx-auto mb-6 inline-block h-1 w-22.5 rounded bg-primary"></span>
-            <p class="mb-10 font-medium">{{ props.body }}</p>
+            <p class="mb-10 font-medium text-gray-light">{{ props.body }}</p>
             <div class="-mx-3 flex gap-y-4">
                 <div class="w-full px-3 2xsm:w-1/2" v-for="action in props.actions">
                     <button class="block w-full rounded border" :class="buttonStyles[action.id]"

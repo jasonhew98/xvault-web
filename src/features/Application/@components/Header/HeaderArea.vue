@@ -13,14 +13,14 @@
                         </svg>
                     </button>
 
-                    <input type="text" placeholder="Type to search..." class="w-full xl:w-125 bg-transparent pr-4 pl-9 focus:outline-none"/>
+                    <!-- <input type="text" placeholder="Type to search..." class="w-full xl:w-125 bg-transparent pr-4 pl-9 focus:outline-none"/> -->
                 </div>
             </div>
 
             <div class="h-full flex items-center gap-3 2xsm:gap-7">
                 <ul class="h-full flex items-center gap-2 2xsm:gap-4">
                     <li class="h-full">
-                        <DarkModeSwitcher />
+                        <!-- <DarkModeSwitcher /> -->
                     </li>
                 </ul>
             </div>

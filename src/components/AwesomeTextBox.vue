@@ -28,12 +28,11 @@ const updateValue = (event) => {
 .awesome__text-box-container {
 
     .awesome__text-box {
+        @apply border-b border-solid border-gray-light;
         width: 100%;
-        border: 0;
         outline: 0;
         padding: 7px 0;
         font-size: 16px;
-        border-bottom: 1px solid #d2d2d2;
         background: transparent;
         transition: border-color 0.2s;
     }
@@ -43,8 +42,8 @@ const updateValue = (event) => {
     }
 
     .awesome__text-box:focus {
+        @apply border-b-2 border-solid border-green;
         padding-bottom: 6px;
-        border-bottom: 2px solid #009788;
     }
 }
 

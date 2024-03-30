@@ -1,5 +1,5 @@
 <template>
-    <form class="space-y-6 dark:text-gray-100" @submit.prevent="addTransaction">
+    <form class="space-y-6" @submit.prevent="addTransaction">
         <div class="space-y-1">
             <awesome-drop-down label="Main Category" v-model="transaction.mainCategory" :options="mainCategoryOptions.value"></awesome-drop-down>
         </div>
@@ -15,7 +15,8 @@
         <div class="space-y-1">
             <AwesomeTextBox label="Payment Amount" v-model="transaction.paymentAmount"></AwesomeTextBox>
         </div>
-        <button type="submit" class="inline-flex items-center justify-center space-x-2 rounded-lg border border-blue-700 bg-blue-700 px-3 py-2 text-sm font-semibold leading-5 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90">
+        <button type="submit" class="inline-flex items-center justify-center space-x-2 rounded-lg border border-green bg-green px-3 py-2 text-sm font-semibold leading-5 text-black
+            hover:border-green-dark hover:bg-green-dark">
             Add Transaction
         </button>
     </form>
@@ -75,6 +76,12 @@ const addTransaction = async () => {
             body: "Please wait while we create your transaction. This should only take a moment."
         });
         const [error, result] = await transactionRepository.value.addTransaction(transaction);
+        if (error) {
+            pageStateStore.setError({});
+            return;
+        }
+
+        pageStateStore.setCompleted({});
     } catch (err) {
         pageStateStore.setError({});
     }

@@ -7,7 +7,7 @@
         </main>
         <main id="page-content" class="w-full flex justify-center items-center max-w-full flex-auto flex-col">
             <div class="container w-full p-4">
-                <div class="md:p-16 p-4 rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 text-gray-400 dark:border-gray-700 dark:bg-gray-800">
+                <div class="md:p-16 p-4 rounded-xl bg-black-light text-white">
                     <transaction-add-form></transaction-add-form>
                 </div>
             </div>

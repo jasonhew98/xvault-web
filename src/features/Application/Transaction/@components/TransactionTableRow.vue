@@ -1,23 +1,23 @@
 <template>
-    <div class="grid grid-cols-12 border-t border-[#EEEEEE] px-5 py-4 dark:border-strokedark lg:px-7.5 2xl:px-11">
-        <div class="col-span-2">
-            <p class="text-[#637381] dark:text-bodydark">{{ mainCategory }}</p>
+    <div class="grid grid-cols-12 hover:bg-gray-dark border-t border-gray-dark px-5 py-2 lg:px-7.5 2xl:px-11">
+        <div class="col-span-2 items-center inline-flex">
+            <p class="text-white">{{ mainCategory }}</p>
         </div>
-        <div class="col-span-2">
-            <p class="text-[#637381] dark:text-bodydark">{{ subCategory }}</p>
+        <div class="col-span-2 items-center inline-flex">
+            <p class="text-white">{{ subCategory }}</p>
         </div>
-        <div class="col-span-2">
-            <p class="text-[#637381] dark:text-bodydark">{{ transactionDate }}</p>
+        <div class="col-span-2 items-center inline-flex">
+            <p class="text-white">{{ transactionDate }}</p>
         </div>
-        <div class="col-span-2">
-            <p class="text-[#637381] dark:text-bodydark">{{ paymentMethod }}</p>
+        <div class="col-span-2 items-center inline-flex">
+            <p class="text-white">{{ paymentMethod }}</p>
         </div>
-        <div class="col-span-2">
-            <p class="text-[#637381] dark:text-bodydark">{{ paymentAmount }}</p>
+        <div class="col-span-2 items-center inline-flex">
+            <p class="text-white">{{ paymentAmount }}</p>
         </div>
-        <div class="relative col-span-2 ml-auto">
-            <div class="flex items-center space-x-3.5">
-                <div class="hover:text-primary cursor-pointer" @click="viewTransaction">
+        <div class="relative col-span-2 ml-auto items-center inline-flex">
+            <div class="flex items-center space-x-3.5 text-white">
+                <div class="hover:text-green cursor-pointer" @click="viewTransaction">
                     <svg class="fill-current" width="18" height="18" viewBox="0 0 18 18" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -28,10 +28,10 @@
                             fill="" />
                     </svg>
                 </div>
-                <div class="hover:text-primary cursor-pointer" @click="editTransaction">
+                <div class="hover:text-green cursor-pointer" @click="editTransaction">
                     <i class='bx bx-edit text-lg'></i>
                 </div>
-                <div class="hover:text-primary cursor-pointer" @click="deleteTransaction">
+                <div class="hover:text-green cursor-pointer" @click="deleteTransaction">
                     <i class='bx bx-trash text-lg'></i>
                 </div>
             </div>
