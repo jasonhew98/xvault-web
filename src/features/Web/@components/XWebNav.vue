@@ -25,16 +25,16 @@
             </div>
 
             <div class="flex flex-row items-center">
-                <ul class="md:visible md:flex hidden items-center text-sm font-medium">
-                    <li class="px-4 py-2 transition-colors duration-200 ease-in-out" v-for="(option, index) in sideOptions" :key="option.id" :index="index"
-                        :class="{
-                            'text-black cursor-pointer bg-green hover:bg-green-dark': option.actionType == 'button'
-                        }">
-                        <span class="cursor-pointer"
-                            :class="{
-                                'hover:text-green': option.actionType == 'label',
-                            }"
-                            @click="option.action">{{ option.label }}</span>
+                <ul class="md:visible md:flex hidden items-center text-sm font-medium gap-4">
+                    <li v-for="(option, index) in sideOptions" :key="option.id" :index="index">
+                        <div v-if="option.actionType == 'button'"
+                            class="px-4 py-2 text-black cursor-pointer bg-green hover:bg-green-dark transition-colors duration-200 ease-in-out"
+                            @click="option.action">
+                            <span>{{ option.label }}</span>
+                        </div>
+                        <span v-else class="cursor-pointer hover:text-green transition-colors duration-200 ease-in-out"
+                            @click="option.action">{{ option.label }}
+                        </span>
                     </li>
                 </ul>
 

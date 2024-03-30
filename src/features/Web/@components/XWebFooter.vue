@@ -82,11 +82,6 @@
                                     Support Center
                                 </span>
                             </li>
-                            <li>
-                                <span class="footer__menu-link">
-                                    Product Feedback & Suggestions
-                                </span>
-                            </li>
                         </ul>
                     </div>
                     <!-- Accordion -->
