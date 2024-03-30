@@ -143,6 +143,7 @@ import XWebNav from '../@components/XWebNav.vue';
 import XWebFaq from '../@components/XWebFaq.vue';
 import XWebFooter from '../@components/XWebFooter.vue';
 import { ref, computed, getCurrentInstance } from 'vue';
+import { useWebNavStore } from '@/infrastructure/stores/webNav.js';
 
 const app = getCurrentInstance();
 
@@ -157,27 +158,37 @@ const router = computed(() => {
     return app.appContext.config.globalProperties.$router;
 });
 
+const webNavStore = useWebNavStore();
+
 const actionConfigurations = computed(() => {
     return [
         {
             id: 1,
             label: "Home",
-            action: () => {  }
+            action: () => {
+                webNavStore.toggleOff();
+            }
         },
         {
             id: 2,
             label: "About us",
-            action: () => {  }
+            action: () => {
+                webNavStore.toggleOff();
+            }
         },
         {
             id: 3,
             label: "Solutions",
-            action: () => {  }
+            action: () => {
+                webNavStore.toggleOff();
+            }
         },
         {
             id: 4,
             label: "Blog",
-            action: () => {  }
+            action: () => {
+                webNavStore.toggleOff();
+            }
         }
     ];
 });
@@ -188,13 +199,19 @@ const sideActionConfigurations = computed(() => {
             id: 1,
             label: "Log In",
             actionType: "label",
-            action: () => goToLogIn()
+            action: () => {
+                webNavStore.toggleOff();
+                goToLogIn();
+            }
         },
         {
             id: 2,
             label: "Sign Up",
             actionType: "button",
-            action: () => goToSignUp()
+            action: () => {
+                webNavStore.toggleOff();
+                goToSignUp();
+            }
         }
     ];
 });

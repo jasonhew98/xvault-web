@@ -10,5 +10,10 @@ export const useWebNavStore = defineStore('webNav', () => {
         else document.body.classList.remove("overflow-hidden");
     }
 
-    return { isWebNavOpen, toggleWebNav };
+    function toggleOff() {
+        isWebNavOpen.value = false;
+        document.body.classList.remove("overflow-hidden");
+    }
+
+    return { isWebNavOpen, toggleWebNav, toggleOff };
 });

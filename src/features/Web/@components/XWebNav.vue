@@ -38,7 +38,7 @@
                     </li>
                 </ul>
 
-                <div class="xl:hidden pl-4 py-2" :class="{hidden: !hasOptions}">
+                <div class="xl:hidden pl-4 py-2" :class="{ hidden: !hasOptions }">
                     <i class="bx bx-menu text-2xl" @click="webNavStore.toggleWebNav"></i>
                 </div>
             </div>
