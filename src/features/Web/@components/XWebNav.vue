@@ -6,12 +6,14 @@
             </div>
 
             <div class="nav__menu xl:w-auto md:w-1/2 w-full" :class="navMenuClass">
+                <!-- Region Mobile Side Option Navigation -->
                 <ul class="md:hidden visible flex items-center text-sm font-medium gap-2 pb-12">
                     <li class="w-full text-center text-black bg-green rounded-md hover:bg-green-dark transition-background-color px-4 py-2 duration-200 ease-in-out"
-                        v-for="(option, index) in sideOptions" :key="option.id" :index="index">
-                        <span class="cursor-pointer" @click="option.action">{{ option.label }}</span>
+                        v-for="(option, index) in sideOptions" :key="option.id" :index="index" @click="option.action">
+                        <span class="cursor-pointer">{{ option.label }}</span>
                     </li>
                 </ul>
+                <!-- End Mobile Side Option Navigation -->
 
                 <ul class="xl:flex items-center text-sm font-medium">
                     <li class="xl:px-4 py-2 duration-200 ease-in-out" v-for="option in options" :key="option.id">
