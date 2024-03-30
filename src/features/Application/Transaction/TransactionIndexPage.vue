@@ -41,6 +41,10 @@ const getList = async () => {
     }
 };
 
+const forceRefresh = async () => {
+    await getList();
+};
+
 const deleteTransaction = async (transactionId) => {
     try {
         transactions.value = transactions.value.filter(x => x.transactionId != transactionId);
@@ -62,9 +66,40 @@ const deleteTransaction = async (transactionId) => {
     }
 };
 
+const lookUpRepository = computed(() => {
+    return app.appContext.config.globalProperties.$repository.lookUpRepository;
+});
+
+const mainCategoryOptions = reactive({ value: [] });
+const subCategoryOptions = reactive({ value: [] });
+const paymentMethodOptions = reactive({ value: [] });
+
+const loadOptions = async () => {
+    const [
+        [, mainCategory_Options],
+        [, subCategory_Options],
+        [, paymentMethod_Options],
+    ] = await Promise.all([
+        lookUpRepository.value.getMainCategories(),
+        lookUpRepository.value.getSubCategories(),
+        lookUpRepository.value.getPaymentMethods(),
+    ]);
+
+    mainCategoryOptions.value = mainCategory_Options;
+    subCategoryOptions.value = subCategory_Options;
+    paymentMethodOptions.value = paymentMethod_Options;
+};
+
+provide('options', {
+    mainCategories: mainCategoryOptions,
+    subCategories: subCategoryOptions,
+    paymentMethods: paymentMethodOptions,
+});
+provide('forceRefresh', forceRefresh);
 provide('deleteTransaction', deleteTransaction);
 
 onBeforeMount(async () => {
+    await loadOptions();
     await getList();
 });
 

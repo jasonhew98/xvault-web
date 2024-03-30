@@ -25,7 +25,7 @@
 <script setup>
 import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 import AwesomeDropDown from '@/components/AwesomeDropDown.vue';
-import { reactive, computed, onBeforeMount, getCurrentInstance } from 'vue';
+import { reactive, computed, onBeforeMount, getCurrentInstance, inject } from 'vue';
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
 
 const pageStateStore = usePageStateStore();
@@ -69,6 +69,8 @@ const loadOptions = async () => {
     paymentMethodOptions.value = paymentMethod_Options;
 };
 
+const forceRefresh = inject('forceRefresh', () => {});
+
 const addTransaction = async () => {
     try {
         pageStateStore.setLoading({
@@ -82,6 +84,7 @@ const addTransaction = async () => {
         }
 
         pageStateStore.setCompleted({});
+        forceRefresh();
     } catch (err) {
         pageStateStore.setError({});
     }

@@ -1,16 +1,16 @@
 <template>
     <div class="grid grid-cols-12 hover:bg-gray-dark border-t border-gray-dark px-5 py-2 lg:px-7.5 2xl:px-11">
         <div class="col-span-2 items-center inline-flex">
-            <p class="text-white">{{ mainCategory }}</p>
+            <p class="text-white">{{ mapMainCategory }}</p>
         </div>
         <div class="col-span-2 items-center inline-flex">
-            <p class="text-white">{{ subCategory }}</p>
+            <p class="text-white">{{ mapSubCategory }}</p>
         </div>
         <div class="col-span-2 items-center inline-flex">
             <p class="text-white">{{ transactionDate }}</p>
         </div>
         <div class="col-span-2 items-center inline-flex">
-            <p class="text-white">{{ paymentMethod }}</p>
+            <p class="text-white">{{ mapPaymentMethod }}</p>
         </div>
         <div class="col-span-2 items-center inline-flex">
             <p class="text-white">{{ paymentAmount }}</p>
@@ -40,13 +40,19 @@
 </template>
 
 <script setup>
-import { computed, getCurrentInstance, inject } from 'vue';
+import { ref, computed, getCurrentInstance, inject } from 'vue';
 import { formatDate } from '@/seedwork/formatters/dateFormatter';
 
 const app = getCurrentInstance();
 
 const props = defineProps({
     record: { type: Object, required: false, default() { return {} } },
+});
+
+const options = inject('options', {
+    mainCategories: ref([]),
+    subCategories: ref([]),
+    paymentMethods: ref([]),
 });
 
 // region computed
@@ -62,8 +68,22 @@ const mainCategory = computed(() => {
     return props.record ? props.record.mainCategory : "-";
 });
 
+const mapMainCategory = computed(() => {
+    let mapped = options.mainCategories.value.find(x => x.id.toLowerCase() == mainCategory.value.toLowerCase());
+    if (!mapped) return mainCategory;
+
+    return mapped.label;
+});
+
 const subCategory = computed(() => {
     return props.record ? props.record.subCategory : "-";
+});
+
+const mapSubCategory = computed(() => {
+    let mapped = options.subCategories.value.find(x => x.id.toLowerCase() == subCategory.value.toLowerCase());
+    if (!mapped) return subCategory;
+
+    return mapped.label;
 });
 
 const transactionDate = computed(() => {
@@ -72,6 +92,13 @@ const transactionDate = computed(() => {
 
 const paymentMethod = computed(() => {
     return props.record ? props.record.paymentMethod : "-";
+});
+
+const mapPaymentMethod = computed(() => {
+    let mapped = options.paymentMethods.value.find(x => x.id.toLowerCase() == paymentMethod.value.toLowerCase());
+    if (!mapped) return paymentMethod.value;
+
+    return mapped.label;
 });
 
 const paymentAmount = computed(() => {
