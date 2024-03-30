@@ -28,10 +28,13 @@
                 <ul class="md:visible md:flex hidden items-center text-sm font-medium">
                     <li class="px-4 py-2 transition-colors duration-200 ease-in-out" v-for="(option, index) in sideOptions" :key="option.id" :index="index"
                         :class="{
-                            'hover:text-green': option.actionType == 'label',
                             'text-black cursor-pointer bg-green hover:bg-green-dark': option.actionType == 'button'
                         }">
-                        <span class="cursor-pointer" @click="option.action">{{ option.label }}</span>
+                        <span class="cursor-pointer"
+                            :class="{
+                                'hover:text-green': option.actionType == 'label',
+                            }"
+                            @click="option.action">{{ option.label }}</span>
                     </li>
                 </ul>
 
