@@ -101,7 +101,6 @@
       right: 0;
       bottom: 0;
       width: 100%;
-      background: var(--body-color);
       color: #fff;
       pointer-events: none;
       z-index: 999;

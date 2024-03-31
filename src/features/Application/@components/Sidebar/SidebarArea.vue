@@ -181,9 +181,7 @@ onClickOutside(target, () => {
 
 <style lang="scss" scoped>
 .sidebar {
-    @apply h-full min-h-screen py-4 pl-4 overflow-hidden;
-    color: var(--clear);
-    width: var(--sidebar-width);
+    @apply w-[240px] h-full min-h-screen py-4 pl-4 overflow-hidden text-white;
 
     .sidebar__logo-section {
         height: 48px;

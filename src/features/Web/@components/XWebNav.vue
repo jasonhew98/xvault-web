@@ -1,7 +1,7 @@
 <template>
     <header class="header" id="header" :class="headerClass">
         <nav class="nav">
-            <div class="nav__logo logo-name pr-4" @click="goToHome">
+            <div class="flex gap-1 font-semibold items-center cursor-pointer logo-name pr-4" @click="goToHome">
                 <div class="w-8 h-8 icon icon-box-logo bg-green"></div>XVAULT
             </div>
 
@@ -21,8 +21,8 @@
                     </li>
                 </ul>
 
-                <div class="nav__close">
-                    <i class="uil uil-times nav__close" @click="webNavStore.toggleWebNav"></i>
+                <div class="absolute text-xl top-5 right-5 cursor-pointer xl:hidden">
+                    <i class="uil uil-times" @click="webNavStore.toggleWebNav"></i>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
                 </ul>
 
                 <div class="xl:hidden pl-4 py-2" :class="{ hidden: !hasOptions }">
-                    <i class="bx bx-menu text-2xl" @click="webNavStore.toggleWebNav"></i>
+                    <i class="bx bx-menu cursor-pointer text-2xl" @click="webNavStore.toggleWebNav"></i>
                 </div>
             </div>
         </nav>
@@ -117,8 +117,7 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 
 .header {
-    @apply w-full fixed bg-black top-0 left-0;
-    z-index: var(--z-fixed);
+    @apply w-full fixed bg-black top-0 left-0 z-[100];
     transform: translate3d(0, 0, 0);
     transition: 0.1s all ease-out;
 }
@@ -128,45 +127,11 @@ onUnmounted(() => {
 }
 
 .nav {
-    @apply text-base;
-    position: relative;
-    height: var(--header-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1.5rem;
+    @apply h-14 py-0 px-6 relative flex justify-between items-center text-base;
 }
 
 .nav__menu {
     margin-right: auto;
-}
-
-.nav__logo,
-.nav__close,
-.nav__toggle,
-.nav__actions {
-    display: flex;
-    cursor: pointer;
-}
-
-.nav__logo {
-    @apply font-semibold;
-    column-gap: .25rem;
-    align-items: center;
-}
-
-.nav__logo i {
-    font-size: 2rem;
-    font-weight: initial;
-}
-
-.nav__actions {
-    column-gap: .5rem;
-    align-items: center;
-
-    .button {
-        text-align: center;
-    }
 }
 
 @media screen and (max-width: 1280px) {
@@ -179,26 +144,6 @@ onUnmounted(() => {
         padding: 6rem 3rem 0;
         transition: right .4s;
     }
-}
-
-.nav__list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 3rem;
-}
-
-.nav__link {
-    @apply font-semibold;
-    transition: color .4s;
-    cursor: pointer;
-    position: relative;
-}
-
-.nav__close {
-    position: absolute;
-    top: 1.15rem;
-    right: 1.5rem;
-    font-size: 1.25rem;
 }
 
 .nav__menu--show {

@@ -1,11 +1,11 @@
 <template>
-    <div class="w-full h-full overflow-auto flex max-w-full flex-auto flex-col">
-        <main id="page-content" class="w-full flex justify-center items-center max-w-full flex-auto flex-col">
+    <div class="w-full h-full overflow-auto flex max-w-full flex-col">
+        <main id="page-content" class="w-full flex items-center max-w-full flex-col">
             <div class="container w-full p-4">
                 <transaction-table :records="transactions.value"></transaction-table>
             </div>
         </main>
-        <main id="page-content" class="w-full flex justify-center items-center max-w-full flex-auto flex-col">
+        <main id="page-content" class="w-full flex justify-center items-center max-w-full flex-col">
             <div class="container w-full p-4">
                 <div class="md:p-16 p-4 rounded-xl bg-black-light text-white">
                     <transaction-add-form></transaction-add-form>
@@ -104,5 +104,3 @@ onBeforeMount(async () => {
 });
 
 </script>
-
-<style lang="scss" scoped></style>

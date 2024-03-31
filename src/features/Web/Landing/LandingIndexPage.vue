@@ -234,10 +234,6 @@ const goToSignUp = () => {
 
 <style lang="scss" scoped>
 
-body {
-    background-color: var(--body-color);
-}
-
 .section-hero {
     display: flex;
     justify-content: center;
@@ -323,4 +319,4 @@ body {
 @media only screen and (max-width: 320px) {
 }
 
-</style>../@components/LandingNav.vue../@components/LandingFaq.vue../@components/LandingFooter.vue
+</style>
