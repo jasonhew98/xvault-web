@@ -1,5 +1,5 @@
 <template>
-    <header class="header" id="header" :class="headerClass">
+    <header ref="target" class="header" id="header" :class="headerClass">
         <nav class="nav">
             <div class="flex gap-1 font-semibold items-center cursor-pointer logo-name pr-4" @click="goToHome">
                 <div class="w-8 h-8 icon icon-box-logo bg-green"></div>XVAULT
@@ -51,6 +51,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, getCurrentInstance } from 'vue';
 import { useWebNavStore } from '@/infrastructure/stores/webNav.js';
+import { onClickOutside } from '@vueuse/core';
 
 const webNavStore = useWebNavStore();
 
@@ -59,6 +60,11 @@ const app = getCurrentInstance();
 // region ref
 const showNavBar = ref(true);
 const lastScrollPosition = ref(0);
+
+const target = ref(null);
+onClickOutside(target, () => {
+	webNavStore.toggleOff();
+});
 
 // region props
 const props = defineProps({
