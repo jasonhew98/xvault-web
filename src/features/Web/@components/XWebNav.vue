@@ -63,7 +63,7 @@ const lastScrollPosition = ref(0);
 
 const target = ref(null);
 onClickOutside(target, () => {
-	webNavStore.toggleOff();
+	webNavStore.hide();
 });
 
 // region props

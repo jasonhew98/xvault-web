@@ -28,7 +28,7 @@ const updateValue = (event) => {
 .awesome__text-box-container {
 
     .awesome__text-box {
-        @apply border-b border-solid border-gray-light;
+        @apply text-white border-b border-solid border-gray-light;
         width: 100%;
         outline: 0;
         padding: 7px 0;

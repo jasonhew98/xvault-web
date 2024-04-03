@@ -7,6 +7,7 @@ import AuthLogInPage from '@/features/Web/Auth/AuthLogInPage.vue'
 import AuthSignUpPage from '@/features/Web/Auth/AuthSignUpPage.vue'
 
 import ApplicationIndexPage from '@/features/Application/ApplicationIndexPage.vue'
+import ProfileIndexPage from '@/features/Application/Profile/ProfileIndexPage.vue'
 import TransactionIndexPage from '@/features/Application/Transaction/TransactionIndexPage.vue'
 import WalletIndexPage from '@/features/Application/Wallet/WalletIndexPage.vue'
 import SettingsIndexPage from '@/features/Application/Settings/SettingsIndexPage.vue'
@@ -41,17 +42,22 @@ const routes = [
         },
         children: [
             {
-                path: "",
+                path: "profile/me",
+                component: ProfileIndexPage,
+                name: "ProfileIndexPage"
+            },
+            {
+                path: "dashboard",
                 component: TransactionIndexPage,
                 name: "TransactionIndexPage"
             },
             {
-                path: "",
+                path: "wallet",
                 component: WalletIndexPage,
                 name: "WalletIndexPage"
             },
             {
-                path: "",
+                path: "settings",
                 component: SettingsIndexPage,
                 name: "SettingsIndexPage"
             }

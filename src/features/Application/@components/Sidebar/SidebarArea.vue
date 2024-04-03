@@ -7,7 +7,7 @@
         }">
         <div class="h-full w-full flex flex-col border-r border-gray-dark">
             <div class="mb-20 mr-4 flex flex-col items-center text-center">
-                <div class="mb-3 rounded-full bg-black-light p-1.5">
+                <div class="mb-3 rounded-full bg-black-light p-1.5 cursor-pointer" @click="goToProfile">
                     <svg width="30" height="35" viewBox="0 0 515 595"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="515" height="595" rx="30" class="fill-black-light"></rect>
@@ -96,6 +96,7 @@ const appSidebarStore = useAppSidebarStore();
 
 const app = getCurrentInstance();
 const MENUPAGES = {
+    profile: "ProfileIndexPage",
     dashboard: "TransactionIndexPage",
     wallet: "WalletIndexPage",
     settings: "SettingsIndexPage",
@@ -144,6 +145,7 @@ const isCurrentSelected = computed(() => {
 });
 
 const setSelectedMenuItem = (menuItemId) => {
+    appSidebarStore.hide();
     selectedMenuItemId.value = menuItemId;
 };
 
@@ -155,10 +157,20 @@ const logOut = () => {
 };
 
 const goToPage = () => {
+    if (!MENUPAGES[selectedMenuItemId.value])
+        return;
+
     router.value.replace({
         name: MENUPAGES[selectedMenuItemId.value]
     });
-}
+};
+
+const goToProfile = () => {
+    setSelectedMenuItem(null);
+    router.value.replace({
+        name: MENUPAGES.profile
+    });
+};
 
 // region watch
 watch(selectedMenuItemId, async () => {

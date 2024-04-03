@@ -11,5 +11,9 @@ export const useAppSidebarStore = defineStore('sidebar', () => {
 		isAppSidebarOpen.value = !isAppSidebarOpen.value;
 	}
 
-	return { isAppSidebarOpen, toggleSidebar, selected, page };
+	function hide() {
+		isAppSidebarOpen.value = false;
+	}
+
+	return { isAppSidebarOpen, toggleSidebar, hide, selected, page };
 });

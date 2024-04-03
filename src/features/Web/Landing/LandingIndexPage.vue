@@ -166,28 +166,28 @@ const actionConfigurations = computed(() => {
             id: 1,
             label: "Home",
             action: () => {
-                webNavStore.toggleOff();
+                webNavStore.hide();
             }
         },
         {
             id: 2,
             label: "About us",
             action: () => {
-                webNavStore.toggleOff();
+                webNavStore.hide();
             }
         },
         {
             id: 3,
             label: "Solutions",
             action: () => {
-                webNavStore.toggleOff();
+                webNavStore.hide();
             }
         },
         {
             id: 4,
             label: "Blog",
             action: () => {
-                webNavStore.toggleOff();
+                webNavStore.hide();
             }
         }
     ];
@@ -200,7 +200,7 @@ const sideActionConfigurations = computed(() => {
             label: "Log In",
             actionType: "label",
             action: () => {
-                webNavStore.toggleOff();
+                webNavStore.hide();
                 goToLogIn();
             }
         },
@@ -209,7 +209,7 @@ const sideActionConfigurations = computed(() => {
             label: "Sign Up",
             actionType: "button",
             action: () => {
-                webNavStore.toggleOff();
+                webNavStore.hide();
                 goToSignUp();
             }
         }
