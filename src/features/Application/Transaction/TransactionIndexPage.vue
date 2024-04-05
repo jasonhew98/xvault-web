@@ -16,25 +16,25 @@
 </template>
 
 <script setup>
-import { reactive, computed, onBeforeMount, getCurrentInstance, provide } from 'vue';
 import TransactionTable from './@components/TransactionTable.vue';
 import TransactionAddForm from './@components/TransactionAddForm.vue';
+
+import { reactive, onBeforeMount, provide, inject } from 'vue';
+
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
 
 const pageStateStore = usePageStateStore();
 
-const app = getCurrentInstance();
+// get transactions
 const transactions = reactive({
     value: []
 });
 
-const transactionRepository = computed(() => {
-    return app.appContext.config.globalProperties.$repository.transactionRepository;
-});
+const transactionRepository = inject('transactionRepository');
 
 const getList = async () => {
     try {
-        const [error, result] = await transactionRepository.value.getTransactions();
+        const [error, result] = await transactionRepository.getTransactions();
         transactions.value = result;
     } catch (err) {
         pageStateStore.setError({});
@@ -45,6 +45,9 @@ const forceRefresh = async () => {
     await getList();
 };
 
+provide('forceRefresh', forceRefresh);
+
+// delete transaction
 const deleteTransaction = async (transactionId) => {
     try {
         transactions.value = transactions.value.filter(x => x.transactionId != transactionId);
@@ -54,7 +57,7 @@ const deleteTransaction = async (transactionId) => {
             body: "Please wait while we delete your transaction. This should only take a moment."
         });
         
-        const [error, result] = await transactionRepository.value.deleteTransaction(transactionId);
+        const [error, result] = await transactionRepository.deleteTransaction(transactionId);
         if (error) {
             pageStateStore.setError({});
             return;
@@ -66,9 +69,10 @@ const deleteTransaction = async (transactionId) => {
     }
 };
 
-const lookUpRepository = computed(() => {
-    return app.appContext.config.globalProperties.$repository.lookUpRepository;
-});
+provide('deleteTransaction', deleteTransaction);
+
+// lookUp options
+const lookUpRepository = inject('lookUpRepository');
 
 const mainCategoryOptions = reactive({ value: [] });
 const subCategoryOptions = reactive({ value: [] });
@@ -80,9 +84,9 @@ const loadOptions = async () => {
         [, subCategory_Options],
         [, paymentMethod_Options],
     ] = await Promise.all([
-        lookUpRepository.value.getMainCategories(),
-        lookUpRepository.value.getSubCategories(),
-        lookUpRepository.value.getPaymentMethods(),
+        lookUpRepository.getMainCategories(),
+        lookUpRepository.getSubCategories(),
+        lookUpRepository.getPaymentMethods(),
     ]);
 
     mainCategoryOptions.value = mainCategory_Options;
@@ -95,8 +99,6 @@ provide('options', {
     subCategories: subCategoryOptions,
     paymentMethods: paymentMethodOptions,
 });
-provide('forceRefresh', forceRefresh);
-provide('deleteTransaction', deleteTransaction);
 
 onBeforeMount(async () => {
     await loadOptions();

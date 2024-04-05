@@ -12,6 +12,7 @@
 
 <script setup>
 import AwesomeModal from '@/components/AwesomeModal.vue';
+
 import { computed } from 'vue';
 
 import { useModalStore } from '@/infrastructure/stores/modal.js';

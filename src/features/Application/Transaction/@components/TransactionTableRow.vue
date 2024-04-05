@@ -40,10 +40,8 @@
 </template>
 
 <script setup>
-import { ref, computed, getCurrentInstance, inject } from 'vue';
+import { ref, computed, inject } from 'vue';
 import { formatDate } from '@/seedwork/formatters/dateFormatter';
-
-const app = getCurrentInstance();
 
 const props = defineProps({
     record: { type: Object, required: false, default() { return {} } },
@@ -56,9 +54,7 @@ const options = inject('options', {
 });
 
 // region computed
-const transactionRepository = computed(() => {
-    return app.appContext.config.globalProperties.$repository.transactionRepository;
-});
+const transactionRepository = inject('transactionRepository');
 
 const transactionId = computed(() => {
     return props.record ? props.record.transactionId : "-";

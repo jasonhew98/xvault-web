@@ -25,8 +25,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
 import TransactionTableRow from './TransactionTableRow.vue';
+
+import { computed } from 'vue';
 
 const props = defineProps({
 	records: { type: Array, required: true, default() { return [] } },

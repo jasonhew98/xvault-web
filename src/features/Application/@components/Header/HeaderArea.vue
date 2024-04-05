@@ -30,8 +30,9 @@
 
 
 <script setup>
-import { useAppSidebarStore } from '@/infrastructure/stores/appSidebar.js'
 import DarkModeSwitcher from './DarkModeSwitcher.vue'
+
+import { useAppSidebarStore } from '@/infrastructure/stores/appSidebar.js'
 
 const { isAppSidebarOpen, toggleSidebar } = useAppSidebarStore()
 </script>

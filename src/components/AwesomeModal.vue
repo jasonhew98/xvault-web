@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+import { ref, reactive, computed, onMounted } from 'vue';
 
 import { useModalStore } from '@/infrastructure/stores/modal.js';
 

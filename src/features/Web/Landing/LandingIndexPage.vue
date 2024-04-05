@@ -142,10 +142,10 @@
 import XWebNav from '../@components/XWebNav.vue';
 import XWebFaq from '../@components/XWebFaq.vue';
 import XWebFooter from '../@components/XWebFooter.vue';
-import { ref, computed, getCurrentInstance } from 'vue';
-import { useWebNavStore } from '@/infrastructure/stores/webNav.js';
 
-const app = getCurrentInstance();
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+import { useWebNavStore } from '@/infrastructure/stores/webNav.js';
 
 // region ref
 const home = ref();
@@ -154,9 +154,7 @@ const solutions = ref();
 const blog = ref();
 
 // region computed
-const router = computed(() => {
-    return app.appContext.config.globalProperties.$router;
-});
+const router = useRouter();
 
 const webNavStore = useWebNavStore();
 
@@ -219,13 +217,13 @@ const sideActionConfigurations = computed(() => {
 // region methods
 
 const goToLogIn = () => {
-    router.value.push({
+    router.push({
         name: "AuthLogInPage"
     });
 };
 
 const goToSignUp = () => {
-    router.value.push({
+    router.push({
         name: "AuthSignUpPage"
     });
 };

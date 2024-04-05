@@ -16,7 +16,7 @@
             <AwesomeTextBox label="Payment Amount" v-model="transaction.paymentAmount"></AwesomeTextBox>
         </div>
         <button type="submit" class="inline-flex items-center justify-center space-x-2 rounded-lg border border-green bg-green px-3 py-2 text-sm font-semibold leading-5 text-black
-            hover:border-green-dark hover:bg-green-dark">
+            hover:border-green-dark hover:bg-green-dark transition-colors duration-200 ease-in-out">
             Add Transaction
         </button>
     </form>
@@ -25,16 +25,14 @@
 <script setup>
 import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 import AwesomeDropDown from '@/components/AwesomeDropDown.vue';
-import { ref, reactive, computed, getCurrentInstance, inject } from 'vue';
+
+import { ref, reactive, inject } from 'vue';
+
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
 
 const pageStateStore = usePageStateStore();
 
-const app = getCurrentInstance();
-
-const transactionRepository = computed(() => {
-    return app.appContext.config.globalProperties.$repository.transactionRepository;
-});
+const transactionRepository = inject('transactionRepository');
 
 const transaction = reactive({
     mainCategory: "",
@@ -59,7 +57,7 @@ const addTransaction = async () => {
             title: "Processing Transaction...",
             body: "Please wait while we create your transaction. This should only take a moment."
         });
-        const [error, result] = await transactionRepository.value.addTransaction(transaction);
+        const [error, result] = await transactionRepository.addTransaction(transaction);
         if (error) {
             pageStateStore.setError({});
             return;

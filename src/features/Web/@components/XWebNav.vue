@@ -49,13 +49,13 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, getCurrentInstance } from 'vue';
-import { useWebNavStore } from '@/infrastructure/stores/webNav.js';
+import { useRouter } from 'vue-router';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 
-const webNavStore = useWebNavStore();
+import { useWebNavStore } from '@/infrastructure/stores/webNav.js';
 
-const app = getCurrentInstance();
+const webNavStore = useWebNavStore();
 
 // region ref
 const showNavBar = ref(true);
@@ -73,9 +73,7 @@ const props = defineProps({
 });
 
 // region computed
-const router = computed(() => {
-    return app.appContext.config.globalProperties.$router;
-});
+const router = useRouter();
 
 const headerClass = computed(() => {
     return showNavBar.value ? "" : "header--hidden";
@@ -91,7 +89,7 @@ const hasOptions = computed(() => {
 
 // region methods
 const goToHome = () => {
-    router.value.push({
+    router.push({
         name: "LandingIndexPage"
     })
 }

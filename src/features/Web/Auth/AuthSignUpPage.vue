@@ -129,22 +129,19 @@
 <script setup>
 import XWebNav from '../@components/XWebNav.vue';
 import XWebFooter from '../@components/XWebFooter.vue';
-import { ref, computed, getCurrentInstance } from 'vue';
+
+import { useRouter } from 'vue-router';
+import { ref, computed, inject } from 'vue';
 import { useVuelidate } from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
+
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
 
 const pageStateStore = usePageStateStore();
 
-const app = getCurrentInstance();
+const router = useRouter();
 
-const router = computed(() => {
-    return app.appContext.config.globalProperties.$router;
-});
-
-const authRepository = computed(() => {
-    return app.appContext.config.globalProperties.$repository.authRepository;
-});
+const authRepository = inject('authRepository');
 
 const username = ref();
 const password = ref();
@@ -173,7 +170,7 @@ const sideActionConfigurations = computed(() => {
 });
 
 const goToApp = () => {
-    router.value.push({
+    router.push({
         name: "ApplicationIndexPage"
     });
 };
@@ -190,7 +187,7 @@ const login = async () => {
 
     try {
         isLoginLoading.value = true;
-        const [error, result] = await authRepository.value.signup(record);
+        const [error, result] = await authRepository.signup(record);
         if (error) {
             isLoginLoading.value = false;
             pageStateStore.setError({});
@@ -211,7 +208,9 @@ const login = async () => {
 
         goToApp();
     } catch (ex) {
-        pageStateStore.setError({});
+        pageStateStore.setError({
+            body: ex.message
+        });
     }
 
     isLoginLoading.value = false;

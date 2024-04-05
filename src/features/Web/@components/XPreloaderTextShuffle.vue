@@ -5,7 +5,7 @@
   </template>
   
   <script setup>
-  import { ref, reactive, computed, onMounted, getCurrentInstance } from 'vue';
+  import { onMounted } from 'vue';
   import { gsap } from "gsap";
   
   function animateScale(element, scaleValue) {

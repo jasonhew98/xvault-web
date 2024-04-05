@@ -88,13 +88,14 @@
     </aside>
 </template>
 <script setup>
-import { ref, reactive, computed, watch, onMounted, getCurrentInstance } from 'vue';
+import { useRouter } from 'vue-router';
+import { ref, computed, watch, onMounted } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+
 import { useAppSidebarStore } from '@/infrastructure/stores/appSidebar.js';
 
 const appSidebarStore = useAppSidebarStore();
 
-const app = getCurrentInstance();
 const MENUPAGES = {
     profile: "ProfileIndexPage",
     dashboard: "TransactionIndexPage",
@@ -109,9 +110,7 @@ const isExpanded = ref(true);
 const target = ref(null);
 
 // region computed
-const router = computed(() => {
-    return app.appContext.config.globalProperties.$router;
-});
+const router = useRouter();
 
 const topMenuItems = computed(() => {
     return [
@@ -151,7 +150,7 @@ const setSelectedMenuItem = (menuItemId) => {
 
 const logOut = () => {
     localStorage.setItem("jwtToken", "");
-    router.value.replace({
+    router.replace({
         name: MENUPAGES.home
     });
 };
@@ -160,14 +159,14 @@ const goToPage = () => {
     if (!MENUPAGES[selectedMenuItemId.value])
         return;
 
-    router.value.replace({
+    router.replace({
         name: MENUPAGES[selectedMenuItemId.value]
     });
 };
 
 const goToProfile = () => {
     setSelectedMenuItem(null);
-    router.value.replace({
+    router.replace({
         name: MENUPAGES.profile
     });
 };
