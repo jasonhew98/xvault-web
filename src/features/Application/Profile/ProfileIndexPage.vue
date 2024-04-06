@@ -37,7 +37,7 @@
 import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 import AwesomeDropDown from '@/components/AwesomeDropDown.vue';
 
-import { reactive, inject } from 'vue';
+import { reactive, inject, onBeforeMount } from 'vue';
 
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
 
@@ -57,10 +57,26 @@ const userRepository = inject('userRepository');
 const getProfile = async () => {
     try {
         const [error, result] = await userRepository.getMyProfile();
-        transactions.value = result;
+        if (error) {
+            pageStateStore.setError({})
+        }
+        setProfile(result);
     } catch (err) {
-        pageStateStore.setError({});
+        pageStateStore.setError({
+            body: err.message
+        });
     }
 };
+
+function setProfile(data) {
+    profile.firstName = data.firstName;
+    profile.lastName = data.lastName;
+    profile.preferredName = data.preferredName;
+    profile.currentSalary = data.currentSalary;
+}
+
+onBeforeMount(async () => {
+    await getProfile();
+});
 
 </script>

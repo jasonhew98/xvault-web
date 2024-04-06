@@ -15,7 +15,8 @@
 				<transaction-table-row v-for="(record, index) in records"
 					:key="record.transactionId"
 					:index="index"
-					:record="record"></transaction-table-row>
+					:record="record">
+                </transaction-table-row>
 			</div>
             <div v-else class="h-[460px] flex justify-center items-center text-gray-light">
                 Looks like there's nothing to show here.

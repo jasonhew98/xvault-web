@@ -30,9 +30,9 @@ import { ref, computed } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 
 const props = defineProps({
-    modelValue: { type: [String, Number], required: true, default: null },
-    label: { type: String, required: false, default: undefined },
-    tooltip: { type: String, required: false, default: undefined },
+    modelValue: { type: [null, String, Number], required: true, default: null },
+    label: { type: [null, String], required: false, default: null },
+    tooltip: { type: [null, String], required: false, default: null },
     readonly: { type: Boolean, required: false, default: false },
     options: { type: Array, required: false, default() { return []; } },
 });

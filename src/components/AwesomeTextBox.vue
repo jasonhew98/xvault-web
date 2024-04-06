@@ -9,7 +9,7 @@
 import AwesomeQuestion from './AwesomeQuestion.vue';
 
 const props = defineProps({
-    modelValue: { type: [String, Number], required: true, default: null },
+    modelValue: { type: [null, String, Number], required: true, default: null },
     label: { type: String, required: false, default: undefined },
     tooltip: { type: String, required: false, default: undefined },
     placeholder: { type: String, required: false, default: undefined },

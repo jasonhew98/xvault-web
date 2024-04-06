@@ -9,7 +9,7 @@
 import { computed } from 'vue';
 
 const props = defineProps({
-    label: { type: String, required: false, default: "Question Label" },
+    label: { type: [null, String], required: false, default: "Question Label" },
     tooltip: { type: String, required: false, default: "Question Tooltip" }
 });
 
