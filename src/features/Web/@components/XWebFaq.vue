@@ -7,7 +7,11 @@
         </div>
         <!-- Accordion -->
         <div class="flex justify-center align-items-center flex-col 2xl:px-80 md:px-8">
-            <div class="border-t border-white mt-4 pt-4" v-for="faq in faqs.value" :key="faq.id" :class="faq.id == faqs.value.length ? 'border-b pb-4' : ''">
+            <div class="border-t border-white mt-4 pt-4"
+                v-for="faq in faqs.value"
+                :key="faq.id"
+                :class="faq.id == faqs.value.length ? 'border-b pb-4' : ''
+            ">
                 <div class="faq-title" @click="toggleAccordion(faq.id)">
                     <h5 class="tracking-wide font-semibold">{{ faq.question }}</h5>
                     <i v-if="!faq.active" class='bx bx-plus'></i>
@@ -75,7 +79,7 @@ const toggleAccordion = (id) => {
 <style lang="scss" scoped>
 
 .faq-title {
-    @apply flex items-center;
+    @apply flex items-center select-none;
     cursor: pointer;
 
     i {
@@ -84,7 +88,7 @@ const toggleAccordion = (id) => {
 }
 
 .faq-answer {
-    @apply grid overflow-hidden transition-all duration-500;
+    @apply grid overflow-hidden transition-all duration-300 ease-out;
 }
 
 </style>
