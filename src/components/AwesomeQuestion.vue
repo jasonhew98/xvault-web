@@ -1,6 +1,6 @@
 <template>
-    <div class="awesome__label-container text-gray-light">
-        <div>{{ awesomeLabel }}</div>
+    <div class="flex flex-row items-center gap-2 text-gray-light pb-2">
+        <span class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">{{ awesomeLabel }}</span>
         <i class="uil uil-exclamation-circle cursor-pointer"></i>
     </div>
 </template>
@@ -19,12 +19,5 @@ const awesomeLabel = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-
-.awesome__label-container {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    padding: 1rem 0;
-}
 
 </style>

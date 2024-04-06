@@ -1,7 +1,7 @@
 <template>
     <div class="w-full h-full overflow-auto flex max-w-full flex-col">
-        <main id="page-content" class="w-full flex items-center max-w-full flex-col">
-            <div class="container w-full p-4 bg-black-light">
+        <main id="page-content" class="w-full h-full flex items-center max-w-full flex-col">
+            <div class="container w-full h-full mb-8 flex flex-col gap-8 p-4 border border-solid border-gray-dark rounded-md">
                 <div class="flex flex-row gap-12">
                     <div>
                     <AwesomeTextBox

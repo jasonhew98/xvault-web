@@ -28,22 +28,13 @@ const updateValue = (event) => {
 .awesome__text-box-container {
 
     .awesome__text-box {
-        @apply text-white border-b border-solid border-gray-light;
-        width: 100%;
-        outline: 0;
-        padding: 7px 0;
-        font-size: 16px;
-        background: transparent;
-        transition: border-color 0.2s;
+        @apply flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-sm shadow-sm transition-colors
+            file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:outline-none focus-visible:ring-1
+            disabled:cursor-not-allowed disabled:opacity-50 text-white border-b border-solid border-gray-dark focus:border-gray-light;
     }
 
     .awesome__text-box::placeholder {
         opacity: .5;
-    }
-
-    .awesome__text-box:focus {
-        @apply border-b-2 border-solid border-green;
-        padding-bottom: 6px;
     }
 }
 
