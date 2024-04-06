@@ -221,7 +221,7 @@ const login = async () => {
 <style lang="scss" scoped>
 
 .input__box {
-    @apply w-full rounded-lg border bg-transparent py-2 pl-6 pr-10 outline-none hover:border-green
+    @apply w-full rounded-lg border bg-transparent py-2 px-3 outline-none hover:border-green
         focus-visible:shadow-none text-white transition-all ease-in-out duration-300;
 }
 
