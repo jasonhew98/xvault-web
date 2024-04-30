@@ -76,8 +76,16 @@ const subCategory = computed(() => {
 });
 
 const mapSubCategory = computed(() => {
-    let mapped = options.subCategories.value.find(x => x.id.toLowerCase() == subCategory.value.toLowerCase());
-    if (!mapped) return subCategory;
+    let selectedOption = options.subCategories.value.find(
+        x => x.categoryId.toLowerCase() == mainCategory.value.toLowerCase()
+    );
+    
+    let mapped = selectedOption.subCategories.find(
+        x => x.subCategoryId.toLowerCase() == subCategory.value.toLowerCase()
+    );
+
+    if (!mapped)
+        return subCategory;
 
     return mapped.label;
 });

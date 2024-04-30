@@ -14,18 +14,6 @@ export default {
                 label: "Food & Beverage"
             },
             {
-                id: "healthBeauty",
-                label: "Health & Beauty"
-            },
-            {
-                id: "homeProperty",
-                label: "Home & Property"
-            },
-            {
-                id: "leisureSports",
-                label: "Leisure & Sports"
-            },
-            {
                 id: "medical",
                 label: "Medical"
             },
@@ -34,16 +22,8 @@ export default {
                 label: "Shopping"
             },
             {
-                id: "telecommunications",
-                label: "Telecommunications"
-            },
-            {
                 id: "transportation",
                 label: "Transportation"
-            },
-            {
-                id: "travel",
-                label: "Travel"
             },
             {
                 id: "utilities",
@@ -54,21 +34,136 @@ export default {
     getSubCategories() {
         return [null, [
             {
-                id: "householdAppliances",
-                label: "Household appliances"
+                categoryId: "electronics",
+                subCategories: [
+                    {
+                        subCategoryId: "householdAppliances",
+                        label: "Household appliances"
+                    },
+                    {
+                        subCategoryId: "computer",
+                        label: "Computer"
+                    },
+                    {
+                        subCategoryId: "digitalApplications",
+                        label: "Digital applications"
+                    },
+                    {
+                        subCategoryId: "electronics",
+                        label: "Electronics"
+                    }
+                ]
             },
             {
-                id: "computer",
-                label: "Computer"
+                categoryId: "entertainment",
+                subCategories: [
+                    {
+                        subCategoryId: "games",
+                        label: "Games"
+                    }
+                ]
             },
             {
-                id: "digitalApplications",
-                label: "Digital applications"
+                categoryId: "foodBeverage",
+                subCategories: [
+                    {
+                        subCategoryId: "beverage",
+                        label: "Beverage"
+                    },
+                    {
+                        subCategoryId: "grocery",
+                        label: "Grocery"
+                    },
+                    {
+                        subCategoryId: "bakery",
+                        label: "Bakery"
+                    },
+                    {
+                        subCategoryId: "restaurants",
+                        label: "Restaurants"
+                    },
+                    {
+                        subCategoryId: "foodBeverage",
+                        label: "Food & Beverage"
+                    }
+                ]
             },
             {
-                id: "electronics",
-                label: "Electronics"
-            }
+                categoryId: "medical",
+                subCategories: [
+                    {
+                        subCategoryId: "dental",
+                        label: "Dental"
+                    },
+                    {
+                        subCategoryId: "pharmacy",
+                        label: "Pharmacy"
+                    },
+                    {
+                        subCategoryId: "optician",
+                        label: "Optician"
+                    },
+                    {
+                        subCategoryId: "medicalServices",
+                        label: "Medical Services"
+                    },
+                    {
+                        subCategoryId: "medical",
+                        label: "Medical"
+                    }
+                ]
+            },
+            {
+                categoryId: "shopping",
+                subCategories: [
+                    {
+                        subCategoryId: "clothes",
+                        label: "Clothes"
+                    },
+                    {
+                        subCategoryId: "shoes",
+                        label: "Shoes"
+                    },
+                    {
+                        subCategoryId: "shopping",
+                        label: "Shopping"
+                    }
+                ]
+            },
+            {
+                categoryId: "transportation",
+                subCategories: [
+                    {
+                        subCategoryId: "bus",
+                        label: "Bus"
+                    },
+                    {
+                        subCategoryId: "tolls",
+                        label: "Tolls"
+                    },
+                    {
+                        subCategoryId: "parking",
+                        label: "Parking"
+                    },
+                    {
+                        subCategoryId: "transport",
+                        label: "Transport"
+                    }
+                ]
+            },
+            {
+                categoryId: "utilities",
+                subCategories: [
+                    {
+                        subCategoryId: "electricWaterGas",
+                        label: "Electric, water & gas"
+                    },
+                    {
+                        subCategoryId: "utilities",
+                        label: "Utilities"
+                    }
+                ]
+            },
         ]];
     },
     getPaymentMethods() {

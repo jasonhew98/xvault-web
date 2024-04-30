@@ -4,7 +4,8 @@
             <awesome-drop-down label="Main Category" v-model="transaction.mainCategory" :options="options.mainCategories.value"></awesome-drop-down>
         </div>
         <div class="space-y-1">
-            <awesome-drop-down label="Sub Category" v-model="transaction.subCategory" :options="options.subCategories.value"></awesome-drop-down>
+            <awesome-drop-down label="Sub Category" v-model="transaction.subCategory" :options="filteredSubCategories"
+                keyField="subCategoryId"></awesome-drop-down>
         </div>
         <div class="space-y-1">
             <AwesomeTextBox label="Notes" v-model="transaction.notes"></AwesomeTextBox>
@@ -26,7 +27,7 @@
 import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 import AwesomeDropDown from '@/components/AwesomeDropDown.vue';
 
-import { ref, reactive, inject } from 'vue';
+import { computed, ref, reactive, inject } from 'vue';
 
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
 
@@ -47,6 +48,19 @@ const options = inject('options', {
     mainCategories: ref([]),
     subCategories: ref([]),
     paymentMethods: ref([]),
+});
+
+const filteredSubCategories = computed(() => {
+    const selectedCategory = transaction.mainCategory;
+    let subCategories = [];
+
+    if (selectedCategory) {
+        subCategories = options.subCategories.value.find(
+            x => x.categoryId.toLowerCase() == selectedCategory.toLowerCase()
+        ).subCategories;
+    }
+
+    return subCategories;
 });
 
 const forceRefresh = inject('forceRefresh', () => {});
