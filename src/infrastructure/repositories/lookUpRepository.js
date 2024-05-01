@@ -164,6 +164,18 @@ export default {
               label: "Electric, water & gas",
             },
             {
+              subCategoryId: "rent",
+              label: "Rent",
+            },
+            {
+              subCategoryId: "internet",
+              label: "Internet",
+            },
+            {
+              subCategoryId: "mobile",
+              label: "Mobile",
+            },
+            {
               subCategoryId: "utilities",
               label: "Utilities",
             },

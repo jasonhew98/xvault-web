@@ -14,7 +14,7 @@ export default {
   },
   async getTransactions() {
     return await xvaultService.get(
-      `${paths.transaction}?sortBy=paymentMethod&sortOrder=1&pageSize=10&currentPage=1`,
+      `${paths.transaction}?sortBy=transactionDate&sortOrder=1&pageSize=10&currentPage=1`,
       { authType: "bearer" }
     );
   },
