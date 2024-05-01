@@ -12,4 +12,12 @@ function formatDateExcludeDay(date) {
   return moment(date).format("YYYY MMM");
 }
 
-export { formatDate, formatDateTime, formatDateExcludeDay };
+function formatDateToUTC(date) {
+  return moment(date).utc().toISOString();
+}
+
+function formatUTCToLocal(date) {
+  return moment.utc(date).local().format("DD MMM YYYY");
+}
+
+export { formatDate, formatDateTime, formatDateExcludeDay, formatDateToUTC, formatUTCToLocal };

@@ -3,4 +3,5 @@
 :root {
   /*=============== Font and typography ===============*/
   --body-font: "Roboto", sans-serif;
+  --v-theme-overlay-multiplier: 1;
 }

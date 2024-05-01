@@ -12,6 +12,9 @@
       <AwesomeTextBox label="Notes" v-model="transaction.notes"></AwesomeTextBox>
     </div>
     <div class="space-y-1">
+      <AwesomeDatePicker label="Transaction Date" v-model="transaction.transactionDate"></AwesomeDatePicker>
+    </div>
+    <div class="space-y-1">
       <awesome-drop-down label="Payment Method" v-model="transaction.paymentMethod"
         :options="options.paymentMethods.value"></awesome-drop-down>
     </div>
@@ -26,12 +29,14 @@
 </template>
 
 <script setup>
-import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
+import AwesomeDatePicker from '@/components/AwesomeDatePicker.vue';
 import AwesomeDropDown from '@/components/AwesomeDropDown.vue';
+import AwesomeTextBox from '@/components/AwesomeTextBox.vue';
 
 import { computed, ref, reactive, inject } from 'vue';
 
 import { usePageStateStore } from '@/infrastructure/stores/pageState.js';
+import { formatDateToUTC } from '@/seedwork/formatters/dateFormatter';
 
 const pageStateStore = usePageStateStore();
 
@@ -69,11 +74,16 @@ const forceRefresh = inject('forceRefresh', () => { });
 
 const addTransaction = async () => {
   try {
+    const record = {
+      ...transaction,
+      transactionDate: formatDateToUTC(transaction.transactionDate)
+    };
+
     pageStateStore.setLoading({
       title: "Processing Transaction...",
       body: "Please wait while we create your transaction. This should only take a moment."
     });
-    const [error, result] = await transactionRepository.addTransaction(transaction);
+    const [error, result] = await transactionRepository.addTransaction(record);
     if (error) {
       pageStateStore.setError({});
       return;

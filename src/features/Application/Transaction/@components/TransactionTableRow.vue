@@ -41,7 +41,7 @@
 
 <script setup>
 import { ref, computed, inject } from 'vue';
-import { formatDate } from '@/seedwork/formatters/dateFormatter';
+import { formatUTCToLocal } from '@/seedwork/formatters/dateFormatter';
 
 const props = defineProps({
   record: { type: Object, required: false, default() { return {} } },
@@ -91,7 +91,7 @@ const mapSubCategory = computed(() => {
 });
 
 const transactionDate = computed(() => {
-  return props.record ? formatDate(props.record.transactionDate) : "-";
+  return props.record ? formatUTCToLocal(props.record.transactionDate) : "-";
 });
 
 const paymentMethod = computed(() => {
