@@ -1,17 +1,12 @@
-
 const proficiencyLevelEnum = {
-    beginner: "Beginner",
-    intermediate: "Intermediate",
-    expert: "Expert"
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  expert: "Expert",
 };
 
 const skillTypeEnum = {
-    frontend: "Frontend",
-    backend: "Backend"
+  frontend: "Frontend",
+  backend: "Backend",
 };
 
-
-export {
-    proficiencyLevelEnum,
-    skillTypeEnum
-};
+export { proficiencyLevelEnum, skillTypeEnum };

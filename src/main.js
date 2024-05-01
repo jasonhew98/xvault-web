@@ -1,6 +1,6 @@
 import * as Vue from "vue";
 import App from "./App.vue";
-import router from "./infrastructure/routes"
+import router from "./infrastructure/routes";
 
 // repositories
 import authRepository from "./infrastructure/repositories/authRepository";
@@ -9,18 +9,18 @@ import transactionRepository from "./infrastructure/repositories/transactionRepo
 import userRepository from "./infrastructure/repositories/userRepository";
 
 import messages from "./domain/messages";
-import { createPinia } from 'pinia'
+import { createPinia } from "pinia";
 
 const app = Vue.createApp(App);
 app.use(createPinia());
 app.use(router);
 
-app.provide('router', router);
-app.provide('authRepository', authRepository);
-app.provide('lookUpRepository', lookUpRepository);
-app.provide('transactionRepository', transactionRepository);
-app.provide('userRepository', userRepository);
+app.provide("router", router);
+app.provide("authRepository", authRepository);
+app.provide("lookUpRepository", lookUpRepository);
+app.provide("transactionRepository", transactionRepository);
+app.provide("userRepository", userRepository);
 
-app.provide('messages', messages);
+app.provide("messages", messages);
 
 app.mount("#xvault__app");
