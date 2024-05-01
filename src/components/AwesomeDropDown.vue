@@ -2,8 +2,9 @@
   <div class="relative">
     <awesome-question :label="label" :tooltip="tooltip"></awesome-question>
     <div ref="target">
-      <div
-        class="w-full rounded-lg text-sm px-4 py-2.5 text-center cursor-pointer inline-flex items-center border border-gray-dark focus:border-gray-light text-white"
+      <div ref="dropDownElement"
+        class="w-full rounded-lg text-sm px-4 py-2.5 text-center cursor-pointer inline-flex items-center border border-gray-dark text-white"
+        :class="{ 'border-gray-light': isFocused }"
         @click="toggleDropDown">
         {{ buttonLabel }}
         <svg class="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -45,10 +46,12 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue']);
 
 const target = ref(null);
+const isFocused = ref(false);
 const isActive = ref(false);
 const selectedValue = ref(props.modelValue);
 
 const toggleDropDown = () => {
+  isFocused.value = true;
   isActive.value = !isActive.value;
 };
 
@@ -64,6 +67,7 @@ const selectOption = (id) => {
 };
 
 onClickOutside(target, () => {
+  isFocused.value = false;
   isActive.value = false;
 });
 
