@@ -3,7 +3,7 @@
     <div class="main main-landing">
       <XWebNav :options="actionConfigurations" :sideOptions="sideActionConfigurations"></XWebNav>
       <main class="section-hero py-16 md:h-screen">
-        <div class="container md:pb-4 mx-auto pt-14 px-6 z-10 2xl:flex 2xl:items-center">
+        <div class="container md:pb-4 mx-auto pt-14 px-6 md:px-20 z-10 2xl:flex 2xl:items-center">
           <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16">
             <div class="lg:col-span-12 md:col-span-7 lg:order-none col-span-12 pb-4 order-2">
               <h2 class="mb-2 text-sm font-medium text-green">Secure your wealth</h2>
