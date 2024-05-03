@@ -247,7 +247,7 @@ const currentYear = computed(() => {
 }
 
 .newsletter__email {
-  @apply py-2 px-4 outline-none text-black text-base;
+  @apply py-2 px-4 outline-none text-black text-base bg-white;
   border-radius: 0;
 }
 
