@@ -2,12 +2,18 @@
   <div class="container md:pb-4 mx-auto pt-14 px-6">
     <div class="grid lg:grid-cols-12 grid-cols-1 md:gap-x-20 md:gap-y-16 md:pb-16 pb-4">
       <div class="lg:col-span-12 md:text-center md:col-span-7 col-span-12">
-        <h1 class="landing__title">Frequently Asked Questions</h1>
+        <h1 class="section__title">Frequently Asked Questions</h1>
       </div>
     </div>
     <!-- Accordion -->
-    <div class="flex justify-center align-items-center flex-col 2xl:px-80 md:px-8">
-      <div class="border-t border-white mt-4 pt-4" v-for="faq in faqs.value" :key="faq.id" :class="faq.id == faqs.value.length ? 'border-b pb-4' : ''
+    <div class="flex justify-center align-items-center flex-col gap-4 2xl:px-80 md:px-8">
+      <div class="px-2 py-4 transition-colors duration-150 ease-in-out hover:bg-gray-dark"
+        v-for="faq in faqs.value"
+        :key="faq.id"
+        :class="{
+          'pb-4': faq.id == faqs.value.length,
+          'bg-gray-dark': faq.active,
+        }
         ">
         <div class="faq-title" @click="toggleAccordion(faq.id)">
           <h5 class="tracking-wide font-semibold">{{ faq.question }}</h5>
@@ -84,6 +90,6 @@ const toggleAccordion = (id) => {
 }
 
 .faq-answer {
-  @apply grid overflow-hidden transition-all duration-300 ease-out;
+  @apply grid overflow-hidden;
 }
 </style>

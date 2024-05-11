@@ -114,6 +114,10 @@ img {
     @apply lg:text-6xl md:text-5xl text-lg mb-4;
   }
 
+  .section__title {
+    @apply text-4xl;
+  }
+
   .landing__caption {
     @apply md:text-base text-xs mb-4 text-gray-light;
   }
